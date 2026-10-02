@@ -28,9 +28,37 @@ Dự án **AP-TRIS** được xây dựng nhằm giải quyết toàn diện bà
 
 ---
 
-## 🏗️ 2. Kiến trúc Dữ liệu & Mô hình Star Schema
+## 🏛️ 2. Kiến trúc Data Lakehouse Chuẩn Medallion (Bronze - Silver - Gold)
 
-Dữ liệu được mô hình hóa theo chuẩn **Star Schema** tối ưu hóa cho truy vấn phân tích (OLAP) và trực quan hóa trên Power BI:
+Dự án áp dụng mô hình lưu trữ chuẩn doanh nghiệp (**Medallion Lakehouse Pattern**), loại bỏ hoàn toàn việc dùng CSV ở tầng dữ liệu lõi:
+
+```text
+01_data/
+├── lakehouse/                       # ⚡ CORE LAKEHOUSE (100% Columnar Storage / Parquet)
+│   ├── bronze/                      # RAW TRACKING INGESTION (1.000.000 Clicks & 49.006 Conversions)
+│   │   ├── fact_clicks.parquet (hoặc .csv.gz)
+│   │   └── fact_conversions.parquet (hoặc .csv.gz)
+│   │
+│   ├── silver/                      # CLEANSED & ENRICHED DATA (Đã khử trùng, bổ sung metadata)
+│   │   ├── dim_publishers.parquet
+│   │   ├── dim_offers.parquet
+│   │   └── fact_conversions_cleansed.parquet
+│   │
+│   └── gold/                        # BUSINESS ANALYTICS MARTS (Nạp trực tiếp vào Power BI)
+│       ├── daily_campaign_kpi.parquet
+│       └── publisher_risk_scoring.parquet
+│
+└── exports/                         # 📑 NƠI DUY NHẤT CHỨA CSV (Bàn giao nghiệp vụ)
+    ├── accounting_monthly_payout.csv        # Bảng tính hoa hồng & khấu trừ thuế TNCN 10% cho Kế toán
+    └── advertiser_reconciliation_sample.csv # Mẫu file đối soát gửi Ngân hàng & Đối tác
+```
+
+> **Quy tắc Kiến trúc Dữ liệu Nghiêm ngặt:**  
+> CSV **không bao giờ** được dùng để lưu trữ dữ liệu trung tâm hay bảng sự kiện (Fact table). CSV chỉ được sinh ra tại tầng `01_data/exports/` khi cần bàn giao báo cáo cho phòng Kế toán hoặc thực hiện thủ tục đối soát (Reconciliation) với Ngân hàng.
+
+---
+
+## 🏗️ 3. Mô hình Thực thể Quan hệ Star Schema
 
 ```mermaid
 erDiagram

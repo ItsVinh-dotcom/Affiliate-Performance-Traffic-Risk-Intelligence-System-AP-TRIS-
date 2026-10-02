@@ -16,9 +16,14 @@ import json
 from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-RAW_DIR = os.path.join(BASE_DIR, "01_data", "raw")
-PROCESSED_DIR = os.path.join(BASE_DIR, "01_data", "processed")
-os.makedirs(PROCESSED_DIR, exist_ok=True)
+DATA_DIR = os.path.join(BASE_DIR, "01_data")
+BRONZE_DIR = os.path.join(DATA_DIR, "lakehouse", "bronze")
+SILVER_DIR = os.path.join(DATA_DIR, "lakehouse", "silver")
+GOLD_DIR = os.path.join(DATA_DIR, "lakehouse", "gold")
+EXPORTS_DIR = os.path.join(DATA_DIR, "exports")
+
+for d in [BRONZE_DIR, SILVER_DIR, GOLD_DIR, EXPORTS_DIR]:
+    os.makedirs(d, exist_ok=True)
 
 def load_data(filepath):
     """Loads CSV, Gzipped CSV, or Parquet file seamlessly."""
@@ -45,13 +50,13 @@ def load_data(filepath):
                 data.append(row)
         return data
 
-def find_file(raw_dir, base_name):
-    """Finds parquet, csv.gz, or csv version of a file."""
+def find_file(directory, base_name):
+    """Finds parquet, csv.gz, or csv version of a file in directory."""
     for ext in [".parquet", ".csv.gz", ".csv"]:
-        candidate = os.path.join(raw_dir, base_name + ext)
+        candidate = os.path.join(directory, base_name + ext)
         if os.path.exists(candidate):
             return candidate
-    return os.path.join(raw_dir, base_name + ".csv")
+    return os.path.join(directory, base_name + ".csv")
 
 def run_pipeline():
     print("=" * 60)
@@ -59,15 +64,15 @@ def run_pipeline():
     print(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print("=" * 60)
 
-    # 1. Ingestion
-    print("\n[Step 1/4] Ingesting multi-source Big Data files...")
-    pub_file = find_file(RAW_DIR, "dim_publishers")
-    offer_file = find_file(RAW_DIR, "dim_offers")
-    click_file = find_file(RAW_DIR, "fact_clicks")
-    conv_file = find_file(RAW_DIR, "fact_conversions")
+    # 1. Ingestion from Medallion Lakehouse (Bronze & Silver)
+    print("\n[Step 1/4] Ingesting multi-source Big Data from Lakehouse...")
+    pub_file = find_file(SILVER_DIR, "dim_publishers")
+    offer_file = find_file(SILVER_DIR, "dim_offers")
+    click_file = find_file(BRONZE_DIR, "fact_clicks")
+    conv_file = find_file(BRONZE_DIR, "fact_conversions")
 
-    print(f"-> Reading Clicks: {os.path.basename(click_file)} ({os.path.getsize(click_file)/(1024*1024):.2f} MB)")
-    print(f"-> Reading Conversions: {os.path.basename(conv_file)} ({os.path.getsize(conv_file)/(1024*1024):.2f} MB)")
+    print(f"-> Reading Bronze Clicks: {os.path.basename(click_file)} ({os.path.getsize(click_file)/(1024*1024):.2f} MB)")
+    print(f"-> Reading Bronze Conversions: {os.path.basename(conv_file)} ({os.path.getsize(conv_file)/(1024*1024):.2f} MB)")
 
     publishers = load_data(pub_file)
     offers = load_data(offer_file)
@@ -138,8 +143,8 @@ def run_pipeline():
         elif conv["status"] in ["Rejected", "Fraud"]:
             daily_stats[key]["rejected_conversions"] += 1
 
-    summary_file = os.path.join(PROCESSED_DIR, "daily_campaign_summary.csv")
-    with open(summary_file, "w", newline="", encoding="utf-8") as f:
+    summary_file = os.path.join(GOLD_DIR, "daily_campaign_kpi.csv.gz")
+    with gzip.open(summary_file, "wt", newline="", encoding="utf-8") as f:
         fieldnames = ["date", "offer_id", "total_conversions", "approved_conversions", "rejected_conversions", 
                       "approval_rate_pct", "gross_revenue_vnd", "publisher_payout_vnd", "gross_margin_vnd"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
@@ -149,7 +154,7 @@ def run_pipeline():
             item["approval_rate_pct"] = app_rate
             writer.writerow(item)
 
-    print(f"[SUCCESS] Processed dataset written to: {summary_file}")
+    print(f"[SUCCESS] Gold KPI Data Mart written to: {summary_file}")
 
     # 4. Anomaly & Fraud Risk Scanner
     print("\n[Step 4/4] Scanning for Traffic Anomalies & Risk Patterns...")
@@ -187,16 +192,16 @@ def run_pipeline():
         else:
             p["risk_level"] = "NORMAL"
 
-    # Export Risk Scoring Table
-    risk_file = os.path.join(PROCESSED_DIR, "publisher_risk_scoring.csv")
-    with open(risk_file, "w", newline="", encoding="utf-8") as f:
+    # Export Risk Scoring Table into Gold Lakehouse
+    risk_file = os.path.join(GOLD_DIR, "publisher_risk_scoring.csv.gz")
+    with gzip.open(risk_file, "wt", newline="", encoding="utf-8") as f:
         fieldnames = ["publisher_id", "total_leads", "approved_leads", "approval_rate_pct", "fast_ttc_bot_leads", "total_margin_vnd", "risk_level"]
         writer = csv.DictWriter(f, fieldnames=fieldnames)
         writer.writeheader()
         for p in pub_risk.values():
             writer.writerow(p)
 
-    print(f"[SUCCESS] Risk scoring exported to: {risk_file}")
+    print(f"[SUCCESS] Gold Risk Intelligence Mart exported to: {risk_file}")
     print("\n" + "=" * 60)
     print(">> EXECUTIVE RISK ALERTS GENERATED:")
     for a in alerts:

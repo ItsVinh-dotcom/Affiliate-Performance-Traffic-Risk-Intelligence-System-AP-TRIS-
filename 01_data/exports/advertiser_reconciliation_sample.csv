@@ -1,0 +1,501 @@
+conversion_id,conversion_time,offer_name,advertiser_name,status,rejection_reason,advertiser_revenue_vnd
+CONV_5000005,2026-07-31 17:23:48,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000002,2026-07-31 17:25:40,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000017,2026-07-31 17:35:03,Cake by VPBank Digital Card,Cake Digital,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000010,2026-07-31 17:45:56,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000020,2026-07-31 17:50:10,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000008,2026-07-31 17:51:26,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000014,2026-07-31 17:59:44,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000028,2026-07-31 18:00:31,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000027,2026-07-31 18:00:44,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000039,2026-07-31 18:18:55,VPBank StepUp Credit Card,VPBank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000019,2026-07-31 18:21:43,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000025,2026-07-31 18:24:27,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000043,2026-07-31 18:38:35,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000062,2026-07-31 18:48:59,OCB OMNI Digital Banking,OCB Bank,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000061,2026-07-31 18:50:48,VPBank StepUp Credit Card,VPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5000060,2026-07-31 18:52:47,VIB Financial Super Card,VIB Bank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000038,2026-07-31 18:54:01,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000050,2026-07-31 19:04:19,Shinhan Finance Personal Loan,Shinhan Finance,Pending,Customer Cancelled,0.0
+CONV_5000079,2026-07-31 19:04:30,Cake by VPBank Digital Card,Cake Digital,Fraud,Fake / Bot Traffic,0.0
+CONV_5000078,2026-07-31 19:04:30,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Fake / Bot Traffic,0.0
+CONV_5000052,2026-07-31 19:04:36,OCB OMNI Digital Banking,OCB Bank,Rejected,Customer Cancelled,0.0
+CONV_5000080,2026-07-31 19:15:54,OCB OMNI Digital Banking,OCB Bank,Pending,Under Review,0.0
+CONV_5000069,2026-07-31 19:16:57,VPBank StepUp Credit Card,VPBank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000073,2026-07-31 19:17:04,VIB Financial Super Card,VIB Bank,Rejected,Customer Cancelled,0.0
+CONV_5000076,2026-07-31 19:18:36,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000053,2026-07-31 19:19:34,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000084,2026-07-31 19:22:54,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000081,2026-07-31 19:24:52,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000092,2026-07-31 19:28:34,TPBank EVO Credit Card,TPBank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000087,2026-07-31 19:40:34,VPBank StepUp Credit Card,VPBank,Pending,Under Review,0.0
+CONV_5000086,2026-07-31 19:43:20,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000091,2026-07-31 19:47:51,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5000088,2026-07-31 19:47:54,Techcombank eKYC Digital Account,Techcombank,Rejected,Under Review,0.0
+CONV_5000113,2026-07-31 19:57:42,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Duplicate Phone,0.0
+CONV_5000090,2026-07-31 19:57:56,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Duplicate Phone,0.0
+CONV_5000106,2026-07-31 19:58:17,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Bad Debt History (CIC),0.0
+CONV_5000089,2026-07-31 19:58:21,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Under Review,0.0
+CONV_5000108,2026-07-31 20:06:24,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000115,2026-07-31 20:10:31,OCB OMNI Digital Banking,OCB Bank,Pending,Under Review,0.0
+CONV_5000099,2026-07-31 20:12:49,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000101,2026-07-31 20:18:14,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000127,2026-07-31 20:22:29,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Duplicate Phone,0.0
+CONV_5000118,2026-07-31 20:26:15,Cake by VPBank Digital Card,Cake Digital,Rejected,Under Review,0.0
+CONV_5000121,2026-07-31 20:30:25,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Under Review,0.0
+CONV_5000129,2026-07-31 20:32:58,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid Lead Form,0.0
+CONV_5000131,2026-07-31 20:36:18,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000126,2026-07-31 20:36:44,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000130,2026-07-31 20:41:10,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000124,2026-07-31 20:42:36,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000145,2026-07-31 20:47:50,TPBank EVO Credit Card,TPBank,Pending,Invalid Lead Form,0.0
+CONV_5000123,2026-07-31 20:51:06,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000125,2026-07-31 20:51:26,MBBank App Open Account,MBBank,Rejected,Under Review,0.0
+CONV_5000142,2026-07-31 20:54:18,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000148,2026-07-31 21:04:12,OCB OMNI Digital Banking,OCB Bank,Rejected,Customer Cancelled,0.0
+CONV_5000152,2026-07-31 21:05:35,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000135,2026-07-31 21:06:11,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000159,2026-07-31 21:12:53,OCB OMNI Digital Banking,OCB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000157,2026-07-31 21:26:19,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Bad Debt History (CIC),0.0
+CONV_5000150,2026-07-31 21:28:56,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000169,2026-07-31 21:31:34,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000164,2026-07-31 21:35:27,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000151,2026-07-31 21:35:55,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000163,2026-07-31 21:36:56,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Customer Cancelled,0.0
+CONV_5000161,2026-07-31 21:37:53,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Invalid Lead Form,0.0
+CONV_5000155,2026-07-31 21:45:49,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000166,2026-07-31 21:49:53,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000167,2026-07-31 21:55:27,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000180,2026-07-31 22:01:52,TPBank EVO Credit Card,TPBank,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000186,2026-07-31 22:09:52,OCB OMNI Digital Banking,OCB Bank,Fraud,Duplicate Phone,0.0
+CONV_5000179,2026-07-31 22:13:04,TPBank EVO Credit Card,TPBank,Rejected,Invalid Lead Form,0.0
+CONV_5000188,2026-07-31 22:13:24,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000198,2026-07-31 22:25:22,Techcombank eKYC Digital Account,Techcombank,Rejected,Duplicate Phone,0.0
+CONV_5000203,2026-07-31 22:32:10,Techcombank eKYC Digital Account,Techcombank,Pending,Bad Debt History (CIC),0.0
+CONV_5000190,2026-07-31 22:33:23,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000201,2026-07-31 22:36:40,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Under Review,0.0
+CONV_5000192,2026-07-31 22:36:43,MBBank App Open Account,MBBank,Rejected,Invalid Lead Form,0.0
+CONV_5000194,2026-07-31 22:44:24,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000185,2026-07-31 22:44:26,Techcombank eKYC Digital Account,Techcombank,Rejected,Duplicate Phone,0.0
+CONV_5000199,2026-07-31 22:49:40,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Duplicate Phone,0.0
+CONV_5000183,2026-07-31 22:50:41,Cake by VPBank Digital Card,Cake Digital,Rejected,Duplicate Phone,0.0
+CONV_5000205,2026-07-31 22:55:00,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000196,2026-07-31 22:56:43,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000214,2026-07-31 23:00:33,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5000206,2026-07-31 23:03:53,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000212,2026-07-31 23:06:05,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000208,2026-07-31 23:07:37,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid Lead Form,0.0
+CONV_5000216,2026-07-31 23:10:51,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000233,2026-07-31 23:15:27,MBBank App Open Account,MBBank,Rejected,Duplicate Phone,0.0
+CONV_5000228,2026-07-31 23:19:30,Techcombank eKYC Digital Account,Techcombank,Rejected,Invalid Lead Form,0.0
+CONV_5000210,2026-07-31 23:21:17,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Under Review,0.0
+CONV_5000217,2026-07-31 23:24:45,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Bad Debt History (CIC),0.0
+CONV_5000219,2026-07-31 23:28:11,VPBank StepUp Credit Card,VPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5000211,2026-07-31 23:30:09,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000235,2026-07-31 23:37:58,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000247,2026-07-31 23:43:52,OCB OMNI Digital Banking,OCB Bank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000232,2026-07-31 23:51:15,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000243,2026-07-31 23:54:51,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000240,2026-08-01 00:02:20,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5000254,2026-08-01 00:08:24,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000260,2026-08-01 00:12:55,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000250,2026-08-01 00:16:17,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Customer Cancelled,0.0
+CONV_5000262,2026-08-01 00:21:06,TPBank EVO Credit Card,TPBank,Rejected,Duplicate Phone,0.0
+CONV_5000259,2026-08-01 00:27:11,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000258,2026-08-01 00:37:27,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000279,2026-08-01 00:38:12,TPBank EVO Credit Card,TPBank,Rejected,Duplicate Phone,0.0
+CONV_5000267,2026-08-01 00:38:28,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000263,2026-08-01 00:49:11,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000265,2026-08-01 00:54:32,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000284,2026-08-01 00:57:31,Cake by VPBank Digital Card,Cake Digital,Pending,Bad Debt History (CIC),0.0
+CONV_5000282,2026-08-01 01:09:00,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000295,2026-08-01 01:20:56,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Customer Cancelled,0.0
+CONV_5000291,2026-08-01 01:25:05,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5000292,2026-08-01 01:25:49,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000304,2026-08-01 01:28:53,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000303,2026-08-01 01:47:15,TPBank EVO Credit Card,TPBank,Rejected,Customer Cancelled,0.0
+CONV_5000305,2026-08-01 02:01:48,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000319,2026-08-01 02:05:08,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000323,2026-08-01 02:06:02,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Invalid Lead Form,0.0
+CONV_5000301,2026-08-01 02:07:39,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000310,2026-08-01 02:08:32,Cake by VPBank Digital Card,Cake Digital,Rejected,Invalid Lead Form,0.0
+CONV_5000307,2026-08-01 02:10:03,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000308,2026-08-01 02:13:33,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000322,2026-08-01 02:14:21,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000320,2026-08-01 02:22:28,TPBank EVO Credit Card,TPBank,Rejected,Invalid Lead Form,0.0
+CONV_5000311,2026-08-01 02:25:10,MBBank App Open Account,MBBank,Rejected,Invalid Lead Form,0.0
+CONV_5000318,2026-08-01 02:25:44,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000316,2026-08-01 02:27:12,TPBank EVO Credit Card,TPBank,Rejected,Customer Cancelled,0.0
+CONV_5000330,2026-08-01 02:36:53,TPBank EVO Credit Card,TPBank,Rejected,Customer Cancelled,0.0
+CONV_5000345,2026-08-01 02:47:32,OCB OMNI Digital Banking,OCB Bank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000324,2026-08-01 02:48:57,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000335,2026-08-01 02:54:58,VIB Financial Super Card,VIB Bank,Rejected,Under Review,0.0
+CONV_5000333,2026-08-01 02:55:30,VIB Financial Super Card,VIB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000340,2026-08-01 02:59:58,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000351,2026-08-01 03:03:44,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000338,2026-08-01 03:06:07,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000344,2026-08-01 03:08:00,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000337,2026-08-01 03:11:10,OCB OMNI Digital Banking,OCB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000347,2026-08-01 03:11:49,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000350,2026-08-01 03:20:59,TPBank EVO Credit Card,TPBank,Rejected,Customer Cancelled,0.0
+CONV_5000355,2026-08-01 03:33:56,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000368,2026-08-01 03:57:39,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000377,2026-08-01 04:02:17,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Duplicate Phone,0.0
+CONV_5000381,2026-08-01 04:04:56,HD SAISON Fast Cash Loan,HD SAISON,Fraud,Fake / Bot Traffic,0.0
+CONV_5000369,2026-08-01 04:11:56,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000373,2026-08-01 04:15:57,TPBank EVO Credit Card,TPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5000364,2026-08-01 04:19:00,VPBank StepUp Credit Card,VPBank,Rejected,Invalid Lead Form,0.0
+CONV_5000379,2026-08-01 04:19:09,TPBank EVO Credit Card,TPBank,Rejected,Under Review,0.0
+CONV_5000370,2026-08-01 04:19:24,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000391,2026-08-01 04:24:02,OCB OMNI Digital Banking,OCB Bank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000387,2026-08-01 04:29:18,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Customer Cancelled,0.0
+CONV_5000386,2026-08-01 04:36:57,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000389,2026-08-01 04:42:58,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000398,2026-08-01 04:45:32,OCB OMNI Digital Banking,OCB Bank,Approved,Invalid eKYC / OCR Failed,125000.0
+CONV_5000400,2026-08-01 04:48:00,MBBank App Open Account,MBBank,Approved,Duplicate Phone,110000.0
+CONV_5000394,2026-08-01 04:48:35,TPBank EVO Credit Card,TPBank,Rejected,Invalid Lead Form,0.0
+CONV_5000388,2026-08-01 04:50:05,Cake by VPBank Digital Card,Cake Digital,Pending,Invalid Lead Form,0.0
+CONV_5000383,2026-08-01 04:50:57,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000401,2026-08-01 04:51:38,MBBank App Open Account,MBBank,Rejected,Duplicate Phone,0.0
+CONV_5000402,2026-08-01 04:55:26,OCB OMNI Digital Banking,OCB Bank,Pending,Invalid Lead Form,0.0
+CONV_5000395,2026-08-01 05:00:13,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000404,2026-08-01 05:07:23,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Invalid Lead Form,0.0
+CONV_5000406,2026-08-01 05:15:18,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000414,2026-08-01 05:26:40,Techcombank eKYC Digital Account,Techcombank,Rejected,Invalid Lead Form,0.0
+CONV_5000419,2026-08-01 05:27:34,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000396,2026-08-01 05:28:49,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Customer Cancelled,0.0
+CONV_5000407,2026-08-01 05:33:09,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Customer Cancelled,0.0
+CONV_5000429,2026-08-01 05:51:44,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Fake / Bot Traffic,0.0
+CONV_5000437,2026-08-01 06:03:30,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000435,2026-08-01 06:03:55,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000424,2026-08-01 06:06:18,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000452,2026-08-01 06:23:38,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Duplicate Phone,0.0
+CONV_5000443,2026-08-01 06:24:31,HD SAISON Fast Cash Loan,HD SAISON,Pending,Customer Cancelled,0.0
+CONV_5000451,2026-08-01 06:24:55,VIB Financial Super Card,VIB Bank,Pending,Customer Cancelled,0.0
+CONV_5000432,2026-08-01 06:27:23,Cake by VPBank Digital Card,Cake Digital,Rejected,Bad Debt History (CIC),0.0
+CONV_5000462,2026-08-01 06:28:38,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000445,2026-08-01 06:29:08,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Bad Debt History (CIC),0.0
+CONV_5000458,2026-08-01 06:37:27,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000453,2026-08-01 06:38:26,Techcombank eKYC Digital Account,Techcombank,Rejected,Under Review,0.0
+CONV_5000456,2026-08-01 06:41:52,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000444,2026-08-01 06:41:56,Techcombank eKYC Digital Account,Techcombank,Rejected,Customer Cancelled,0.0
+CONV_5000447,2026-08-01 06:52:28,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000448,2026-08-01 06:56:19,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5000477,2026-08-01 06:57:59,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Fake / Bot Traffic,0.0
+CONV_5000467,2026-08-01 07:00:29,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000465,2026-08-01 07:05:53,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000474,2026-08-01 07:09:01,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000485,2026-08-01 07:11:44,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Fake / Bot Traffic,0.0
+CONV_5000476,2026-08-01 07:17:40,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000486,2026-08-01 07:22:31,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000475,2026-08-01 07:24:34,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000473,2026-08-01 07:30:45,OCB OMNI Digital Banking,OCB Bank,Pending,Invalid Lead Form,0.0
+CONV_5000504,2026-08-01 07:36:48,VIB Financial Super Card,VIB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000495,2026-08-01 07:39:56,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Under Review,0.0
+CONV_5000498,2026-08-01 07:47:32,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000507,2026-08-01 07:48:27,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Customer Cancelled,0.0
+CONV_5000491,2026-08-01 08:00:44,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Duplicate Phone,0.0
+CONV_5000518,2026-08-01 08:11:32,Techcombank eKYC Digital Account,Techcombank,Pending,Customer Cancelled,0.0
+CONV_5000511,2026-08-01 08:25:32,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000532,2026-08-01 08:25:59,OCB OMNI Digital Banking,OCB Bank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000520,2026-08-01 08:30:13,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000534,2026-08-01 08:32:51,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000522,2026-08-01 08:36:52,VIB Financial Super Card,VIB Bank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000512,2026-08-01 08:37:12,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000540,2026-08-01 08:44:28,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000519,2026-08-01 08:49:18,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000544,2026-08-01 08:49:28,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5000552,2026-08-01 08:57:52,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000550,2026-08-01 08:59:22,VPBank StepUp Credit Card,VPBank,Rejected,Under Review,0.0
+CONV_5000535,2026-08-01 09:03:00,VPBank StepUp Credit Card,VPBank,Rejected,Duplicate Phone,0.0
+CONV_5000554,2026-08-01 09:20:02,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5000556,2026-08-01 09:26:05,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000549,2026-08-01 09:26:20,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000543,2026-08-01 09:28:24,HD SAISON Fast Cash Loan,HD SAISON,Pending,Under Review,0.0
+CONV_5000560,2026-08-01 09:33:28,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000571,2026-08-01 09:38:44,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000569,2026-08-01 09:40:38,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000562,2026-08-01 09:56:08,VPBank StepUp Credit Card,VPBank,Rejected,Customer Cancelled,0.0
+CONV_5000586,2026-08-01 10:07:41,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000587,2026-08-01 10:10:00,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000570,2026-08-01 10:15:36,VIB Financial Super Card,VIB Bank,Pending,Customer Cancelled,0.0
+CONV_5000574,2026-08-01 10:21:49,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000575,2026-08-01 10:24:36,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Customer Cancelled,0.0
+CONV_5000598,2026-08-01 10:32:30,VPBank StepUp Credit Card,VPBank,Approved,Duplicate Phone,420000.0
+CONV_5000599,2026-08-01 10:34:42,VIB Financial Super Card,VIB Bank,Fraud,Invalid eKYC / OCR Failed,0.0
+CONV_5000604,2026-08-01 10:52:51,OCB OMNI Digital Banking,OCB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000601,2026-08-01 10:59:30,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Duplicate Phone,0.0
+CONV_5000603,2026-08-01 11:07:49,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000600,2026-08-01 11:14:22,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Duplicate Phone,0.0
+CONV_5000608,2026-08-01 11:25:03,Techcombank eKYC Digital Account,Techcombank,Pending,Customer Cancelled,0.0
+CONV_5000605,2026-08-01 11:31:41,MBBank App Open Account,MBBank,Rejected,Invalid Lead Form,0.0
+CONV_5000613,2026-08-01 11:40:50,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000611,2026-08-01 11:42:16,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000615,2026-08-01 11:42:44,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000610,2026-08-01 11:44:23,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000617,2026-08-01 11:52:38,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000623,2026-08-01 11:57:28,TPBank EVO Credit Card,TPBank,Rejected,Under Review,0.0
+CONV_5000624,2026-08-01 12:02:48,Shinhan Finance Personal Loan,Shinhan Finance,Pending,Bad Debt History (CIC),0.0
+CONV_5000647,2026-08-01 12:03:42,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid Lead Form,0.0
+CONV_5000637,2026-08-01 12:05:06,VPBank StepUp Credit Card,VPBank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000643,2026-08-01 12:06:06,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000627,2026-08-01 12:06:50,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000653,2026-08-01 12:08:58,TPBank EVO Credit Card,TPBank,Pending,Duplicate Phone,0.0
+CONV_5000634,2026-08-01 12:11:51,VPBank StepUp Credit Card,VPBank,Rejected,Customer Cancelled,0.0
+CONV_5000639,2026-08-01 12:12:47,MBBank App Open Account,MBBank,Rejected,Duplicate Phone,0.0
+CONV_5000644,2026-08-01 12:15:10,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000657,2026-08-01 12:23:13,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000654,2026-08-01 12:23:58,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000660,2026-08-01 12:28:44,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5000652,2026-08-01 12:29:58,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Under Review,0.0
+CONV_5000663,2026-08-01 12:44:09,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000669,2026-08-01 12:44:38,OCB OMNI Digital Banking,OCB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000656,2026-08-01 12:57:00,HD SAISON Fast Cash Loan,HD SAISON,Pending,Customer Cancelled,0.0
+CONV_5000670,2026-08-01 13:01:21,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000685,2026-08-01 13:06:17,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000688,2026-08-01 13:11:46,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid Lead Form,0.0
+CONV_5000668,2026-08-01 13:12:45,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000675,2026-08-01 13:19:02,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000690,2026-08-01 13:21:44,Techcombank eKYC Digital Account,Techcombank,Pending,Customer Cancelled,0.0
+CONV_5000673,2026-08-01 13:23:53,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000700,2026-08-01 13:28:29,OCB OMNI Digital Banking,OCB Bank,Fraud,Duplicate Phone,0.0
+CONV_5000676,2026-08-01 13:29:23,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000672,2026-08-01 13:29:31,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000671,2026-08-01 13:29:54,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000689,2026-08-01 13:31:40,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000686,2026-08-01 13:32:55,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000681,2026-08-01 13:34:04,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000701,2026-08-01 13:41:52,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Duplicate Phone,0.0
+CONV_5000704,2026-08-01 13:43:28,VPBank StepUp Credit Card,VPBank,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000687,2026-08-01 13:45:54,Shinhan Finance Personal Loan,Shinhan Finance,Pending,Duplicate Phone,0.0
+CONV_5000697,2026-08-01 13:49:23,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Invalid Lead Form,0.0
+CONV_5000713,2026-08-01 13:57:42,Cake by VPBank Digital Card,Cake Digital,Approved,Invalid eKYC / OCR Failed,145000.0
+CONV_5000718,2026-08-01 13:59:43,VPBank StepUp Credit Card,VPBank,Rejected,Duplicate Phone,0.0
+CONV_5000703,2026-08-01 14:03:42,Shinhan Finance Personal Loan,Shinhan Finance,Pending,Bad Debt History (CIC),0.0
+CONV_5000696,2026-08-01 14:03:46,Cake by VPBank Digital Card,Cake Digital,Rejected,Under Review,0.0
+CONV_5000712,2026-08-01 14:11:02,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000717,2026-08-01 14:12:32,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000732,2026-08-01 14:26:45,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000733,2026-08-01 14:26:57,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000734,2026-08-01 14:29:55,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Invalid Lead Form,0.0
+CONV_5000720,2026-08-01 14:34:47,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000721,2026-08-01 14:35:34,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000735,2026-08-01 14:38:52,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000737,2026-08-01 14:48:10,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000751,2026-08-01 14:52:24,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5000738,2026-08-01 14:54:26,Cake by VPBank Digital Card,Cake Digital,Rejected,Invalid Lead Form,0.0
+CONV_5000739,2026-08-01 14:54:29,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5000752,2026-08-01 15:09:08,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000744,2026-08-01 15:17:22,TPBank EVO Credit Card,TPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5000765,2026-08-01 15:22:50,MBBank App Open Account,MBBank,Rejected,Fake / Bot Traffic,0.0
+CONV_5000763,2026-08-01 15:37:25,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000761,2026-08-01 15:37:44,TPBank EVO Credit Card,TPBank,Pending,Under Review,0.0
+CONV_5000764,2026-08-01 15:40:24,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000779,2026-08-01 15:47:24,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000768,2026-08-01 15:58:44,VIB Financial Super Card,VIB Bank,Pending,Invalid Lead Form,0.0
+CONV_5000760,2026-08-01 16:01:48,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000769,2026-08-01 16:03:04,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000775,2026-08-01 16:06:18,Cake by VPBank Digital Card,Cake Digital,Rejected,Invalid Lead Form,0.0
+CONV_5000773,2026-08-01 16:14:09,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000785,2026-08-01 16:16:43,OCB OMNI Digital Banking,OCB Bank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000791,2026-08-01 16:17:55,VIB Financial Super Card,VIB Bank,Rejected,Duplicate Phone,0.0
+CONV_5000794,2026-08-01 16:23:09,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000780,2026-08-01 16:23:48,Techcombank eKYC Digital Account,Techcombank,Rejected,Under Review,0.0
+CONV_5000786,2026-08-01 16:24:18,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000783,2026-08-01 16:26:02,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000796,2026-08-01 16:33:20,MBBank App Open Account,MBBank,Rejected,Customer Cancelled,0.0
+CONV_5000800,2026-08-01 16:37:56,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000802,2026-08-01 16:40:23,Techcombank eKYC Digital Account,Techcombank,Rejected,Duplicate Phone,0.0
+CONV_5000812,2026-08-01 16:41:27,Cake by VPBank Digital Card,Cake Digital,Approved,Fake / Bot Traffic,145000.0
+CONV_5000795,2026-08-01 16:45:44,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000790,2026-08-01 16:48:26,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000799,2026-08-01 16:50:26,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000801,2026-08-01 16:52:01,VIB Financial Super Card,VIB Bank,Rejected,Under Review,0.0
+CONV_5000814,2026-08-01 16:55:12,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Duplicate Phone,0.0
+CONV_5000793,2026-08-01 16:57:07,VPBank StepUp Credit Card,VPBank,Rejected,Bad Debt History (CIC),0.0
+CONV_5000806,2026-08-01 17:00:34,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000809,2026-08-01 17:04:36,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000803,2026-08-01 17:05:59,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000824,2026-08-01 17:07:13,VPBank StepUp Credit Card,VPBank,Rejected,Invalid Lead Form,0.0
+CONV_5000828,2026-08-01 17:09:48,Techcombank eKYC Digital Account,Techcombank,Rejected,Under Review,0.0
+CONV_5000813,2026-08-01 17:15:58,MBBank App Open Account,MBBank,Rejected,Customer Cancelled,0.0
+CONV_5000817,2026-08-01 17:17:35,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000830,2026-08-01 17:39:50,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Invalid Lead Form,0.0
+CONV_5000834,2026-08-01 17:40:41,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000841,2026-08-01 17:42:09,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000844,2026-08-01 17:54:42,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000832,2026-08-01 17:55:38,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Under Review,0.0
+CONV_5000837,2026-08-01 17:58:33,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000852,2026-08-01 17:59:29,OCB OMNI Digital Banking,OCB Bank,Fraud,Fake / Bot Traffic,0.0
+CONV_5000835,2026-08-01 17:59:57,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000836,2026-08-01 18:00:01,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000839,2026-08-01 18:01:28,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000855,2026-08-01 18:19:44,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000861,2026-08-01 18:29:33,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000864,2026-08-01 18:29:57,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000854,2026-08-01 18:32:39,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5000859,2026-08-01 18:40:16,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000857,2026-08-01 18:52:58,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000869,2026-08-01 19:04:46,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000871,2026-08-01 19:06:47,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000882,2026-08-01 19:08:17,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000877,2026-08-01 19:17:46,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000885,2026-08-01 19:29:50,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000886,2026-08-01 19:36:26,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000900,2026-08-01 19:41:12,Techcombank eKYC Digital Account,Techcombank,Rejected,Invalid eKYC / OCR Failed,0.0
+CONV_5000894,2026-08-01 19:48:25,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000910,2026-08-01 19:59:14,Shinhan Finance Personal Loan,Shinhan Finance,Pending,Customer Cancelled,0.0
+CONV_5000896,2026-08-01 20:04:39,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000902,2026-08-01 20:12:02,HD SAISON Fast Cash Loan,HD SAISON,Pending,Duplicate Phone,0.0
+CONV_5000912,2026-08-01 20:13:17,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Invalid Lead Form,0.0
+CONV_5000898,2026-08-01 20:16:12,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5000916,2026-08-01 20:20:27,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Under Review,0.0
+CONV_5000921,2026-08-01 20:21:43,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Invalid Lead Form,0.0
+CONV_5000937,2026-08-01 20:52:06,VPBank StepUp Credit Card,VPBank,Approved,Invalid eKYC / OCR Failed,420000.0
+CONV_5000939,2026-08-01 20:53:00,HD SAISON Fast Cash Loan,HD SAISON,Fraud,Invalid eKYC / OCR Failed,0.0
+CONV_5000936,2026-08-01 20:54:52,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000925,2026-08-01 21:01:45,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000940,2026-08-01 21:04:00,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Duplicate Phone,0.0
+CONV_5000929,2026-08-01 21:16:43,VPBank StepUp Credit Card,VPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5000935,2026-08-01 21:20:13,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000946,2026-08-01 21:30:39,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000944,2026-08-01 21:31:35,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000952,2026-08-01 21:34:04,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000957,2026-08-01 21:42:57,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000948,2026-08-01 21:45:12,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5000961,2026-08-01 21:47:16,VPBank StepUp Credit Card,VPBank,Rejected,Duplicate Phone,0.0
+CONV_5000951,2026-08-01 21:50:01,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5000966,2026-08-01 21:53:30,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5000953,2026-08-01 21:54:38,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000973,2026-08-01 22:11:39,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000969,2026-08-01 22:13:27,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000979,2026-08-01 22:14:03,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5000976,2026-08-01 22:20:46,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000960,2026-08-01 22:20:46,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000964,2026-08-01 22:21:21,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5000967,2026-08-01 22:26:55,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5000974,2026-08-01 22:28:42,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5000972,2026-08-01 22:32:19,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000989,2026-08-01 22:51:37,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5000981,2026-08-01 22:58:17,VIB Financial Super Card,VIB Bank,Rejected,Under Review,0.0
+CONV_5000990,2026-08-01 23:03:00,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5000993,2026-08-01 23:03:52,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000998,2026-08-01 23:03:56,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Fake / Bot Traffic,0.0
+CONV_5000987,2026-08-01 23:13:12,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5001006,2026-08-01 23:23:27,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5000997,2026-08-01 23:47:27,TPBank EVO Credit Card,TPBank,Rejected,Under Review,0.0
+CONV_5001000,2026-08-01 23:49:40,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001005,2026-08-01 23:50:40,Techcombank eKYC Digital Account,Techcombank,Rejected,Bad Debt History (CIC),0.0
+CONV_5001024,2026-08-01 23:59:07,VIB Financial Super Card,VIB Bank,Pending,Invalid Lead Form,0.0
+CONV_5001034,2026-08-02 00:06:38,VPBank StepUp Credit Card,VPBank,Rejected,Duplicate Phone,0.0
+CONV_5001023,2026-08-02 00:07:20,TPBank EVO Credit Card,TPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5001025,2026-08-02 00:07:33,Cake by VPBank Digital Card,Cake Digital,Rejected,Duplicate Phone,0.0
+CONV_5001009,2026-08-02 00:09:41,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5001031,2026-08-02 00:12:41,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001015,2026-08-02 00:13:15,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001039,2026-08-02 00:19:16,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5001033,2026-08-02 00:19:59,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001021,2026-08-02 00:23:29,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5001028,2026-08-02 00:26:12,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001032,2026-08-02 00:35:06,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001055,2026-08-02 01:09:03,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5001042,2026-08-02 01:09:21,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001058,2026-08-02 01:09:41,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001060,2026-08-02 01:11:23,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Under Review,0.0
+CONV_5001047,2026-08-02 01:13:59,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Bad Debt History (CIC),0.0
+CONV_5001072,2026-08-02 01:18:25,VIB Financial Super Card,VIB Bank,Approved,Fake / Bot Traffic,480000.0
+CONV_5001071,2026-08-02 01:20:19,VIB Financial Super Card,VIB Bank,Rejected,Bad Debt History (CIC),0.0
+CONV_5001070,2026-08-02 01:22:27,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001059,2026-08-02 01:23:09,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001078,2026-08-02 01:28:44,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001065,2026-08-02 01:32:33,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5001063,2026-08-02 01:35:07,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001057,2026-08-02 01:38:32,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5001067,2026-08-02 01:42:35,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5001075,2026-08-02 01:44:45,Mirae Asset Easy Consumer Loan,Mirae Asset,Pending,Customer Cancelled,0.0
+CONV_5001090,2026-08-02 01:48:18,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Duplicate Phone,0.0
+CONV_5001069,2026-08-02 01:48:32,TPBank EVO Credit Card,TPBank,Rejected,Under Review,0.0
+CONV_5001087,2026-08-02 01:57:19,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001077,2026-08-02 02:04:28,VPBank StepUp Credit Card,VPBank,Rejected,Duplicate Phone,0.0
+CONV_5001081,2026-08-02 02:04:42,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Invalid Lead Form,0.0
+CONV_5001091,2026-08-02 02:08:32,MBBank App Open Account,MBBank,Rejected,Duplicate Phone,0.0
+CONV_5001089,2026-08-02 02:09:51,TPBank EVO Credit Card,TPBank,Pending,Invalid Lead Form,0.0
+CONV_5001104,2026-08-02 02:11:59,VPBank StepUp Credit Card,VPBank,Rejected,Fake / Bot Traffic,0.0
+CONV_5001097,2026-08-02 02:13:18,VIB Financial Super Card,VIB Bank,Rejected,Duplicate Phone,0.0
+CONV_5001086,2026-08-02 02:16:46,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001107,2026-08-02 02:25:03,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5001102,2026-08-02 02:26:16,TPBank EVO Credit Card,TPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5001112,2026-08-02 02:27:33,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5001121,2026-08-02 02:29:13,VPBank StepUp Credit Card,VPBank,Rejected,Under Review,0.0
+CONV_5001093,2026-08-02 02:29:32,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001123,2026-08-02 02:30:52,MBBank App Open Account,MBBank,Fraud,Fake / Bot Traffic,0.0
+CONV_5001100,2026-08-02 02:35:18,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001108,2026-08-02 02:39:13,OCB OMNI Digital Banking,OCB Bank,Rejected,Customer Cancelled,0.0
+CONV_5001124,2026-08-02 02:40:51,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001128,2026-08-02 02:44:01,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5001110,2026-08-02 02:48:53,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001114,2026-08-02 02:49:33,VIB Financial Super Card,VIB Bank,Rejected,Invalid Lead Form,0.0
+CONV_5001122,2026-08-02 02:51:53,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001109,2026-08-02 02:57:15,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5001131,2026-08-02 03:00:33,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001141,2026-08-02 03:26:02,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Customer Cancelled,0.0
+CONV_5001135,2026-08-02 03:26:11,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001136,2026-08-02 03:28:54,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001148,2026-08-02 03:34:04,Techcombank eKYC Digital Account,Techcombank,Rejected,Fake / Bot Traffic,0.0
+CONV_5001139,2026-08-02 03:40:28,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001150,2026-08-02 03:46:07,HD SAISON Fast Cash Loan,HD SAISON,Rejected,Customer Cancelled,0.0
+CONV_5001134,2026-08-02 03:49:07,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001140,2026-08-02 03:53:55,TPBank EVO Credit Card,TPBank,Rejected,Bad Debt History (CIC),0.0
+CONV_5001147,2026-08-02 04:01:08,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001149,2026-08-02 04:01:28,TPBank EVO Credit Card,TPBank,Rejected,Under Review,0.0
+CONV_5001142,2026-08-02 04:04:26,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5001168,2026-08-02 04:25:20,OCB OMNI Digital Banking,OCB Bank,Approved,Duplicate Phone,125000.0
+CONV_5001160,2026-08-02 04:26:06,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001163,2026-08-02 04:30:44,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Customer Cancelled,0.0
+CONV_5001169,2026-08-02 04:38:03,VIB Financial Super Card,VIB Bank,Approved,,480000.0
+CONV_5001164,2026-08-02 04:42:43,HD SAISON Fast Cash Loan,HD SAISON,Pending,Invalid Lead Form,0.0
+CONV_5001166,2026-08-02 04:43:56,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5001165,2026-08-02 04:49:47,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001180,2026-08-02 04:53:58,VPBank StepUp Credit Card,VPBank,Pending,Bad Debt History (CIC),0.0
+CONV_5001179,2026-08-02 04:57:00,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001186,2026-08-02 05:00:23,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001172,2026-08-02 05:06:04,Techcombank eKYC Digital Account,Techcombank,Pending,Duplicate Phone,0.0
+CONV_5001173,2026-08-02 05:08:07,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5001175,2026-08-02 05:13:07,VIB Financial Super Card,VIB Bank,Rejected,Bad Debt History (CIC),0.0
+CONV_5001171,2026-08-02 05:14:57,VIB Financial Super Card,VIB Bank,Pending,Customer Cancelled,0.0
+CONV_5001181,2026-08-02 05:20:08,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001190,2026-08-02 05:21:54,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001189,2026-08-02 05:25:23,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Customer Cancelled,0.0
+CONV_5001191,2026-08-02 05:25:26,VPBank StepUp Credit Card,VPBank,Rejected,Bad Debt History (CIC),0.0
+CONV_5001197,2026-08-02 05:29:40,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001193,2026-08-02 05:31:08,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001195,2026-08-02 05:44:38,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001200,2026-08-02 05:54:10,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Bad Debt History (CIC),0.0
+CONV_5001203,2026-08-02 06:01:20,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001214,2026-08-02 06:03:23,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001228,2026-08-02 06:16:16,VIB Financial Super Card,VIB Bank,Rejected,Duplicate Phone,0.0
+CONV_5001223,2026-08-02 06:28:13,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001231,2026-08-02 06:33:05,Mirae Asset Easy Consumer Loan,Mirae Asset,Rejected,Bad Debt History (CIC),0.0
+CONV_5001236,2026-08-02 06:34:52,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5001225,2026-08-02 06:38:50,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5001233,2026-08-02 06:39:14,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5001226,2026-08-02 06:40:14,Techcombank eKYC Digital Account,Techcombank,Approved,,130000.0
+CONV_5001219,2026-08-02 06:43:19,Shinhan Finance Personal Loan,Shinhan Finance,Approved,,320000.0
+CONV_5001232,2026-08-02 06:47:42,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5001250,2026-08-02 06:52:18,VPBank StepUp Credit Card,VPBank,Approved,,420000.0
+CONV_5001251,2026-08-02 06:54:47,Techcombank eKYC Digital Account,Techcombank,Pending,Duplicate Phone,0.0
+CONV_5001254,2026-08-02 06:56:35,Cake by VPBank Digital Card,Cake Digital,Fraud,Duplicate Phone,0.0
+CONV_5001255,2026-08-02 07:00:51,OCB OMNI Digital Banking,OCB Bank,Approved,,125000.0
+CONV_5001229,2026-08-02 07:02:30,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001238,2026-08-02 07:12:09,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5001258,2026-08-02 07:19:16,HD SAISON Fast Cash Loan,HD SAISON,Approved,,270000.0
+CONV_5001276,2026-08-02 07:45:49,Mirae Asset Easy Consumer Loan,Mirae Asset,Approved,,290000.0
+CONV_5001282,2026-08-02 07:51:19,Cake by VPBank Digital Card,Cake Digital,Approved,,145000.0
+CONV_5001290,2026-08-02 07:57:00,Mirae Asset Easy Consumer Loan,Mirae Asset,Fraud,Fake / Bot Traffic,0.0
+CONV_5001266,2026-08-02 07:58:08,Shinhan Finance Personal Loan,Shinhan Finance,Rejected,Invalid Lead Form,0.0
+CONV_5001292,2026-08-02 07:58:45,Techcombank eKYC Digital Account,Techcombank,Fraud,Fake / Bot Traffic,0.0
+CONV_5001287,2026-08-02 08:02:22,Cake by VPBank Digital Card,Cake Digital,Rejected,Customer Cancelled,0.0
+CONV_5001295,2026-08-02 08:02:25,TPBank EVO Credit Card,TPBank,Rejected,Duplicate Phone,0.0
+CONV_5001273,2026-08-02 08:06:27,TPBank EVO Credit Card,TPBank,Approved,,400000.0
+CONV_5001279,2026-08-02 08:11:22,MBBank App Open Account,MBBank,Approved,,110000.0
+CONV_5001298,2026-08-02 08:12:42,MBBank App Open Account,MBBank,Pending,Under Review,0.0
