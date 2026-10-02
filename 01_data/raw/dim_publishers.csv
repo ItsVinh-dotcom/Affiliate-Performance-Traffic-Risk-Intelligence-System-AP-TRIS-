@@ -1,101 +1,251 @@
 publisher_id,publisher_name,traffic_channel,tier,status,join_date,is_fraud_suspect
-PUB_001,Affiliate_Partner_001,YouTube Reviewer,Bronze,Active,2026-04-28,0
-PUB_002,Affiliate_Partner_002,Facebook Media Buyer,Bronze,Active,2026-07-25,0
-PUB_003,Affiliate_Partner_003,YouTube Reviewer,Silver,Active,2025-12-10,0
-PUB_004,Affiliate_Partner_004,TikTok Creator,Silver,Active,2026-08-30,0
-PUB_005,Affiliate_Partner_005,TikTok Creator,Bronze,Active,2026-05-19,0
-PUB_006,Affiliate_Partner_006,Telegram/Zalo Community,Silver,Active,2025-12-02,0
-PUB_007,Affiliate_Partner_007,Facebook Media Buyer,Silver,Active,2025-12-10,0
-PUB_008,Affiliate_Partner_008,SEO Content Hub,Bronze,Active,2025-11-18,0
-PUB_009,Affiliate_Partner_009,Google Ads Specialist,Gold,Active,2026-09-12,0
-PUB_010,Affiliate_Partner_010,Facebook Media Buyer,Silver,Active,2026-03-25,0
-PUB_011,Affiliate_Partner_011,Google Ads Specialist,Bronze,Active,2026-03-27,0
-PUB_012,Affiliate_Partner_012,TikTok Creator,Bronze,Active,2026-07-28,0
-PUB_013,Affiliate_Partner_013,Google Ads Specialist,Gold,Active,2025-11-10,0
-PUB_014,Affiliate_Partner_014,Google Ads Specialist,Gold,Active,2026-01-23,0
-PUB_015,Affiliate_Partner_015,Telegram/Zalo Community,Bronze,Active,2026-03-06,0
-PUB_016,Affiliate_Partner_016,TikTok Creator,Silver,Active,2025-10-29,0
-PUB_017,Affiliate_Partner_017,Telegram/Zalo Community,Gold,Active,2026-03-14,0
-PUB_018,Affiliate_Partner_018,Telegram/Zalo Community,Bronze,Active,2026-08-11,0
-PUB_019,Affiliate_Partner_019,TikTok Creator,Silver,Active,2026-04-20,0
-PUB_020,Affiliate_Partner_020,TikTok Creator,Gold,Active,2026-07-26,0
-PUB_021,Affiliate_Partner_021,SEO Content Hub,Bronze,Active,2025-10-25,0
-PUB_022,Affiliate_Partner_022,Google Ads Specialist,Bronze,Active,2026-03-18,0
-PUB_023,Affiliate_Partner_023,Facebook Media Buyer,Silver,Active,2025-10-01,0
-PUB_024,Affiliate_Partner_024,YouTube Reviewer,Bronze,Active,2025-10-25,0
-PUB_025,Affiliate_Partner_025,Facebook Media Buyer,Silver,Active,2026-05-13,0
-PUB_026,Affiliate_Partner_026,Facebook Media Buyer,Silver,Active,2026-04-30,0
-PUB_027,Affiliate_Partner_027,YouTube Reviewer,Silver,Active,2026-05-26,0
-PUB_028,Affiliate_Partner_028,YouTube Reviewer,Bronze,Active,2026-08-18,0
-PUB_029,Affiliate_Partner_029,Facebook Media Buyer,Gold,Active,2026-04-07,0
-PUB_030,Affiliate_Partner_030,SEO Content Hub,Bronze,Active,2026-05-30,0
-PUB_031,Affiliate_Partner_031,Telegram/Zalo Community,Gold,Active,2026-04-07,0
-PUB_032,Affiliate_Partner_032,Facebook Media Buyer,Silver,Active,2026-02-25,0
-PUB_033,Affiliate_Partner_033,YouTube Reviewer,Silver,Active,2026-05-03,0
-PUB_034,Affiliate_Partner_034,Facebook Media Buyer,Bronze,Active,2025-12-02,0
-PUB_035,Affiliate_Partner_035,Telegram/Zalo Community,Bronze,Active,2025-11-20,0
-PUB_036,Affiliate_Partner_036,SEO Content Hub,Gold,Active,2026-02-23,0
-PUB_037,Affiliate_Partner_037,Google Ads Specialist,Bronze,Active,2026-07-07,0
-PUB_038,Affiliate_Partner_038,Telegram/Zalo Community,Silver,Active,2026-08-22,0
-PUB_039,Affiliate_Partner_039,TikTok Creator,Bronze,Active,2026-06-26,0
-PUB_040,Affiliate_Partner_040,YouTube Reviewer,Bronze,Active,2026-08-14,0
-PUB_041,Affiliate_Partner_041,SEO Content Hub,Bronze,Active,2026-01-19,0
-PUB_042,Affiliate_Partner_042,Telegram/Zalo Community,Bronze,Flagged,2025-12-06,1
-PUB_043,Affiliate_Partner_043,TikTok Creator,Silver,Active,2026-07-19,0
-PUB_044,Affiliate_Partner_044,YouTube Reviewer,Gold,Active,2026-05-02,0
-PUB_045,Affiliate_Partner_045,YouTube Reviewer,Bronze,Active,2026-04-18,0
-PUB_046,Affiliate_Partner_046,SEO Content Hub,Bronze,Active,2026-09-14,0
-PUB_047,Affiliate_Partner_047,YouTube Reviewer,Gold,Active,2026-05-04,0
-PUB_048,Affiliate_Partner_048,Telegram/Zalo Community,Gold,Active,2025-12-30,0
-PUB_049,Affiliate_Partner_049,TikTok Creator,Gold,Active,2026-04-16,0
-PUB_050,Affiliate_Partner_050,YouTube Reviewer,Silver,Active,2026-06-06,0
-PUB_051,Affiliate_Partner_051,Facebook Media Buyer,Bronze,Active,2026-06-25,0
-PUB_052,Affiliate_Partner_052,Telegram/Zalo Community,Platinum,Active,2025-12-18,0
-PUB_053,Affiliate_Partner_053,TikTok Creator,Silver,Active,2026-01-08,0
-PUB_054,Affiliate_Partner_054,TikTok Creator,Bronze,Active,2026-03-14,0
-PUB_055,Affiliate_Partner_055,Google Ads Specialist,Bronze,Active,2026-05-15,0
-PUB_056,Affiliate_Partner_056,Telegram/Zalo Community,Platinum,Active,2026-08-03,0
-PUB_057,Affiliate_Partner_057,YouTube Reviewer,Silver,Active,2026-08-11,0
-PUB_058,Affiliate_Partner_058,Telegram/Zalo Community,Gold,Active,2026-07-12,0
-PUB_059,Affiliate_Partner_059,YouTube Reviewer,Silver,Active,2025-12-08,0
-PUB_060,Affiliate_Partner_060,Facebook Media Buyer,Bronze,Active,2025-11-09,0
-PUB_061,Affiliate_Partner_061,SEO Content Hub,Platinum,Active,2025-12-13,0
-PUB_062,Affiliate_Partner_062,YouTube Reviewer,Silver,Active,2026-04-09,0
-PUB_063,Affiliate_Partner_063,SEO Content Hub,Platinum,Active,2025-10-18,0
-PUB_064,Affiliate_Partner_064,Google Ads Specialist,Bronze,Active,2025-12-25,0
-PUB_065,Affiliate_Partner_065,SEO Content Hub,Bronze,Active,2026-05-23,0
-PUB_066,Affiliate_Partner_066,TikTok Creator,Bronze,Active,2025-11-18,0
-PUB_067,Affiliate_Partner_067,Telegram/Zalo Community,Bronze,Active,2026-05-26,0
-PUB_068,Affiliate_Partner_068,TikTok Creator,Bronze,Active,2025-10-27,0
-PUB_069,Affiliate_Partner_069,TikTok Creator,Bronze,Active,2026-08-30,0
-PUB_070,Affiliate_Partner_070,Google Ads Specialist,Bronze,Active,2026-05-17,0
-PUB_071,Affiliate_Partner_071,Google Ads Specialist,Silver,Active,2026-05-29,0
-PUB_072,Affiliate_Partner_072,Telegram/Zalo Community,Bronze,Active,2025-11-27,0
-PUB_073,Affiliate_Partner_073,Telegram/Zalo Community,Silver,Active,2026-01-16,0
-PUB_074,Affiliate_Partner_074,SEO Content Hub,Bronze,Active,2026-07-28,0
-PUB_075,Affiliate_Partner_075,YouTube Reviewer,Bronze,Active,2026-02-11,0
-PUB_076,Affiliate_Partner_076,SEO Content Hub,Silver,Active,2026-08-19,0
-PUB_077,Affiliate_Partner_077,YouTube Reviewer,Silver,Flagged,2025-10-20,1
-PUB_078,Affiliate_Partner_078,TikTok Creator,Bronze,Active,2026-03-26,0
-PUB_079,Affiliate_Partner_079,TikTok Creator,Bronze,Active,2026-06-10,0
-PUB_080,Affiliate_Partner_080,Telegram/Zalo Community,Bronze,Active,2026-02-11,0
-PUB_081,Affiliate_Partner_081,Facebook Media Buyer,Bronze,Active,2026-05-11,0
-PUB_082,Affiliate_Partner_082,TikTok Creator,Bronze,Active,2025-12-08,0
-PUB_083,Affiliate_Partner_083,TikTok Creator,Bronze,Active,2025-12-13,0
-PUB_084,Affiliate_Partner_084,TikTok Creator,Platinum,Active,2026-05-17,0
-PUB_085,Affiliate_Partner_085,Facebook Media Buyer,Bronze,Active,2026-01-12,0
-PUB_086,Affiliate_Partner_086,Facebook Media Buyer,Gold,Active,2026-08-16,0
-PUB_087,Affiliate_Partner_087,Facebook Media Buyer,Bronze,Active,2026-02-28,0
-PUB_088,Affiliate_Partner_088,Google Ads Specialist,Gold,Active,2026-01-26,0
-PUB_089,Affiliate_Partner_089,Google Ads Specialist,Bronze,Active,2025-12-05,0
-PUB_090,Affiliate_Partner_090,YouTube Reviewer,Silver,Active,2026-06-28,0
-PUB_091,Affiliate_Partner_091,Facebook Media Buyer,Bronze,Flagged,2026-08-17,1
-PUB_092,Affiliate_Partner_092,Telegram/Zalo Community,Silver,Active,2026-08-15,0
-PUB_093,Affiliate_Partner_093,YouTube Reviewer,Bronze,Active,2026-08-21,0
-PUB_094,Affiliate_Partner_094,Telegram/Zalo Community,Silver,Active,2025-12-18,0
-PUB_095,Affiliate_Partner_095,Facebook Media Buyer,Bronze,Active,2025-12-29,0
-PUB_096,Affiliate_Partner_096,TikTok Creator,Gold,Active,2026-08-11,0
-PUB_097,Affiliate_Partner_097,Telegram/Zalo Community,Bronze,Active,2026-05-18,0
-PUB_098,Affiliate_Partner_098,SEO Content Hub,Bronze,Active,2025-11-28,0
-PUB_099,Affiliate_Partner_099,Facebook Media Buyer,Silver,Active,2026-08-26,0
-PUB_100,Affiliate_Partner_100,Telegram/Zalo Community,Bronze,Active,2025-10-14,0
+PUB_001,Affiliate_Partner_PUB_001,SEO Content Hub,Platinum,Active,2026-06-01,0
+PUB_002,Affiliate_Partner_PUB_002,Telegram/Zalo Community,Silver,Active,2026-05-17,0
+PUB_003,Affiliate_Partner_PUB_003,Google Ads Specialist,Bronze,Active,2026-06-20,0
+PUB_004,Affiliate_Partner_PUB_004,Telegram/Zalo Community,Silver,Active,2026-04-17,0
+PUB_005,Affiliate_Partner_PUB_005,Google Ads Specialist,Bronze,Active,2026-01-01,0
+PUB_006,Affiliate_Partner_PUB_006,SEO Content Hub,Platinum,Active,2026-03-08,0
+PUB_007,Affiliate_Partner_PUB_007,SEO Content Hub,Bronze,Active,2025-11-06,0
+PUB_008,Affiliate_Partner_PUB_008,YouTube Reviewer,Bronze,Active,2025-10-06,0
+PUB_009,Affiliate_Partner_PUB_009,TikTok Creator,Silver,Active,2026-03-30,0
+PUB_010,Affiliate_Partner_PUB_010,SEO Content Hub,Platinum,Active,2025-12-19,0
+PUB_011,Affiliate_Partner_PUB_011,YouTube Reviewer,Bronze,Active,2026-07-27,0
+PUB_012,Affiliate_Partner_PUB_012,SEO Content Hub,Silver,Active,2025-10-31,0
+PUB_013,Affiliate_Partner_PUB_013,TikTok Creator,Bronze,Active,2025-11-13,0
+PUB_014,Affiliate_Partner_PUB_014,Telegram/Zalo Community,Silver,Active,2025-12-16,0
+PUB_015,Affiliate_Partner_PUB_015,SEO Content Hub,Platinum,Active,2026-09-02,0
+PUB_016,Affiliate_Partner_PUB_016,Facebook Media Buyer,Bronze,Active,2025-10-05,0
+PUB_017,Affiliate_Partner_PUB_017,Telegram/Zalo Community,Bronze,Active,2026-06-16,0
+PUB_018,Affiliate_Partner_PUB_018,SEO Content Hub,Bronze,Active,2025-12-26,0
+PUB_019,Affiliate_Partner_PUB_019,Google Ads Specialist,Gold,Active,2026-07-28,0
+PUB_020,Affiliate_Partner_PUB_020,SEO Content Hub,Bronze,Active,2026-07-24,0
+PUB_021,Affiliate_Partner_PUB_021,Facebook Media Buyer,Silver,Active,2026-03-09,0
+PUB_022,Affiliate_Partner_PUB_022,Facebook Media Buyer,Gold,Active,2026-04-07,0
+PUB_023,Affiliate_Partner_PUB_023,Facebook Media Buyer,Gold,Active,2025-12-20,0
+PUB_024,Affiliate_Partner_PUB_024,YouTube Reviewer,Bronze,Active,2026-03-10,0
+PUB_025,Affiliate_Partner_PUB_025,Telegram/Zalo Community,Bronze,Active,2025-10-13,0
+PUB_026,Affiliate_Partner_PUB_026,Telegram/Zalo Community,Silver,Active,2026-02-11,0
+PUB_027,Affiliate_Partner_PUB_027,SEO Content Hub,Silver,Active,2026-08-06,0
+PUB_028,Affiliate_Partner_PUB_028,Telegram/Zalo Community,Gold,Active,2026-07-13,0
+PUB_029,Affiliate_Partner_PUB_029,TikTok Creator,Platinum,Active,2025-10-07,0
+PUB_030,Affiliate_Partner_PUB_030,TikTok Creator,Bronze,Active,2026-07-15,0
+PUB_031,Affiliate_Partner_PUB_031,Google Ads Specialist,Bronze,Active,2026-04-06,0
+PUB_032,Affiliate_Partner_PUB_032,Google Ads Specialist,Gold,Active,2025-12-29,0
+PUB_033,Affiliate_Partner_PUB_033,Facebook Media Buyer,Bronze,Active,2026-08-06,0
+PUB_034,Affiliate_Partner_PUB_034,SEO Content Hub,Gold,Active,2025-10-23,0
+PUB_035,Affiliate_Partner_PUB_035,SEO Content Hub,Bronze,Active,2026-07-30,0
+PUB_036,Affiliate_Partner_PUB_036,YouTube Reviewer,Bronze,Active,2026-06-09,0
+PUB_037,Affiliate_Partner_PUB_037,SEO Content Hub,Silver,Active,2026-08-12,0
+PUB_038,Affiliate_Partner_PUB_038,TikTok Creator,Bronze,Active,2026-05-08,0
+PUB_039,Affiliate_Partner_PUB_039,TikTok Creator,Silver,Active,2026-01-04,0
+PUB_040,Affiliate_Partner_PUB_040,YouTube Reviewer,Silver,Active,2026-02-21,0
+PUB_041,Affiliate_Partner_PUB_041,Facebook Media Buyer,Bronze,Active,2026-03-21,0
+PUB_042,Affiliate_Partner_PUB_042,TikTok Creator,Bronze,Flagged,2026-06-12,1
+PUB_043,Affiliate_Partner_PUB_043,SEO Content Hub,Gold,Active,2026-01-28,0
+PUB_044,Affiliate_Partner_PUB_044,Telegram/Zalo Community,Silver,Active,2026-08-18,0
+PUB_045,Affiliate_Partner_PUB_045,SEO Content Hub,Platinum,Active,2025-10-24,0
+PUB_046,Affiliate_Partner_PUB_046,Google Ads Specialist,Silver,Active,2025-12-06,0
+PUB_047,Affiliate_Partner_PUB_047,Facebook Media Buyer,Silver,Active,2026-07-16,0
+PUB_048,Affiliate_Partner_PUB_048,TikTok Creator,Bronze,Active,2025-12-06,0
+PUB_049,Affiliate_Partner_PUB_049,SEO Content Hub,Bronze,Active,2025-10-11,0
+PUB_050,Affiliate_Partner_PUB_050,YouTube Reviewer,Gold,Active,2026-05-11,0
+PUB_051,Affiliate_Partner_PUB_051,Facebook Media Buyer,Bronze,Active,2026-01-28,0
+PUB_052,Affiliate_Partner_PUB_052,YouTube Reviewer,Bronze,Active,2025-12-07,0
+PUB_053,Affiliate_Partner_PUB_053,YouTube Reviewer,Bronze,Active,2026-01-26,0
+PUB_054,Affiliate_Partner_PUB_054,Google Ads Specialist,Bronze,Active,2026-05-02,0
+PUB_055,Affiliate_Partner_PUB_055,YouTube Reviewer,Bronze,Active,2025-11-13,0
+PUB_056,Affiliate_Partner_PUB_056,Facebook Media Buyer,Bronze,Active,2025-11-05,0
+PUB_057,Affiliate_Partner_PUB_057,YouTube Reviewer,Bronze,Active,2026-01-26,0
+PUB_058,Affiliate_Partner_PUB_058,SEO Content Hub,Bronze,Active,2026-07-26,0
+PUB_059,Affiliate_Partner_PUB_059,SEO Content Hub,Bronze,Active,2026-05-26,0
+PUB_060,Affiliate_Partner_PUB_060,Telegram/Zalo Community,Bronze,Active,2026-06-27,0
+PUB_061,Affiliate_Partner_PUB_061,Google Ads Specialist,Silver,Active,2026-05-09,0
+PUB_062,Affiliate_Partner_PUB_062,SEO Content Hub,Bronze,Active,2026-02-04,0
+PUB_063,Affiliate_Partner_PUB_063,TikTok Creator,Silver,Active,2026-05-13,0
+PUB_064,Affiliate_Partner_PUB_064,Facebook Media Buyer,Silver,Active,2026-02-10,0
+PUB_065,Affiliate_Partner_PUB_065,YouTube Reviewer,Bronze,Active,2025-10-27,0
+PUB_066,Affiliate_Partner_PUB_066,Google Ads Specialist,Bronze,Active,2026-01-04,0
+PUB_067,Affiliate_Partner_PUB_067,YouTube Reviewer,Bronze,Active,2026-06-10,0
+PUB_068,Affiliate_Partner_PUB_068,YouTube Reviewer,Bronze,Active,2026-01-19,0
+PUB_069,Affiliate_Partner_PUB_069,TikTok Creator,Bronze,Active,2026-03-13,0
+PUB_070,Affiliate_Partner_PUB_070,YouTube Reviewer,Silver,Active,2025-12-31,0
+PUB_071,Affiliate_Partner_PUB_071,SEO Content Hub,Bronze,Active,2025-10-05,0
+PUB_072,Affiliate_Partner_PUB_072,Google Ads Specialist,Gold,Active,2026-04-21,0
+PUB_073,Affiliate_Partner_PUB_073,SEO Content Hub,Platinum,Active,2026-05-11,0
+PUB_074,Affiliate_Partner_PUB_074,Facebook Media Buyer,Gold,Active,2025-12-23,0
+PUB_075,Affiliate_Partner_PUB_075,SEO Content Hub,Silver,Active,2026-04-18,0
+PUB_076,Affiliate_Partner_PUB_076,YouTube Reviewer,Silver,Active,2025-12-27,0
+PUB_077,Affiliate_Partner_PUB_077,SEO Content Hub,Bronze,Flagged,2026-05-27,1
+PUB_078,Affiliate_Partner_PUB_078,TikTok Creator,Silver,Active,2026-09-14,0
+PUB_079,Affiliate_Partner_PUB_079,TikTok Creator,Bronze,Active,2026-04-29,0
+PUB_080,Affiliate_Partner_PUB_080,Telegram/Zalo Community,Gold,Active,2026-09-07,0
+PUB_081,Affiliate_Partner_PUB_081,TikTok Creator,Bronze,Active,2025-11-16,0
+PUB_082,Affiliate_Partner_PUB_082,Google Ads Specialist,Gold,Active,2026-07-24,0
+PUB_083,Affiliate_Partner_PUB_083,TikTok Creator,Silver,Active,2026-07-03,0
+PUB_084,Affiliate_Partner_PUB_084,TikTok Creator,Bronze,Active,2026-06-04,0
+PUB_085,Affiliate_Partner_PUB_085,SEO Content Hub,Silver,Active,2026-05-27,0
+PUB_086,Affiliate_Partner_PUB_086,YouTube Reviewer,Platinum,Active,2026-04-16,0
+PUB_087,Affiliate_Partner_PUB_087,Telegram/Zalo Community,Bronze,Active,2025-10-13,0
+PUB_088,Affiliate_Partner_PUB_088,Facebook Media Buyer,Silver,Active,2026-02-20,0
+PUB_089,Affiliate_Partner_PUB_089,Telegram/Zalo Community,Bronze,Active,2026-04-08,0
+PUB_090,Affiliate_Partner_PUB_090,SEO Content Hub,Bronze,Active,2025-12-13,0
+PUB_091,Affiliate_Partner_PUB_091,SEO Content Hub,Bronze,Flagged,2026-05-04,1
+PUB_092,Affiliate_Partner_PUB_092,Google Ads Specialist,Silver,Active,2026-08-14,0
+PUB_093,Affiliate_Partner_PUB_093,SEO Content Hub,Silver,Active,2026-08-25,0
+PUB_094,Affiliate_Partner_PUB_094,YouTube Reviewer,Silver,Active,2026-01-29,0
+PUB_095,Affiliate_Partner_PUB_095,Telegram/Zalo Community,Silver,Active,2025-12-26,0
+PUB_096,Affiliate_Partner_PUB_096,Google Ads Specialist,Bronze,Active,2025-12-13,0
+PUB_097,Affiliate_Partner_PUB_097,YouTube Reviewer,Silver,Active,2025-11-03,0
+PUB_098,Affiliate_Partner_PUB_098,Google Ads Specialist,Silver,Active,2026-03-08,0
+PUB_099,Affiliate_Partner_PUB_099,TikTok Creator,Bronze,Active,2026-03-28,0
+PUB_100,Affiliate_Partner_PUB_100,SEO Content Hub,Silver,Active,2026-08-01,0
+PUB_101,Affiliate_Partner_PUB_101,Telegram/Zalo Community,Gold,Active,2026-01-26,0
+PUB_102,Affiliate_Partner_PUB_102,Telegram/Zalo Community,Gold,Active,2025-11-18,0
+PUB_103,Affiliate_Partner_PUB_103,Telegram/Zalo Community,Silver,Active,2026-03-12,0
+PUB_104,Affiliate_Partner_PUB_104,TikTok Creator,Bronze,Active,2026-01-06,0
+PUB_105,Affiliate_Partner_PUB_105,Telegram/Zalo Community,Bronze,Active,2026-04-08,0
+PUB_106,Affiliate_Partner_PUB_106,Google Ads Specialist,Bronze,Active,2025-12-09,0
+PUB_107,Affiliate_Partner_PUB_107,Facebook Media Buyer,Platinum,Active,2026-07-20,0
+PUB_108,Affiliate_Partner_PUB_108,Google Ads Specialist,Silver,Active,2025-12-10,0
+PUB_109,Affiliate_Partner_PUB_109,Facebook Media Buyer,Silver,Active,2025-10-09,0
+PUB_110,Affiliate_Partner_PUB_110,Facebook Media Buyer,Bronze,Active,2025-12-17,0
+PUB_111,Affiliate_Partner_PUB_111,TikTok Creator,Bronze,Active,2026-01-13,0
+PUB_112,Affiliate_Partner_PUB_112,Telegram/Zalo Community,Bronze,Active,2026-08-21,0
+PUB_113,Affiliate_Partner_PUB_113,Google Ads Specialist,Bronze,Active,2026-09-03,0
+PUB_114,Affiliate_Partner_PUB_114,SEO Content Hub,Silver,Active,2025-11-07,0
+PUB_115,Affiliate_Partner_PUB_115,SEO Content Hub,Gold,Active,2025-10-30,0
+PUB_116,Affiliate_Partner_PUB_116,YouTube Reviewer,Gold,Active,2026-04-26,0
+PUB_117,Affiliate_Partner_PUB_117,SEO Content Hub,Silver,Active,2025-12-02,0
+PUB_118,Affiliate_Partner_PUB_118,YouTube Reviewer,Bronze,Active,2026-03-14,0
+PUB_119,Affiliate_Partner_PUB_119,YouTube Reviewer,Bronze,Active,2025-11-06,0
+PUB_120,Affiliate_Partner_PUB_120,Facebook Media Buyer,Bronze,Active,2026-03-20,0
+PUB_121,Affiliate_Partner_PUB_121,Facebook Media Buyer,Gold,Active,2026-07-24,0
+PUB_122,Affiliate_Partner_PUB_122,Google Ads Specialist,Bronze,Active,2025-12-26,0
+PUB_123,Affiliate_Partner_PUB_123,Telegram/Zalo Community,Bronze,Active,2026-05-31,0
+PUB_124,Affiliate_Partner_PUB_124,Telegram/Zalo Community,Silver,Active,2025-12-28,0
+PUB_125,Affiliate_Partner_PUB_125,Telegram/Zalo Community,Bronze,Active,2025-10-01,0
+PUB_126,Affiliate_Partner_PUB_126,Google Ads Specialist,Silver,Active,2025-11-12,0
+PUB_127,Affiliate_Partner_PUB_127,Telegram/Zalo Community,Platinum,Active,2026-06-02,0
+PUB_128,Affiliate_Partner_PUB_128,YouTube Reviewer,Bronze,Active,2026-05-19,0
+PUB_129,Affiliate_Partner_PUB_129,Google Ads Specialist,Bronze,Active,2025-10-05,0
+PUB_130,Affiliate_Partner_PUB_130,Telegram/Zalo Community,Bronze,Active,2025-11-02,0
+PUB_131,Affiliate_Partner_PUB_131,TikTok Creator,Silver,Active,2026-05-10,0
+PUB_132,Affiliate_Partner_PUB_132,Facebook Media Buyer,Gold,Active,2026-01-20,0
+PUB_133,Affiliate_Partner_PUB_133,Facebook Media Buyer,Bronze,Active,2026-05-21,0
+PUB_134,Affiliate_Partner_PUB_134,TikTok Creator,Silver,Active,2025-12-18,0
+PUB_135,Affiliate_Partner_PUB_135,Telegram/Zalo Community,Silver,Active,2026-07-09,0
+PUB_136,Affiliate_Partner_PUB_136,YouTube Reviewer,Silver,Active,2026-07-02,0
+PUB_137,Affiliate_Partner_PUB_137,Facebook Media Buyer,Bronze,Active,2026-06-22,0
+PUB_138,Affiliate_Partner_PUB_138,TikTok Creator,Bronze,Active,2026-02-08,0
+PUB_139,Affiliate_Partner_PUB_139,Telegram/Zalo Community,Bronze,Active,2026-06-14,0
+PUB_140,Affiliate_Partner_PUB_140,YouTube Reviewer,Platinum,Active,2026-02-24,0
+PUB_141,Affiliate_Partner_PUB_141,Facebook Media Buyer,Gold,Active,2025-10-10,0
+PUB_142,Affiliate_Partner_PUB_142,SEO Content Hub,Bronze,Flagged,2026-02-06,1
+PUB_143,Affiliate_Partner_PUB_143,Telegram/Zalo Community,Bronze,Active,2026-09-06,0
+PUB_144,Affiliate_Partner_PUB_144,YouTube Reviewer,Silver,Active,2025-11-30,0
+PUB_145,Affiliate_Partner_PUB_145,SEO Content Hub,Bronze,Active,2026-01-09,0
+PUB_146,Affiliate_Partner_PUB_146,Google Ads Specialist,Silver,Active,2026-01-02,0
+PUB_147,Affiliate_Partner_PUB_147,Telegram/Zalo Community,Silver,Active,2026-08-31,0
+PUB_148,Affiliate_Partner_PUB_148,Facebook Media Buyer,Bronze,Active,2026-04-09,0
+PUB_149,Affiliate_Partner_PUB_149,Google Ads Specialist,Gold,Active,2026-03-22,0
+PUB_150,Affiliate_Partner_PUB_150,Google Ads Specialist,Silver,Active,2026-03-21,0
+PUB_151,Affiliate_Partner_PUB_151,Google Ads Specialist,Platinum,Active,2025-10-28,0
+PUB_152,Affiliate_Partner_PUB_152,TikTok Creator,Platinum,Active,2025-10-21,0
+PUB_153,Affiliate_Partner_PUB_153,Google Ads Specialist,Bronze,Active,2026-09-04,0
+PUB_154,Affiliate_Partner_PUB_154,YouTube Reviewer,Bronze,Active,2026-01-17,0
+PUB_155,Affiliate_Partner_PUB_155,Google Ads Specialist,Bronze,Active,2026-06-18,0
+PUB_156,Affiliate_Partner_PUB_156,Telegram/Zalo Community,Gold,Active,2026-06-18,0
+PUB_157,Affiliate_Partner_PUB_157,YouTube Reviewer,Gold,Active,2026-06-03,0
+PUB_158,Affiliate_Partner_PUB_158,SEO Content Hub,Silver,Active,2026-05-25,0
+PUB_159,Affiliate_Partner_PUB_159,Telegram/Zalo Community,Platinum,Active,2026-02-11,0
+PUB_160,Affiliate_Partner_PUB_160,Telegram/Zalo Community,Platinum,Active,2026-04-05,0
+PUB_161,Affiliate_Partner_PUB_161,Facebook Media Buyer,Bronze,Active,2026-03-08,0
+PUB_162,Affiliate_Partner_PUB_162,Google Ads Specialist,Platinum,Active,2026-08-11,0
+PUB_163,Affiliate_Partner_PUB_163,Facebook Media Buyer,Bronze,Active,2026-06-12,0
+PUB_164,Affiliate_Partner_PUB_164,YouTube Reviewer,Silver,Active,2025-12-22,0
+PUB_165,Affiliate_Partner_PUB_165,TikTok Creator,Silver,Active,2025-12-11,0
+PUB_166,Affiliate_Partner_PUB_166,TikTok Creator,Bronze,Active,2025-12-04,0
+PUB_167,Affiliate_Partner_PUB_167,TikTok Creator,Silver,Active,2026-06-24,0
+PUB_168,Affiliate_Partner_PUB_168,TikTok Creator,Bronze,Active,2026-03-13,0
+PUB_169,Affiliate_Partner_PUB_169,Google Ads Specialist,Bronze,Active,2026-01-26,0
+PUB_170,Affiliate_Partner_PUB_170,Google Ads Specialist,Bronze,Active,2025-12-06,0
+PUB_171,Affiliate_Partner_PUB_171,YouTube Reviewer,Silver,Active,2026-07-26,0
+PUB_172,Affiliate_Partner_PUB_172,Google Ads Specialist,Silver,Active,2026-04-25,0
+PUB_173,Affiliate_Partner_PUB_173,Telegram/Zalo Community,Bronze,Active,2026-08-22,0
+PUB_174,Affiliate_Partner_PUB_174,SEO Content Hub,Silver,Active,2026-07-25,0
+PUB_175,Affiliate_Partner_PUB_175,TikTok Creator,Bronze,Active,2026-03-19,0
+PUB_176,Affiliate_Partner_PUB_176,Facebook Media Buyer,Platinum,Active,2026-02-05,0
+PUB_177,Affiliate_Partner_PUB_177,Facebook Media Buyer,Bronze,Active,2026-02-13,0
+PUB_178,Affiliate_Partner_PUB_178,Telegram/Zalo Community,Bronze,Active,2026-04-23,0
+PUB_179,Affiliate_Partner_PUB_179,SEO Content Hub,Silver,Active,2026-01-06,0
+PUB_180,Affiliate_Partner_PUB_180,YouTube Reviewer,Bronze,Active,2026-04-28,0
+PUB_181,Affiliate_Partner_PUB_181,Facebook Media Buyer,Bronze,Active,2025-12-07,0
+PUB_182,Affiliate_Partner_PUB_182,Facebook Media Buyer,Bronze,Active,2026-08-18,0
+PUB_183,Affiliate_Partner_PUB_183,Telegram/Zalo Community,Bronze,Active,2026-05-03,0
+PUB_184,Affiliate_Partner_PUB_184,Telegram/Zalo Community,Bronze,Active,2026-04-24,0
+PUB_185,Affiliate_Partner_PUB_185,TikTok Creator,Silver,Active,2025-11-28,0
+PUB_186,Affiliate_Partner_PUB_186,YouTube Reviewer,Silver,Active,2025-12-15,0
+PUB_187,Affiliate_Partner_PUB_187,Telegram/Zalo Community,Bronze,Active,2026-04-02,0
+PUB_188,Affiliate_Partner_PUB_188,Google Ads Specialist,Bronze,Flagged,2026-08-28,1
+PUB_189,Affiliate_Partner_PUB_189,YouTube Reviewer,Silver,Active,2026-04-28,0
+PUB_190,Affiliate_Partner_PUB_190,Facebook Media Buyer,Silver,Active,2026-07-20,0
+PUB_191,Affiliate_Partner_PUB_191,SEO Content Hub,Bronze,Active,2025-11-03,0
+PUB_192,Affiliate_Partner_PUB_192,TikTok Creator,Silver,Active,2025-10-03,0
+PUB_193,Affiliate_Partner_PUB_193,YouTube Reviewer,Bronze,Active,2025-11-08,0
+PUB_194,Affiliate_Partner_PUB_194,TikTok Creator,Bronze,Active,2026-05-05,0
+PUB_195,Affiliate_Partner_PUB_195,Facebook Media Buyer,Bronze,Active,2026-04-09,0
+PUB_196,Affiliate_Partner_PUB_196,Telegram/Zalo Community,Bronze,Active,2026-04-20,0
+PUB_197,Affiliate_Partner_PUB_197,YouTube Reviewer,Gold,Active,2026-01-07,0
+PUB_198,Affiliate_Partner_PUB_198,Telegram/Zalo Community,Bronze,Active,2026-04-22,0
+PUB_199,Affiliate_Partner_PUB_199,SEO Content Hub,Bronze,Active,2026-07-31,0
+PUB_200,Affiliate_Partner_PUB_200,TikTok Creator,Bronze,Active,2026-04-26,0
+PUB_201,Affiliate_Partner_PUB_201,TikTok Creator,Silver,Active,2025-12-31,0
+PUB_202,Affiliate_Partner_PUB_202,TikTok Creator,Gold,Active,2025-10-21,0
+PUB_203,Affiliate_Partner_PUB_203,YouTube Reviewer,Silver,Active,2026-04-13,0
+PUB_204,Affiliate_Partner_PUB_204,Telegram/Zalo Community,Bronze,Active,2025-10-03,0
+PUB_205,Affiliate_Partner_PUB_205,SEO Content Hub,Silver,Active,2026-03-14,0
+PUB_206,Affiliate_Partner_PUB_206,SEO Content Hub,Silver,Active,2026-02-08,0
+PUB_207,Affiliate_Partner_PUB_207,Telegram/Zalo Community,Platinum,Active,2026-03-08,0
+PUB_208,Affiliate_Partner_PUB_208,Google Ads Specialist,Silver,Active,2026-04-24,0
+PUB_209,Affiliate_Partner_PUB_209,TikTok Creator,Bronze,Active,2026-02-16,0
+PUB_210,Affiliate_Partner_PUB_210,Telegram/Zalo Community,Silver,Active,2026-08-01,0
+PUB_211,Affiliate_Partner_PUB_211,Google Ads Specialist,Gold,Active,2026-06-26,0
+PUB_212,Affiliate_Partner_PUB_212,Google Ads Specialist,Silver,Active,2025-11-17,0
+PUB_213,Affiliate_Partner_PUB_213,TikTok Creator,Bronze,Active,2025-11-08,0
+PUB_214,Affiliate_Partner_PUB_214,YouTube Reviewer,Gold,Active,2026-09-11,0
+PUB_215,Affiliate_Partner_PUB_215,TikTok Creator,Gold,Active,2026-04-23,0
+PUB_216,Affiliate_Partner_PUB_216,TikTok Creator,Bronze,Active,2025-12-08,0
+PUB_217,Affiliate_Partner_PUB_217,TikTok Creator,Platinum,Active,2025-12-07,0
+PUB_218,Affiliate_Partner_PUB_218,TikTok Creator,Gold,Active,2026-06-10,0
+PUB_219,Affiliate_Partner_PUB_219,TikTok Creator,Bronze,Active,2025-11-09,0
+PUB_220,Affiliate_Partner_PUB_220,YouTube Reviewer,Silver,Active,2026-03-03,0
+PUB_221,Affiliate_Partner_PUB_221,Telegram/Zalo Community,Platinum,Active,2026-08-24,0
+PUB_222,Affiliate_Partner_PUB_222,Telegram/Zalo Community,Silver,Active,2026-02-26,0
+PUB_223,Affiliate_Partner_PUB_223,Facebook Media Buyer,Bronze,Active,2026-06-23,0
+PUB_224,Affiliate_Partner_PUB_224,YouTube Reviewer,Bronze,Active,2026-09-15,0
+PUB_225,Affiliate_Partner_PUB_225,Google Ads Specialist,Bronze,Active,2025-12-30,0
+PUB_226,Affiliate_Partner_PUB_226,YouTube Reviewer,Gold,Active,2025-12-02,0
+PUB_227,Affiliate_Partner_PUB_227,Facebook Media Buyer,Bronze,Active,2026-07-06,0
+PUB_228,Affiliate_Partner_PUB_228,Facebook Media Buyer,Silver,Active,2026-05-21,0
+PUB_229,Affiliate_Partner_PUB_229,Google Ads Specialist,Silver,Active,2025-12-22,0
+PUB_230,Affiliate_Partner_PUB_230,TikTok Creator,Silver,Active,2026-02-06,0
+PUB_231,Affiliate_Partner_PUB_231,Google Ads Specialist,Bronze,Active,2026-05-27,0
+PUB_232,Affiliate_Partner_PUB_232,Telegram/Zalo Community,Silver,Active,2026-07-12,0
+PUB_233,Affiliate_Partner_PUB_233,Google Ads Specialist,Bronze,Active,2026-03-08,0
+PUB_234,Affiliate_Partner_PUB_234,SEO Content Hub,Platinum,Active,2025-11-14,0
+PUB_235,Affiliate_Partner_PUB_235,Facebook Media Buyer,Silver,Active,2025-10-16,0
+PUB_236,Affiliate_Partner_PUB_236,Google Ads Specialist,Bronze,Active,2025-11-12,0
+PUB_237,Affiliate_Partner_PUB_237,TikTok Creator,Silver,Active,2025-10-16,0
+PUB_238,Affiliate_Partner_PUB_238,SEO Content Hub,Bronze,Active,2026-06-02,0
+PUB_239,Affiliate_Partner_PUB_239,Google Ads Specialist,Silver,Active,2025-12-05,0
+PUB_240,Affiliate_Partner_PUB_240,SEO Content Hub,Silver,Active,2025-10-21,0
+PUB_241,Affiliate_Partner_PUB_241,TikTok Creator,Bronze,Active,2026-07-09,0
+PUB_242,Affiliate_Partner_PUB_242,Facebook Media Buyer,Silver,Active,2026-02-23,0
+PUB_243,Affiliate_Partner_PUB_243,YouTube Reviewer,Silver,Active,2026-01-19,0
+PUB_244,Affiliate_Partner_PUB_244,Google Ads Specialist,Bronze,Active,2026-01-10,0
+PUB_245,Affiliate_Partner_PUB_245,Google Ads Specialist,Bronze,Active,2026-09-08,0
+PUB_246,Affiliate_Partner_PUB_246,SEO Content Hub,Bronze,Active,2026-03-16,0
+PUB_247,Affiliate_Partner_PUB_247,TikTok Creator,Gold,Active,2026-03-05,0
+PUB_248,Affiliate_Partner_PUB_248,Google Ads Specialist,Silver,Active,2026-07-17,0
+PUB_249,Affiliate_Partner_PUB_249,Facebook Media Buyer,Bronze,Active,2025-12-13,0
+PUB_250,Affiliate_Partner_PUB_250,Telegram/Zalo Community,Bronze,Active,2026-03-30,0

@@ -11,6 +11,7 @@ Automates:
 
 import os
 import csv
+import gzip
 import json
 from datetime import datetime
 
@@ -19,13 +20,38 @@ RAW_DIR = os.path.join(BASE_DIR, "01_data", "raw")
 PROCESSED_DIR = os.path.join(BASE_DIR, "01_data", "processed")
 os.makedirs(PROCESSED_DIR, exist_ok=True)
 
-def load_csv(filepath):
-    data = []
-    with open(filepath, mode="r", encoding="utf-8") as f:
-        reader = csv.DictReader(f)
-        for row in reader:
-            data.append(row)
-    return data
+def load_data(filepath):
+    """Loads CSV, Gzipped CSV, or Parquet file seamlessly."""
+    if not os.path.exists(filepath):
+        return []
+    if filepath.endswith(".gz"):
+        data = []
+        with gzip.open(filepath, mode="rt", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                data.append(row)
+        return data
+    elif filepath.endswith(".parquet"):
+        try:
+            import pandas as pd
+            return pd.read_parquet(filepath).to_dict("records")
+        except Exception:
+            return []
+    else:
+        data = []
+        with open(filepath, mode="r", encoding="utf-8") as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                data.append(row)
+        return data
+
+def find_file(raw_dir, base_name):
+    """Finds parquet, csv.gz, or csv version of a file."""
+    for ext in [".parquet", ".csv.gz", ".csv"]:
+        candidate = os.path.join(raw_dir, base_name + ext)
+        if os.path.exists(candidate):
+            return candidate
+    return os.path.join(raw_dir, base_name + ".csv")
 
 def run_pipeline():
     print("=" * 60)
@@ -34,14 +60,22 @@ def run_pipeline():
     print("=" * 60)
 
     # 1. Ingestion
-    print("\n[Step 1/4] Ingesting multi-source raw files...")
-    publishers = load_csv(os.path.join(RAW_DIR, "dim_publishers.csv"))
-    offers = load_csv(os.path.join(RAW_DIR, "dim_offers.csv"))
-    clicks = load_csv(os.path.join(RAW_DIR, "fact_clicks.csv"))
-    conversions = load_csv(os.path.join(RAW_DIR, "fact_conversions.csv"))
+    print("\n[Step 1/4] Ingesting multi-source Big Data files...")
+    pub_file = find_file(RAW_DIR, "dim_publishers")
+    offer_file = find_file(RAW_DIR, "dim_offers")
+    click_file = find_file(RAW_DIR, "fact_clicks")
+    conv_file = find_file(RAW_DIR, "fact_conversions")
+
+    print(f"-> Reading Clicks: {os.path.basename(click_file)} ({os.path.getsize(click_file)/(1024*1024):.2f} MB)")
+    print(f"-> Reading Conversions: {os.path.basename(conv_file)} ({os.path.getsize(conv_file)/(1024*1024):.2f} MB)")
+
+    publishers = load_data(pub_file)
+    offers = load_data(offer_file)
+    clicks = load_data(click_file)
+    conversions = load_data(conv_file)
 
     print(f"-> Loaded {len(publishers)} publishers, {len(offers)} offers")
-    print(f"-> Loaded {len(clicks)} clicks, {len(conversions)} conversions")
+    print(f"-> Loaded {len(clicks):,} clicks, {len(conversions):,} conversions")
 
     # 2. Data Quality Checks
     print("\n[Step 2/4] Running Data Quality (DQ) Gatekeeper checks...")
