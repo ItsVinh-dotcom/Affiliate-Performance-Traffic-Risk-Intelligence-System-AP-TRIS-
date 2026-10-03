@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "name": "bar_traffic_channel",
+  "position": {
+    "x": 1180,
+    "y": 40,
+    "z": 0,
+    "width": 690,
+    "height": 480
+  },
+  "visual": {
+    "visualType": "columnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_publishers"
+                    }
+                  },
+                  "Property": "traffic_channel"
+                }
+              },
+              "queryRef": "dim_publishers.traffic_channel"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Approved Conversions"
+                }
+              },
+              "queryRef": "_Measures.Approved Conversions"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Rejected Conversions"
+                }
+              },
+              "queryRef": "_Measures.Rejected Conversions"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Conversions by Traffic Channel'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

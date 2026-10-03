@@ -1,0 +1,27 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table _Measures
+ref table daily_campaign_kpi
+ref table dim_offers
+ref table dim_publishers
+ref table fact_clicks
+ref table fact_conversions
+ref table publisher_risk_scoring
+
+ref relationship 520db0b2-1111-4eb1-1111-000000000001
+ref relationship 520db0b2-2222-4eb1-2222-000000000002
+ref relationship 520db0b2-3333-4eb1-3333-000000000003
+ref relationship 520db0b2-4444-4eb1-4444-000000000004
+ref relationship 520db0b2-5555-4eb1-5555-000000000005
+
+ref cultureInfo en-US

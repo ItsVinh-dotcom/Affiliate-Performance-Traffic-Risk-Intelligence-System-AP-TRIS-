@@ -1,0 +1,70 @@
+table _Measures
+	lineageTag: a0000000-0000-0000-0000-000000000000
+
+	measure 'Total Clicks' = COUNTROWS('fact_clicks')
+		formatString: #,0
+		lineageTag: a0000000-0000-0000-0000-000000000001
+
+	measure 'Total Conversions' = COUNTROWS('fact_conversions')
+		formatString: #,0
+		lineageTag: a0000000-0000-0000-0000-000000000002
+
+	measure 'Approved Conversions' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[status] = "Approved")
+		formatString: #,0
+		lineageTag: a0000000-0000-0000-0000-000000000003
+
+	measure 'Rejected Conversions' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[status] IN {"Rejected", "Fraud"})
+		formatString: #,0
+		lineageTag: a0000000-0000-0000-0000-000000000004
+
+	measure 'CR %' = DIVIDE([Total Conversions], [Total Clicks], 0)
+		formatString: 0.00%
+		lineageTag: a0000000-0000-0000-0000-000000000005
+
+	measure 'Approval Rate %' = DIVIDE([Approved Conversions], [Total Conversions], 0)
+		formatString: 0.00%
+		lineageTag: a0000000-0000-0000-0000-000000000006
+
+	measure 'Gross Revenue' = SUM('fact_conversions'[advertiser_revenue_vnd])
+		formatString: #,0" VNĐ"
+		lineageTag: a0000000-0000-0000-0000-000000000007
+
+	measure 'Publisher Payout' = SUM('fact_conversions'[publisher_payout_vnd])
+		formatString: #,0" VNĐ"
+		lineageTag: a0000000-0000-0000-0000-000000000008
+
+	measure 'Net Platform Margin' = [Gross Revenue] - [Publisher Payout]
+		formatString: #,0" VNĐ"
+		lineageTag: a0000000-0000-0000-0000-000000000009
+
+	measure 'Gross Margin %' = DIVIDE([Net Platform Margin], [Gross Revenue], 0)
+		formatString: 0.00%
+		lineageTag: a0000000-0000-0000-0000-000000000010
+
+	measure 'EPC (VND)' = DIVIDE([Publisher Payout], [Total Clicks], 0)
+		formatString: #,0" VNĐ"
+		lineageTag: a0000000-0000-0000-0000-000000000011
+
+	measure 'Platform RPC' = DIVIDE([Gross Revenue], [Total Clicks], 0)
+		formatString: #,0" VNĐ"
+		lineageTag: a0000000-0000-0000-0000-000000000012
+
+	measure 'Bot Lead Count' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[time_to_convert_seconds] < 5)
+		formatString: #,0
+		lineageTag: a0000000-0000-0000-0000-000000000013
+
+	measure 'Bot Traffic Ratio %' = DIVIDE([Bot Lead Count], [Total Conversions], 0)
+		formatString: 0.00%
+		lineageTag: a0000000-0000-0000-0000-000000000014
+
+	measure 'Publisher Risk Status' = SWITCH(TRUE(), [Total Conversions] >= 20 && [Approval Rate %] < 0.15, "🔴 CRITICAL (Block Recommended)", [Total Conversions] >= 10 && [Approval Rate %] < 0.25, "🟡 WATCHLIST (Review Traffic)", "🟢 NORMAL")
+		lineageTag: a0000000-0000-0000-0000-000000000015
+
+	partition _Measures = m
+		mode: import
+		source =
+			let
+			    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+			    #"Removed Columns" = Table.RemoveColumns(Source,{"Column1"})
+			in
+			    #"Removed Columns"

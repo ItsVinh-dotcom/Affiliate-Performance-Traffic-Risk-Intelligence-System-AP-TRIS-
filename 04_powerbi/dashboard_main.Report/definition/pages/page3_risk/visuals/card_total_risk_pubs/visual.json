@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "name": "card_total_risk_pubs",
+  "position": {
+    "x": 1240,
+    "y": 40,
+    "z": 0,
+    "width": 630,
+    "height": 160
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_publishers"
+                    }
+                  },
+                  "Property": "is_fraud_suspect"
+                }
+              },
+              "queryRef": "dim_publishers.is_fraud_suspect"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'High-Risk Publisher Count'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

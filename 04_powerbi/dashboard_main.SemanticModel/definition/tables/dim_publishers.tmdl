@@ -1,0 +1,55 @@
+table dim_publishers
+	lineageTag: b0000001-0000-0000-0000-000000000000
+
+	column publisher_id
+		dataType: string
+		lineageTag: b0000001-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: publisher_id
+
+	column publisher_name
+		dataType: string
+		lineageTag: b0000001-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: publisher_name
+
+	column traffic_channel
+		dataType: string
+		lineageTag: b0000001-0000-0000-0000-000000000003
+		summarizeBy: none
+		sourceColumn: traffic_channel
+
+	column tier
+		dataType: string
+		lineageTag: b0000001-0000-0000-0000-000000000004
+		summarizeBy: none
+		sourceColumn: tier
+
+	column status
+		dataType: string
+		lineageTag: b0000001-0000-0000-0000-000000000005
+		summarizeBy: none
+		sourceColumn: status
+
+	column join_date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b0000001-0000-0000-0000-000000000006
+		summarizeBy: none
+		sourceColumn: join_date
+
+	column is_fraud_suspect
+		dataType: int64
+		lineageTag: b0000001-0000-0000-0000-000000000007
+		summarizeBy: sum
+		sourceColumn: is_fraud_suspect
+
+	partition dim_publishers = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/silver/dim_publishers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"publisher_id", type text}, {"publisher_name", type text}, {"traffic_channel", type text}, {"tier", type text}, {"status", type text}, {"join_date", type date}, {"is_fraud_suspect", Int64.Type}})
+			in
+			    #"Changed Type"

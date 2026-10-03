@@ -1,0 +1,113 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 887.14807618316343,
+            "y": 149.07814211046741
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "a0000000-0000-0000-0000-000000000000",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1171.1480761831635,
+            "y": 149.07814211046741
+          },
+          "nodeIndex": "daily_campaign_kpi",
+          "nodeLineageTag": "b0000005-0000-0000-0000-000000000000",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 653.14807618316343,
+            "y": 248.18972447756346
+          },
+          "nodeIndex": "dim_offers",
+          "nodeLineageTag": "b0000002-0000-0000-0000-000000000000",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -50
+          },
+          "nodeIndex": "dim_publishers",
+          "nodeLineageTag": "b0000001-0000-0000-0000-000000000000",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 447.94313001149692,
+            "y": -25.970526467549462
+          },
+          "nodeIndex": "fact_clicks",
+          "nodeLineageTag": "b0000003-0000-0000-0000-000000000000",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 264.05718182049031,
+            "y": 248.15628422093488
+          },
+          "nodeIndex": "fact_conversions",
+          "nodeLineageTag": "b0000004-0000-0000-0000-000000000000",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1455.1480761831635,
+            "y": 163.07814211046741
+          },
+          "nodeIndex": "publisher_risk_scoring",
+          "nodeLineageTag": "b0000006-0000-0000-0000-000000000000",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

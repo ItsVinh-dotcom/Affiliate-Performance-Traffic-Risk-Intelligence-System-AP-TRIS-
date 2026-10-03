@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "name": "donut_vertical",
+  "position": {
+    "x": 1180,
+    "y": 210,
+    "z": 0,
+    "width": 690,
+    "height": 420
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_offers"
+                    }
+                  },
+                  "Property": "vertical"
+                }
+              },
+              "queryRef": "dim_offers.vertical"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Gross Revenue"
+                }
+              },
+              "queryRef": "_Measures.Gross Revenue"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Revenue Share by Offer Vertical'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

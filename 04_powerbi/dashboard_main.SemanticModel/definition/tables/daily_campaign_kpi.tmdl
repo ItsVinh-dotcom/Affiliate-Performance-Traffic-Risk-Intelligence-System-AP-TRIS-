@@ -1,0 +1,67 @@
+table daily_campaign_kpi
+	lineageTag: b0000005-0000-0000-0000-000000000000
+
+	column date
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: b0000005-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: date
+
+	column offer_id
+		dataType: string
+		lineageTag: b0000005-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: offer_id
+
+	column total_conversions
+		dataType: int64
+		lineageTag: b0000005-0000-0000-0000-000000000003
+		summarizeBy: sum
+		sourceColumn: total_conversions
+
+	column approved_conversions
+		dataType: int64
+		lineageTag: b0000005-0000-0000-0000-000000000004
+		summarizeBy: sum
+		sourceColumn: approved_conversions
+
+	column rejected_conversions
+		dataType: int64
+		lineageTag: b0000005-0000-0000-0000-000000000005
+		summarizeBy: sum
+		sourceColumn: rejected_conversions
+
+	column approval_rate_pct
+		dataType: double
+		lineageTag: b0000005-0000-0000-0000-000000000006
+		summarizeBy: sum
+		sourceColumn: approval_rate_pct
+
+	column gross_revenue_vnd
+		dataType: double
+		lineageTag: b0000005-0000-0000-0000-000000000007
+		summarizeBy: sum
+		sourceColumn: gross_revenue_vnd
+
+	column publisher_payout_vnd
+		dataType: double
+		lineageTag: b0000005-0000-0000-0000-000000000008
+		summarizeBy: sum
+		sourceColumn: publisher_payout_vnd
+
+	column gross_margin_vnd
+		dataType: double
+		lineageTag: b0000005-0000-0000-0000-000000000009
+		summarizeBy: sum
+		sourceColumn: gross_margin_vnd
+
+	partition daily_campaign_kpi = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/gold/daily_campaign_kpi.csv.gz"), Compression.GZip), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"offer_id", type text}, {"total_conversions", Int64.Type}, {"approved_conversions", Int64.Type}, {"rejected_conversions", Int64.Type}, {"approval_rate_pct", type number}, {"gross_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}})
+			in
+			    #"Changed Type"

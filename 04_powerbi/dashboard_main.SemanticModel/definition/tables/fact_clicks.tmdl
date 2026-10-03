@@ -1,0 +1,49 @@
+table fact_clicks
+	lineageTag: b0000003-0000-0000-0000-000000000000
+
+	column click_id
+		dataType: string
+		lineageTag: b0000003-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: click_id
+
+	column click_time
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss
+		lineageTag: b0000003-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: click_time
+
+	column publisher_id
+		dataType: string
+		lineageTag: b0000003-0000-0000-0000-000000000003
+		summarizeBy: none
+		sourceColumn: publisher_id
+
+	column offer_id
+		dataType: string
+		lineageTag: b0000003-0000-0000-0000-000000000004
+		summarizeBy: none
+		sourceColumn: offer_id
+
+	column device_type
+		dataType: string
+		lineageTag: b0000003-0000-0000-0000-000000000005
+		summarizeBy: none
+		sourceColumn: device_type
+
+	column user_ip
+		dataType: string
+		lineageTag: b0000003-0000-0000-0000-000000000006
+		summarizeBy: none
+		sourceColumn: user_ip
+
+	partition fact_clicks = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/bronze/fact_clicks.csv.gz"), Compression.GZip), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"click_id", type text}, {"click_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"device_type", type text}, {"user_ip", type text}})
+			in
+			    #"Changed Type"

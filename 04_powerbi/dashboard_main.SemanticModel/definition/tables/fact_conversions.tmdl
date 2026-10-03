@@ -1,0 +1,79 @@
+table fact_conversions
+	lineageTag: b0000004-0000-0000-0000-000000000000
+
+	column conversion_id
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: conversion_id
+
+	column click_id
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: click_id
+
+	column conversion_time
+		dataType: dateTime
+		formatString: yyyy-mm-dd hh:nn:ss
+		lineageTag: b0000004-0000-0000-0000-000000000003
+		summarizeBy: none
+		sourceColumn: conversion_time
+
+	column publisher_id
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000004
+		summarizeBy: none
+		sourceColumn: publisher_id
+
+	column offer_id
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000005
+		summarizeBy: none
+		sourceColumn: offer_id
+
+	column time_to_convert_seconds
+		dataType: int64
+		lineageTag: b0000004-0000-0000-0000-000000000006
+		summarizeBy: sum
+		sourceColumn: time_to_convert_seconds
+
+	column status
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000007
+		summarizeBy: none
+		sourceColumn: status
+
+	column rejection_reason
+		dataType: string
+		lineageTag: b0000004-0000-0000-0000-000000000008
+		summarizeBy: none
+		sourceColumn: rejection_reason
+
+	column advertiser_revenue_vnd
+		dataType: double
+		lineageTag: b0000004-0000-0000-0000-000000000009
+		summarizeBy: sum
+		sourceColumn: advertiser_revenue_vnd
+
+	column publisher_payout_vnd
+		dataType: double
+		lineageTag: b0000004-0000-0000-0000-000000000010
+		summarizeBy: sum
+		sourceColumn: publisher_payout_vnd
+
+	column gross_margin_vnd
+		dataType: double
+		lineageTag: b0000004-0000-0000-0000-000000000011
+		summarizeBy: sum
+		sourceColumn: gross_margin_vnd
+
+	partition fact_conversions = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/silver/fact_conversions_cleansed.csv.gz"), Compression.GZip), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"conversion_id", type text}, {"click_id", type text}, {"conversion_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"time_to_convert_seconds", Int64.Type}, {"status", type text}, {"rejection_reason", type text}, {"advertiser_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}})
+			in
+			    #"Changed Type"

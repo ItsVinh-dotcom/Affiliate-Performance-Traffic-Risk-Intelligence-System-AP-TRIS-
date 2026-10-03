@@ -1,0 +1,60 @@
+table dim_offers
+	lineageTag: b0000002-0000-0000-0000-000000000000
+
+	column offer_id
+		dataType: string
+		lineageTag: b0000002-0000-0000-0000-000000000001
+		summarizeBy: none
+		sourceColumn: offer_id
+
+	column offer_name
+		dataType: string
+		lineageTag: b0000002-0000-0000-0000-000000000002
+		summarizeBy: none
+		sourceColumn: offer_name
+
+	column vertical
+		dataType: string
+		lineageTag: b0000002-0000-0000-0000-000000000003
+		summarizeBy: none
+		sourceColumn: vertical
+
+	column payout_model
+		dataType: string
+		lineageTag: b0000002-0000-0000-0000-000000000004
+		summarizeBy: none
+		sourceColumn: payout_model
+
+	column advertiser_name
+		dataType: string
+		lineageTag: b0000002-0000-0000-0000-000000000005
+		summarizeBy: none
+		sourceColumn: advertiser_name
+
+	column advertiser_revenue_vnd
+		dataType: double
+		lineageTag: b0000002-0000-0000-0000-000000000006
+		summarizeBy: sum
+		sourceColumn: advertiser_revenue_vnd
+
+	column publisher_payout_vnd
+		dataType: double
+		lineageTag: b0000002-0000-0000-0000-000000000007
+		summarizeBy: sum
+		sourceColumn: publisher_payout_vnd
+
+	column expected_approval_rate
+		dataType: double
+		lineageTag: b0000002-0000-0000-0000-000000000008
+		summarizeBy: sum
+		sourceColumn: expected_approval_rate
+
+	partition dim_offers = m
+		mode: import
+		source =
+			let
+			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/silver/dim_offers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=8, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"offer_id", type text}, {"offer_name", type text}, {"vertical", type text}, {"payout_model", type text}, {"advertiser_name", type text}, {"advertiser_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"expected_approval_rate", type number}})
+			in
+			    #"Changed Type"
