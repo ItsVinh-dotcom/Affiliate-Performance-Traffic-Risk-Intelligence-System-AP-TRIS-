@@ -1,8 +1,8 @@
 # Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
 
-[![Domain: Affiliate Marketing](https://img.shields.io/badge/Domain-Affiliate%20Marketing-blue.svg)](#)
-[![Data: 1M simulated clicks](https://img.shields.io/badge/Data-1M%20simulated%20clicks-brightgreen.svg)](#)
-[![Stack: SQL | Power BI | Python](https://img.shields.io/badge/Stack-SQL%20%7C%20Power%20BI%20%7C%20Python-orange.svg)](#)
+[![Domain: Affiliate Marketing](<https://img.shields.io/badge/Domain-Affiliate%20Marketing-blue.svg>)](#)
+[![Data: 1M simulated clicks](<https://img.shields.io/badge/Data-1M%20simulated%20clicks-brightgreen.svg>)](#)
+[![Stack: SQL | Power BI | Python](<https://img.shields.io/badge/Stack-SQL%20%7C%20Power%20BI%20%7C%20Python-orange.svg>)](#)
 
 > ⚠️ **Lưu ý về dữ liệu:** Toàn bộ dữ liệu trong dự án là **dữ liệu giả lập** do script `01_data/generate_1m_data.py` sinh ra (seed cố định = 42, có thể tái lập). Tên ngân hàng và nhãn hàng chỉ dùng để mô phỏng bối cảnh. Giá trị hoa hồng và tỷ lệ duyệt là giả định, không phải số liệu thật của bất kỳ đối tác nào.
 
@@ -10,7 +10,7 @@
 
 ## Câu chuyện dự án (đọc trong 30 giây)
 
-> Em đóng vai **Data Analyst đứng giữa team tối ưu chiến dịch và team traffic** của một mạng affiliate (tình huống mô phỏng).
+> Tôi đóng vai **Data Analyst đứng giữa team tối ưu chiến dịch và team traffic** của một mạng affiliate (tình huống mô phỏng).
 >
 > 1. **Xung đột:** team traffic muốn cắt kênh TikTok vì tỷ lệ duyệt thấp, team chiến dịch nhận phàn nàn "lead rác" từ ngân hàng. Hai bên dùng hai bộ số khác nhau.
 > 2. **Xây nền:** star schema + SQL + dashboard Power BI → một nguồn số liệu chung cho cả hai team.
@@ -35,25 +35,25 @@ Một mạng affiliate đứng giữa hai bên:
 
 Bên trong sàn, hai team nhìn cùng một vấn đề từ hai phía *(tình huống mô phỏng)*:
 
-| Team | Mối quan tâm | Câu hỏi đặt cho DA |
-|---|---|---|
-| **Traffic** (làm việc với publisher) | Volume, EPC, giữ chân publisher | "Tỷ lệ duyệt kênh TikTok thấp, có nên cắt không?" |
-| **Tối ưu chiến dịch** (làm việc với advertiser) | Tỷ lệ duyệt, chất lượng lead, đối soát | "Ngân hàng phàn nàn lead rác, nguồn từ đâu?" |
+| Team                                                         | Mối quan tâm                                  | Câu hỏi đặt cho DA                                     |
+| ------------------------------------------------------------ | ----------------------------------------------- | ---------------------------------------------------------- |
+| **Traffic** (làm việc với publisher)                | Volume, EPC, giữ chân publisher               | "Tỷ lệ duyệt kênh TikTok thấp, có nên cắt không?" |
+| **Tối ưu chiến dịch** (làm việc với advertiser) | Tỷ lệ duyệt, chất lượng lead, đối soát | "Ngân hàng phàn nàn lead rác, nguồn từ đâu?"      |
 
 Vai trò của DA: đưa ra **một nguồn số liệu chung**, tìm nguyên nhân gốc và đề xuất hành động cho cả hai team.
 
 ### Quy mô dữ liệu mô phỏng
 
-| Thành phần | Số lượng |
-|---|---|
-| Click | 1.000.000 |
-| Chuyển đổi (lead/đơn) | 49.006 |
-| Publisher | 250 (6 kênh traffic, 4 hạng: Bronze / Silver / Gold / Platinum) |
-| Offer | 25 (Ngân hàng – Tài chính, Làm đẹp, Sức khỏe, TMĐT, App, Giáo dục) |
-| Thời gian | 2 tháng (08–09/2026) |
-| Publisher gian lận được cài sẵn | 5 (dùng để kiểm chứng các rule phát hiện) |
+| Thành phần                                 | Số lượng                                                                                                                    |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Click                                        | 1.000.000                                                                                                                      |
+| Chuyển đổi (lead/đơn)                   | 49.006                                                                                                                         |
+| Publisher                                    | 250 (6 kênh traffic, 4 hạng: Bronze / Silver / Gold / Platinum)                                                              |
+| Offer                                        | 25 (Ngân hàng – Tài chính, Làm đẹp, Sức khỏe, TMĐT, App, Giáo dục)                                                |
+| Thời gian                                   | 2 tháng (08–09/2026)                                                                                                         |
+| Publisher gian lận được cài sẵn        | 5 (dùng để kiểm chứng các rule phát hiện)                                                                              |
 | Lịch sử publisher (cho phân tích cohort) | 1.200 publisher từng đăng ký, 12 tháng (10/2025–09/2026), trong đó 250 publisher managed có dữ liệu click chi tiết |
-| File đối soát của advertiser | 2 tháng, dùng làm nguồn dữ liệu thứ 2 cho bài toán đối soát |
+| File đối soát của advertiser             | 2 tháng, dùng làm nguồn dữ liệu thứ 2 cho bài toán đối soát                                                        |
 
 ---
 
@@ -112,37 +112,37 @@ erDiagram
 
 ### 2.2. Bộ KPI
 
-| Chỉ số | Công thức | Ý nghĩa |
-| :--- | :--- | :--- |
-| **CR %** | Conversions / Clicks | Hiệu quả chuyển click thành đơn |
-| **Approval Rate %** | Approved / Conversions | Tỷ lệ hồ sơ được advertiser duyệt |
-| **Gross Margin** | Advertiser Revenue − Publisher Payout | Phần sàn giữ lại |
-| **Margin %** | Gross Margin / Revenue | Tỷ suất lợi nhuận gộp |
-| **EPC** | Publisher Payout / Clicks | Hoa hồng trung bình mỗi click (publisher so với chi phí CPC của mình) |
+| Chỉ số                  | Công thức                            | Ý nghĩa                                                                    |
+| :------------------------ | :------------------------------------- | :--------------------------------------------------------------------------- |
+| **CR %**            | Conversions / Clicks                   | Hiệu quả chuyển click thành đơn                                        |
+| **Approval Rate %** | Approved / Conversions                 | Tỷ lệ hồ sơ được advertiser duyệt                                    |
+| **Gross Margin**    | Advertiser Revenue − Publisher Payout | Phần sàn giữ lại                                                         |
+| **Margin %**        | Gross Margin / Revenue                 | Tỷ suất lợi nhuận gộp                                                   |
+| **EPC**             | Publisher Payout / Clicks              | Hoa hồng trung bình mỗi click (publisher so với chi phí CPC của mình) |
 
 **Kết quả tổng quan (tính từ dữ liệu mô phỏng):**
 
-| KPI | Giá trị |
-|---|---|
-| CR | 4,90% |
-| Approval Rate | 61,8% (69,7% nếu loại 5 publisher gian lận) |
-| Doanh thu gộp | 5,89 tỷ VNĐ |
-| Hoa hồng publisher | 4,22 tỷ VNĐ |
-| Lợi nhuận gộp | 1,67 tỷ VNĐ (margin 28,4%) |
-| EPC | ~4.219 VNĐ/click |
+| KPI                 | Giá trị                                      |
+| ------------------- | ---------------------------------------------- |
+| CR                  | 4,90%                                          |
+| Approval Rate       | 61,8% (69,7% nếu loại 5 publisher gian lận) |
+| Doanh thu gộp      | 5,89 tỷ VNĐ                                  |
+| Hoa hồng publisher | 4,22 tỷ VNĐ                                  |
+| Lợi nhuận gộp    | 1,67 tỷ VNĐ (margin 28,4%)                   |
+| EPC                 | ~4.219 VNĐ/click                              |
 
 ### 2.3. SQL (`02_sql/`)
 
 Các script viết theo cú pháp **PostgreSQL** và đã được chạy thử trên DuckDB.
 
-| File | Nội dung |
-|---|---|
-| `01_schema_setup.sql` | DDL star schema và index |
-| `02_kpi_metrics.sql` | Báo cáo theo offer, xếp hạng publisher (`DENSE_RANK`, `SUM() OVER ()`), so sánh kênh traffic |
-| `03_fraud_detection.sql` | 3 rule phát hiện gian lận (xem mục 3) |
-| `04_cohort_analysis.sql` | Cohort publisher: ma trận retention (pivot bằng `FILTER`), LTV cộng dồn theo kênh (`SUM() OVER`) |
-| `05_advertiser_reconciliation.sql` | Đối soát tháng: `FULL OUTER JOIN` tracking của sàn với file advertiser, phân loại sai lệch, tính doanh thu được xuất hóa đơn |
-| `06_weekly_wow_report.sql` | Báo cáo tuần: KPI từng offer so với tuần trước bằng `LAG()`, tự gắn cờ offer tụt tỷ lệ duyệt hoặc tụt lãi |
+| File                                 | Nội dung                                                                                                                                       |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `01_schema_setup.sql`              | DDL star schema và index                                                                                                                       |
+| `02_kpi_metrics.sql`               | Báo cáo theo offer, xếp hạng publisher (`DENSE_RANK`, `SUM() OVER ()`), so sánh kênh traffic                                          |
+| `03_fraud_detection.sql`           | 3 rule phát hiện gian lận (xem mục 3)                                                                                                       |
+| `04_cohort_analysis.sql`           | Cohort publisher: ma trận retention (pivot bằng`FILTER`), LTV cộng dồn theo kênh (`SUM() OVER`)                                        |
+| `05_advertiser_reconciliation.sql` | Đối soát tháng:`FULL OUTER JOIN` tracking của sàn với file advertiser, phân loại sai lệch, tính doanh thu được xuất hóa đơn |
+| `06_weekly_wow_report.sql`         | Báo cáo tuần: KPI từng offer so với tuần trước bằng`LAG()`, tự gắn cờ offer tụt tỷ lệ duyệt hoặc tụt lãi                   |
 
 Ví dụ: xếp hạng publisher theo lợi nhuận mang về cho sàn.
 
@@ -166,11 +166,11 @@ LIMIT 20;
 
 File `dashboard_main.pbip` gồm 3 trang:
 
-| Trang | Người xem | Nội dung chính |
-|---|---|---|
-| **1. Tổng quan** | Quản lý, cả hai team | 6 thẻ KPI (doanh thu, lãi gộp, margin %, đơn duyệt, tỷ lệ duyệt, EPC); doanh thu & lãi theo ngày; theo ngành hàng; xếp hạng offer |
-| **2. Chiến dịch & Kênh** | Team traffic, team chiến dịch | **Tỷ lệ duyệt theo kênh trước & sau khi loại gian lận**; phân tán offer (tỷ lệ duyệt × lãi gộp); bảng chi tiết offer |
-| **3. Rủi ro gian lận** | Team chiến dịch, kế toán | Thẻ cảnh báo (lead nghi bot, publisher gắn cờ, hoa hồng trả sai); phân phối thời gian click → điền form; lý do từ chối; bảng chấm điểm rủi ro publisher |
+| Trang                             | Người xem                     | Nội dung chính                                                                                                                                                             |
+| --------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **1. Tổng quan**           | Quản lý, cả hai team         | 6 thẻ KPI (doanh thu, lãi gộp, margin %, đơn duyệt, tỷ lệ duyệt, EPC); doanh thu & lãi theo ngày; theo ngành hàng; xếp hạng offer                             |
+| **2. Chiến dịch & Kênh** | Team traffic, team chiến dịch | **Tỷ lệ duyệt theo kênh trước & sau khi loại gian lận**; phân tán offer (tỷ lệ duyệt × lãi gộp); bảng chi tiết offer                                 |
+| **3. Rủi ro gian lận**    | Team chiến dịch, kế toán    | Thẻ cảnh báo (lead nghi bot, publisher gắn cờ, hoa hồng trả sai); phân phối thời gian click → điền form; lý do từ chối; bảng chấm điểm rủi ro publisher |
 
 **Trang 1 – Tổng quan:** xem ảnh ở đầu README.
 
@@ -206,11 +206,11 @@ Bố cục chi tiết ở [`04_powerbi/dashboard_wireframe.md`](04_powerbi/dashb
 
 **Bước 3 – Mở rộng bằng 3 rule** (`02_sql/03_fraud_detection.sql`):
 
-| Rule | Ngưỡng | Kết quả trên dữ liệu |
-|---|---|---|
-| Time-to-convert bất thường | Điền form < 5 giây (người dùng thật có trung vị ~22 phút) | 5.935 lead, toàn bộ trong khoảng 1–3 giây |
-| Cụm IP | ≥ 3 đơn từ cùng 1 IP trong 1 ngày | Traffic gian lận dồn về 6 IP thuộc dải `113.161.44.x` |
-| Tỷ lệ duyệt thấp | ≥ 20 đơn và Approval Rate < 15% | 5 publisher có tỷ lệ duyệt ~4–6%, trong khi trung bình sàn là 61,8% |
+| Rule                          | Ngưỡng                                                            | Kết quả trên dữ liệu                                                   |
+| ----------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Time-to-convert bất thường | Điền form < 5 giây (người dùng thật có trung vị ~22 phút) | 5.935 lead, toàn bộ trong khoảng 1–3 giây                              |
+| Cụm IP                       | ≥ 3 đơn từ cùng 1 IP trong 1 ngày                             | Traffic gian lận dồn về 6 IP thuộc dải`113.161.44.x`                 |
+| Tỷ lệ duyệt thấp          | ≥ 20 đơn và Approval Rate < 15%                                 | 5 publisher có tỷ lệ duyệt ~4–6%, trong khi trung bình sàn là 61,8% |
 
 Cả 3 rule cùng chỉ ra **5 publisher**: `PUB_042`, `PUB_077`, `PUB_091`, `PUB_142`, `PUB_188`. Nhóm này chiếm ~12% click và 12% đơn. Có **269 đơn** của nhóm vẫn lọt qua khâu duyệt, tương ứng **41,8 triệu VNĐ** hoa hồng trả sai. File kế toán `accounting_monthly_payout.csv` tự động chuyển 5 publisher này sang trạng thái `HOLD (FRAUD AUDIT)`.
 
@@ -227,14 +227,14 @@ Cả 3 rule cùng chỉ ra **5 publisher**: `PUB_042`, `PUB_077`, `PUB_091`, `PU
 
 **Bước 4 – Kiểm tra lại kết luận ban đầu.** Loại 5 publisher gian lận ra rồi so sánh lại các kênh:
 
-| Kênh | Tỷ lệ duyệt (toàn bộ) | Tỷ lệ duyệt (đã loại gian lận) |
-|---|---|---|
-| TikTok Creator | 60,0% | 70,7% |
-| SEO Content Hub | 53,3% | 69,0% |
-| Google Ads Specialist | 60,8% | 69,5% |
-| Facebook Media Buyer | 70,2% | 70,2% |
-| Telegram/Zalo Community | 70,2% | 70,2% |
-| YouTube Reviewer | 69,4% | 69,4% |
+| Kênh                   | Tỷ lệ duyệt (toàn bộ) | Tỷ lệ duyệt (đã loại gian lận) |
+| ----------------------- | -------------------------- | ------------------------------------- |
+| TikTok Creator          | 60,0%                      | 70,7%                                 |
+| SEO Content Hub         | 53,3%                      | 69,0%                                 |
+| Google Ads Specialist   | 60,8%                      | 69,5%                                 |
+| Facebook Media Buyer    | 70,2%                      | 70,2%                                 |
+| Telegram/Zalo Community | 70,2%                      | 70,2%                                 |
+| YouTube Reviewer        | 69,4%                      | 69,4%                                 |
 
 **Kết luận cho hai team:**
 
@@ -269,12 +269,12 @@ Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1
 
 **Thiết kế:** chính sách áp dụng cho từng publisher, nên **đơn vị chia nhóm là publisher**, không phải click.
 
-| Bước | Dữ liệu | Kết quả |
-|---|---|---|
-| 1. Baseline | Thật (245 publisher, đã loại nhóm gian lận) | Trung bình 21,1 đơn duyệt/publisher/tháng, độ lệch chuẩn 38,6 (rất lệch) |
-| 2. Power analysis | Thật | Chia ngẫu nhiên đơn giản: chỉ phát hiện được mức tăng ≥ 66% |
-| 3. A/A test | Thật | Chia theo **cặp publisher tương đồng (matched pairs)**: hai nhóm cân bằng (p = 0,72), MDE giảm mạnh |
-| 4. Thử nghiệm | **Mô phỏng** (giả định nhóm B tăng ~15% sản lượng) | Sản lượng tăng **+14,1%** (p < 0,001); lãi sàn tăng +14,1% nhưng **không có ý nghĩa thống kê** (p = 0,13; khoảng tin cậy 95% chứa 0) |
+| Bước            | Dữ liệu                                                          | Kết quả                                                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Baseline       | Thật (245 publisher, đã loại nhóm gian lận)                  | Trung bình 21,1 đơn duyệt/publisher/tháng, độ lệch chuẩn 38,6 (rất lệch)                                                                              |
+| 2. Power analysis | Thật                                                              | Chia ngẫu nhiên đơn giản: chỉ phát hiện được mức tăng ≥ 66%                                                                                        |
+| 3. A/A test       | Thật                                                              | Chia theo**cặp publisher tương đồng (matched pairs)**: hai nhóm cân bằng (p = 0,72), MDE giảm mạnh                                               |
+| 4. Thử nghiệm   | **Mô phỏng** (giả định nhóm B tăng ~15% sản lượng) | Sản lượng tăng**+14,1%** (p < 0,001); lãi sàn tăng +14,1% nhưng **không có ý nghĩa thống kê** (p = 0,13; khoảng tin cậy 95% chứa 0) |
 
 ![Kết quả A/B test](03_analysis/outputs/ab_test_results.png)
 
@@ -300,14 +300,14 @@ Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1
 
 *Lãi cộng dồn trên mỗi publisher đăng ký, từ M+0 đến M+3: SEO dẫn đầu, Facebook Media Buyer thấp nhất dù kích hoạt nhanh nhất.*
 
-| Kênh | Kích hoạt | Còn active ở M+3 | LTV-3 / publisher đăng ký |
-|---|---|---|---|
-| SEO Content Hub | 71% | 59% | 4,26 triệu VNĐ |
-| Google Ads Specialist | 74% | 47% | 3,46 triệu VNĐ |
-| Telegram/Zalo Community | 69% | 38% | 3,19 triệu VNĐ |
-| TikTok Creator | 74% | 47% | 3,10 triệu VNĐ |
-| YouTube Reviewer | 83% | 60% | 2,74 triệu VNĐ |
-| Facebook Media Buyer | 83% | 42% | 1,85 triệu VNĐ |
+| Kênh                   | Kích hoạt | Còn active ở M+3 | LTV-3 / publisher đăng ký |
+| ----------------------- | ----------- | ------------------ | ---------------------------- |
+| SEO Content Hub         | 71%         | 59%                | 4,26 triệu VNĐ             |
+| Google Ads Specialist   | 74%         | 47%                | 3,46 triệu VNĐ             |
+| Telegram/Zalo Community | 69%         | 38%                | 3,19 triệu VNĐ             |
+| TikTok Creator          | 74%         | 47%                | 3,10 triệu VNĐ             |
+| YouTube Reviewer        | 83%         | 60%                | 2,74 triệu VNĐ             |
+| Facebook Media Buyer    | 83%         | 42%                | 1,85 triệu VNĐ             |
 
 **Insight:**
 
@@ -324,13 +324,13 @@ Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1
 
 ## 6. Tổng kết & đề xuất
 
-| # | Phát hiện | Đề xuất | Team liên quan |
-|---|---|---|---|
-| 1 | Tỷ lệ duyệt thấp của TikTok là do 1 publisher gian lận, không phải do kênh | Không cắt kênh; đánh giá kênh trên dữ liệu đã loại traffic gắn cờ | Traffic |
-| 2 | 5 publisher bot, 41,8 triệu VNĐ trả sai | Tự động hold payout với đơn < 5 giây; audit publisher có tỷ lệ duyệt < 15% | Chiến dịch, Kế toán |
-| 3 | Ngân hàng – Tài chính: 40% click nhưng 42,5% lợi nhuận gộp | Ưu tiên account management cho đối tác ngân hàng | Chiến dịch |
-| 4 | Hoa hồng bậc thang tăng volume nhưng chưa chứng minh được tăng lãi | Chưa triển khai; chạy test lâu hơn | Traffic |
-| 5 | Facebook kích hoạt nhanh nhưng LTV thấp nhất; SEO có LTV gấp ~2,3 lần | Đánh giá kênh tuyển publisher bằng LTV, không bằng số đăng ký | Phát triển publisher |
+| # | Phát hiện                                                                          | Đề xuất                                                                            | Team liên quan         |
+| - | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------- | ----------------------- |
+| 1 | Tỷ lệ duyệt thấp của TikTok là do 1 publisher gian lận, không phải do kênh | Không cắt kênh; đánh giá kênh trên dữ liệu đã loại traffic gắn cờ      | Traffic                 |
+| 2 | 5 publisher bot, 41,8 triệu VNĐ trả sai                                           | Tự động hold payout với đơn < 5 giây; audit publisher có tỷ lệ duyệt < 15% | Chiến dịch, Kế toán |
+| 3 | Ngân hàng – Tài chính: 40% click nhưng 42,5% lợi nhuận gộp                  | Ưu tiên account management cho đối tác ngân hàng                               | Chiến dịch            |
+| 4 | Hoa hồng bậc thang tăng volume nhưng chưa chứng minh được tăng lãi        | Chưa triển khai; chạy test lâu hơn                                               | Traffic                 |
+| 5 | Facebook kích hoạt nhanh nhưng LTV thấp nhất; SEO có LTV gấp ~2,3 lần        | Đánh giá kênh tuyển publisher bằng LTV, không bằng số đăng ký             | Phát triển publisher  |
 
 **Bài học chung:** phải loại nhiễu (gian lận, cơ cấu cohort) trước khi kết luận, và ra quyết định dựa trên **lãi của sàn** chứ không dựa trên volume.
 
