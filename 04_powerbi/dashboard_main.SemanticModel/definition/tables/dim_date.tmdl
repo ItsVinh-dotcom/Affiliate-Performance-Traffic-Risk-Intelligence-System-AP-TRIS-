@@ -8,6 +8,13 @@ table dim_date
 		summarizeBy: none
 		sourceColumn: Date
 
+		variation Variation
+			isDefault
+			relationship: 260bea76-0821-4659-a286-0c9d0aa49375
+			defaultHierarchy: LocalDateTable_d3e35255-9643-4f49-9f86-75c313eae1bb.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column Month
 		dataType: string
 		lineageTag: 5de9faf6-c7fb-4944-89ca-5f5ba88ce24e
@@ -23,12 +30,12 @@ table dim_date
 	partition dim_date = m
 		mode: import
 		source =
-			let
-			    Dates = List.Dates(#date(2026, 8, 1), 61, #duration(1, 0, 0, 0)),
-			    AsTable = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
-			    Typed = Table.TransformColumnTypes(AsTable, {{"Date", type date}}),
-			    AddMonth = Table.AddColumn(Typed, "Month", each Date.ToText([Date], "yyyy-MM"), type text),
-			    AddWeekday = Table.AddColumn(AddMonth, "Weekday", each Date.ToText([Date], "ddd", "en-US"), type text)
-			in
-			    AddWeekday
+				let
+				    Dates = List.Dates(#date(2026, 8, 1), 61, #duration(1, 0, 0, 0)),
+				    AsTable = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+				    Typed = Table.TransformColumnTypes(AsTable, {{"Date", type date}}),
+				    AddMonth = Table.AddColumn(Typed, "Month", each Date.ToText([Date], "yyyy-MM"), type text),
+				    AddWeekday = Table.AddColumn(AddMonth, "Weekday", each Date.ToText([Date], "ddd", "en-US"), type text)
+				in
+				    AddWeekday
 

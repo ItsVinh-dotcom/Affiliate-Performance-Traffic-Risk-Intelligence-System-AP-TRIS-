@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "scatter_campaign",
   "position": {
     "x": 16,
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_offers.offer_name",
               "nativeQueryRef": "offer_name",
+              "active": true,
               "displayName": "Offer"
             }
           ]
@@ -51,6 +52,25 @@
             }
           ]
         },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Approved Conversions"
+                }
+              },
+              "queryRef": "_Measures.Approved Conversions",
+              "nativeQueryRef": "Approved Conversions",
+              "displayName": "Đơn duyệt"
+            }
+          ]
+        },
         "X": {
           "projections": [
             {
@@ -66,6 +86,7 @@
               },
               "queryRef": "_Measures.Approval Rate %",
               "nativeQueryRef": "Approval Rate %",
+              "active": true,
               "displayName": "Tỷ lệ duyệt"
             }
           ]
@@ -86,25 +107,6 @@
               "queryRef": "_Measures.Margin (M VND)",
               "nativeQueryRef": "Margin (M VND)",
               "displayName": "Lãi gộp (tr VNĐ)"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Approved Conversions"
-                }
-              },
-              "queryRef": "_Measures.Approved Conversions",
-              "nativeQueryRef": "Approved Conversions",
-              "displayName": "Đơn duyệt"
             }
           ]
         }

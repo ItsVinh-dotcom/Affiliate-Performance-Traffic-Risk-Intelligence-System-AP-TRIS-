@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "kpi_gross_margin_pct",
   "position": {
-    "x": 436.0,
+    "x": 436,
     "y": 144,
     "z": 1000,
     "height": 92,
-    "width": 198.0,
+    "width": 198,
     "tabOrder": 1000
   },
   "visual": {

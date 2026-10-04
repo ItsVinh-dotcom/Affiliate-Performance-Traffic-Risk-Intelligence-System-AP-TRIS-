@@ -28,3 +28,6 @@ Thumbs.db
 # Power BI local cache & per-user settings
 **/.pbi/cache.abf
 **/.pbi/localSettings.json
+
+# Files created by the Claude desktop app (not part of the project)
+Claude outputs/

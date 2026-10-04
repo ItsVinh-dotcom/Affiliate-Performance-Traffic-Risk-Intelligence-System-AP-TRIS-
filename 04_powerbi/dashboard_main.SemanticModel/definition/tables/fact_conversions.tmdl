@@ -75,6 +75,8 @@ table fact_conversions
 		summarizeBy: none
 		sourceColumn: conversion_date
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column ttc_bucket
 		dataType: string
 		lineageTag: 4c523a64-2a21-49a7-9040-128284ec44f8
@@ -84,20 +86,20 @@ table fact_conversions
 	partition fact_conversions = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "silver\fact_conversions_cleansed.csv.gz"), Compression.GZip), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"conversion_id", type text}, {"click_id", type text}, {"conversion_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"time_to_convert_seconds", Int64.Type}, {"status", type text}, {"rejection_reason", type text}, {"advertiser_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}}, "en-US"),
-			    #"To VN Time" = Table.TransformColumns(#"Changed Type", {{"conversion_time", each _ + #duration(0, 7, 0, 0), type datetime}}),
-			    #"Added Date" = Table.AddColumn(#"To VN Time", "conversion_date", each DateTime.Date([conversion_time]), type date),
-			    #"Added TTC Bucket" = Table.AddColumn(#"Added Date", "ttc_bucket", each
-			        let t = [time_to_convert_seconds] in
-			        if t < 5 then "1. < 5 giây"
-			        else if t < 60 then "2. 5-60 giây"
-			        else if t < 300 then "3. 1-5 phút"
-			        else if t < 900 then "4. 5-15 phút"
-			        else if t < 1800 then "5. 15-30 phút"
-			        else "6. > 30 phút", type text)
-			in
-			    #"Added TTC Bucket"
+				let
+				    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "silver\fact_conversions_cleansed.csv.gz"), Compression.GZip), [Delimiter=",", Columns=11, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"conversion_id", type text}, {"click_id", type text}, {"conversion_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"time_to_convert_seconds", Int64.Type}, {"status", type text}, {"rejection_reason", type text}, {"advertiser_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}}, "en-US"),
+				    #"To VN Time" = Table.TransformColumns(#"Changed Type", {{"conversion_time", each _ + #duration(0, 7, 0, 0), type datetime}}),
+				    #"Added Date" = Table.AddColumn(#"To VN Time", "conversion_date", each DateTime.Date([conversion_time]), type date),
+				    #"Added TTC Bucket" = Table.AddColumn(#"Added Date", "ttc_bucket", each
+				        let t = [time_to_convert_seconds] in
+				        if t < 5 then "1. < 5 giây"
+				        else if t < 60 then "2. 5-60 giây"
+				        else if t < 300 then "3. 1-5 phút"
+				        else if t < 900 then "4. 5-15 phút"
+				        else if t < 1800 then "5. 15-30 phút"
+				        else "6. > 30 phút", type text)
+				in
+				    #"Added TTC Bucket"
 

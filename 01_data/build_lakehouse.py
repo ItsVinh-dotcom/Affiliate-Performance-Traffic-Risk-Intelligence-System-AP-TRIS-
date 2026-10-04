@@ -3,7 +3,7 @@ Medallion Lakehouse Architecture Builder (Bronze -> Silver -> Gold + Exports)
 Project: Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
 
 Strict Architecture Rules:
-- Core Storage (lakehouse/): 100% Columnar Format (Parquet)
+- Core Storage (lakehouse/): Parquet when pyarrow is installed, otherwise gzip-compressed CSV
 - Business Delivery (exports/): CSV only for Accounting & Advertiser Reconciliation
 """
 
@@ -177,7 +177,7 @@ def build_lakehouse():
 
     print("\n" + "=" * 70)
     print(f">> MEDALLION LAKEHOUSE COMPLETED IN {time.time() - start_time:.2f}s!")
-    print("Core Data Lakehouse (100% Parquet/Compressed): 01_data/lakehouse/ (Bronze, Silver, Gold)")
+    print("Core Data Lakehouse (Parquet or gzip CSV): 01_data/lakehouse/ (Bronze, Silver, Gold)")
     print("Business CSV Exports (Finance & Partners)   : 01_data/exports/")
     print("=" * 70)
 

@@ -1,111 +1,148 @@
 """
-A/B Testing Analysis: Flat vs Tiered Commission Incentive Model
-Evaluates whether a tiered performance bonus structure significantly increases
-Approved Lead Volume and Platform Net Margin for Banking CPA Offers.
+A/B Test Design & Analysis: Flat vs Tiered Commission for Finance & Banking offers
+Project: AP-TRIS
 
-NOTE: Simulated case study - experiment inputs below are assumed values,
-not derived from the 1M-row dataset.
+Why the design matters: a commission policy is applied to a PUBLISHER, not to a click.
+So the randomisation unit (and the unit of analysis) must be the publisher.
+Splitting clicks into A/B would let the same publisher sit in both groups and
+inflate significance.
 
-Statistical Methodology:
-1. Two-proportion Z-test on approved-card rate per click
-2. 95% Confidence Interval for the difference in proportions
+Steps
+1. Baseline from real data   : approved Finance conversions & margin per publisher (Aug-Sep 2026)
+2. Power analysis            : how big an uplift can we detect with ~245 publishers?
+3. A/A test on real data     : random split with NO treatment -> must NOT be significant.
+                               Publisher volume is highly skewed, so we use stratified
+                               matched-pair randomisation by baseline volume (much lower MDE).
+4. Simulated experiment      : apply an ASSUMED behavioural effect of the tiered scheme
+                               to group B, then analyse it exactly as a real test
+                               (paired t-test + bootstrap CI on publisher-level metrics)
+
+Step 4 uses an assumed effect (documented below) because the dataset contains no
+real treatment. Steps 1-3 use the actual 1M-click dataset.
 """
-
 import os
-import math
-import csv
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROCESSED_DIR = os.path.join(BASE_DIR, "01_data", "processed")
+import numpy as np
+import pandas as pd
+from scipy import stats
 
-def normal_cdf(x):
-    """Cumulative distribution function for standard normal distribution."""
-    return (1.0 + math.erf(x / math.sqrt(2.0))) / 2.0
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LAKE = os.path.join(BASE, "01_data", "lakehouse")
 
-def two_proportion_z_test(count1, nobs1, count2, nobs2):
-    """Performs two-proportion Z-test and returns z_stat, p_value, uplift_pct, ci_lower, ci_upper."""
-    p1 = count1 / nobs1
-    p2 = count2 / nobs2
-    p_pool = (count1 + count2) / (nobs1 + nobs2)
-    se_pool = math.sqrt(p_pool * (1 - p_pool) * (1/nobs1 + 1/nobs2))
-    
-    z_stat = (p2 - p1) / se_pool
-    p_value = 2 * (1 - normal_cdf(abs(z_stat)))
-    uplift_pct = ((p2 - p1) / p1) * 100
-    
-    # 95% CI for difference
-    se_diff = math.sqrt((p1*(1-p1)/nobs1) + (p2*(1-p2)/nobs2))
-    ci_lower = (p2 - p1) - 1.96 * se_diff
-    ci_upper = (p2 - p1) + 1.96 * se_diff
-    
-    return {
-        "p1": p1,
-        "p2": p2,
-        "z_stat": z_stat,
-        "p_value": p_value,
-        "uplift_pct": uplift_pct,
-        "ci_lower": ci_lower,
-        "ci_upper": ci_upper
-    }
+ALPHA, POWER = 0.05, 0.80
+TEST_WEEKS = 4
+# Tiered scheme for group B (applied per publisher per month)
+TIER_BASE_PAYOUT_FACTOR = 0.88       # base commission cut by 12%
+TIER_BONUS_VND = 60_000              # bonus per approved card once publisher exceeds the threshold
+TIER_THRESHOLD = 30                  # approved Finance conversions per month
+# ASSUMPTION for the simulation: tiered bonus motivates publishers to push +15% approved volume
+ASSUMED_LIFT = 0.15
+RNG = np.random.default_rng(42)
 
-def run_ab_test():
-    print("=" * 60)
-    print(">> A/B TESTING EXPERIMENT REPORT: COMMISSION INCENTIVE SCHEME")
-    print("=" * 60)
-    
-    # Experiment parameters:
-    # Group A (Control): Flat 250,000 VND / approved card
-    # Group B (Variant): Tiered 220,000 VND base + 60,000 VND bonus for > 30 cards
-    
-    n_a = 5200 # Clicks allocated to Group A
-    conv_a = 286 # Total form submits
-    approved_a = 158 # Bank approved cards
-    payout_a = approved_a * 250000
-    rev_a = approved_a * 350000
-    margin_a = rev_a - payout_a
-    
-    n_b = 5250 # Clicks allocated to Group B
-    conv_b = 345 # Total form submits
-    approved_b = 208 # Bank approved cards
-    payout_b = (approved_b * 220000) + (approved_b * 45000) # blended bonus
-    rev_b = approved_b * 350000
-    margin_b = rev_b - payout_b
-    
-    # 1. Approval Rate Test (from form submits to approved cards)
-    test_result = two_proportion_z_test(approved_a, conv_a, approved_b, conv_b)
-    
-    # 2. Conversion Rate Test (from click to approved card)
-    overall_test = two_proportion_z_test(approved_a, n_a, approved_b, n_b)
-    
-    print("\n[EXPERIMENT OVERVIEW]")
-    print(f"Group A (Control - Flat Payout) : {n_a} clicks -> {approved_a} approved cards | Approval Rate: {test_result['p1']*100:.2f}%")
-    print(f"Group B (Variant - Tiered Bonus): {n_b} clicks -> {approved_b} approved cards | Approval Rate: {test_result['p2']*100:.2f}%")
-    
-    print("\n[STATISTICAL HYPOTHESIS TESTING]")
-    print(f"Hypothesis H0: Tiered commission produces no difference in approved conversion rate.")
-    print(f"Hypothesis H1: Tiered commission significantly increases approved conversion rate.")
-    print(f"Z-Score                : {overall_test['z_stat']:.4f}")
-    print(f"P-Value                : {overall_test['p_value']:.4e}")
-    print(f"Relative Uplift        : +{overall_test['uplift_pct']:.2f}%")
-    print(f"95% Confidence Interval: [{overall_test['ci_lower']*100:.3f}%, {overall_test['ci_upper']*100:.3f}%]")
-    
-    alpha = 0.05
-    is_stat_sig = overall_test['p_value'] < alpha
-    print(f"Statistically Significant (alpha=0.05): {'YES (Reject H0)' if is_stat_sig else 'NO'}")
-    
-    print("\n[FINANCIAL IMPACT ON MOSAIC / PLATFORM]")
-    print(f"Group A Net Platform Margin: {margin_a:,.0f} VND (EPC Margin: {margin_a/n_a:,.0f} VND/click)")
-    print(f"Group B Net Platform Margin: {margin_b:,.0f} VND (EPC Margin: {margin_b/n_b:,.0f} VND/click)")
-    margin_uplift = ((margin_b - margin_a) / margin_a) * 100
-    print(f"Net Margin Increase        : +{margin_uplift:.2f}% (+{margin_b - margin_a:,.0f} VND)")
-    
-    print("\n[STRATEGIC RECOMMENDATION]")
-    print("-> Trien khai chinh thuc chinh sach hoa hong Bac thang (Tiered Payout) cho toan bo")
-    print("   Top Publisher nhom Tai chinh - Ngan hang vi vua tang dong luc cho Publisher,")
-    print(f"   vua giup san tang +{margin_uplift:.1f}% loi nhuan gop sau khi tru thuong.")
-    print("   Luu y: day la case mo phong (so lieu gia dinh); khi trien khai that can")
-    print("   randomize theo Publisher thay vi theo click.")
-    print("=" * 60)
+
+def publisher_month_panel():
+    conv = pd.read_csv(os.path.join(LAKE, "silver", "fact_conversions_cleansed.csv.gz"))
+    pubs = pd.read_csv(os.path.join(LAKE, "silver", "dim_publishers.csv.gz"))
+    offers = pd.read_csv(os.path.join(LAKE, "silver", "dim_offers.csv.gz"))
+    conv["month"] = (pd.to_datetime(conv["conversion_time"]) + pd.Timedelta(hours=7)).dt.strftime("%Y-%m")
+    fin = conv[(conv.vertical == "Finance & Banking") & (conv.status == "Approved")
+               & conv.month.isin(["2026-08", "2026-09"])]
+    fin = fin[~fin.publisher_id.isin(pubs.loc[pubs.status == "Flagged", "publisher_id"])]   # exclude fraud
+    g = fin.groupby(["publisher_id", "month"]).agg(
+        approved=("conversion_id", "count"),
+        revenue=("advertiser_revenue_vnd", "sum"),
+        payout=("publisher_payout_vnd", "sum"))
+    return g.reset_index(), offers
+
+
+def margin_under_scheme(panel, tiered):
+    """Platform margin per publisher-month under flat or tiered commission."""
+    if not tiered:
+        return panel.revenue - panel.payout
+    bonus = np.where(panel.approved > TIER_THRESHOLD, panel.approved * TIER_BONUS_VND, 0)
+    return panel.revenue - panel.payout * TIER_BASE_PAYOUT_FACTOR - bonus
+
+
+def welch(a, b):  # Welch two-sample t-test (unequal variances)
+    t, p = stats.ttest_ind(b, a, equal_var=False)
+    return t, p
+
+
+def main():
+    panel, _ = publisher_month_panel()
+    per_pub = panel.groupby("publisher_id").agg(approved=("approved", "mean"),
+                                                 revenue=("revenue", "mean"), payout=("payout", "mean"))
+    n_pub = len(per_pub)
+    print("=" * 70)
+    print(">> A/B TEST: FLAT vs TIERED COMMISSION (Finance & Banking offers)")
+    print("=" * 70)
+
+    # 1. Baseline
+    mu, sd = per_pub.approved.mean(), per_pub.approved.std()
+    print(f"\n[1] BASELINE (real data, {n_pub} non-flagged publishers)")
+    print(f"    Approved Finance conversions / publisher / month: mean {mu:.1f}, sd {sd:.1f}")
+    print(f"    Publishers above tier threshold ({TIER_THRESHOLD}/month): "
+          f"{(panel.approved > TIER_THRESHOLD).mean() * 100:.0f}% of publisher-months")
+
+    # 2. Power analysis (two-sample, equal split, monthly metric)
+    z = stats.norm.ppf(1 - ALPHA / 2) + stats.norm.ppf(POWER)
+    mde_abs = z * sd * np.sqrt(2 / (n_pub / 2))
+    print(f"\n[2] POWER ANALYSIS (alpha={ALPHA}, power={POWER}, {n_pub // 2} publishers per group)")
+    print(f"    Minimum detectable effect: +{mde_abs:.1f} approved/publisher/month (= +{mde_abs / mu * 100:.0f}%)")
+    print("    -> Publisher volume is very uneven (a few large publishers), so only large effects are detectable;")
+    print("       options: run longer, stratify by tier, or use CUPED with pre-period data.")
+
+    # 3. A/A tests: simple vs stratified (matched-pair) randomisation
+    ids = per_pub.index.to_numpy().copy()
+    RNG.shuffle(ids)
+    t, p = welch(per_pub.loc[ids[: n_pub // 2], "approved"], per_pub.loc[ids[n_pub // 2:], "approved"])
+    print(f"\n[3] A/A TEST on real data (no treatment applied)")
+    print(f"    a) Simple random split      : t={t:+.2f}, p={p:.3f} "
+          f"-> {'balanced' if p > ALPHA else 'NOT balanced: a few big publishers landed in one group'}")
+    # matched pairs: sort by baseline volume, randomise A/B inside each consecutive pair
+    order = per_pub.sort_values("approved", ascending=False).index.to_numpy()[: (n_pub // 2) * 2]
+    pairs = order.reshape(-1, 2)
+    flip = RNG.random(len(pairs)) < 0.5
+    a_ids = np.where(flip, pairs[:, 0], pairs[:, 1])
+    b_ids = np.where(flip, pairs[:, 1], pairs[:, 0])
+    d = per_pub.loc[b_ids, "approved"].to_numpy() - per_pub.loc[a_ids, "approved"].to_numpy()
+    t, p = stats.ttest_1samp(d, 0)
+    print(f"    b) Stratified (matched pairs): t={t:+.2f}, p={p:.3f} -> {'balanced' if p > ALPHA else 'NOT balanced'}")
+    mde_pair = z * d.std(ddof=1) / np.sqrt(len(d))
+    print(f"       MDE with matched pairs: +{mde_pair:.1f} approved/publisher/month (= +{mde_pair / mu * 100:.0f}%) "
+          f"vs +{mde_abs / mu * 100:.0f}% with simple split")
+
+    # 4. Simulated experiment on the matched-pair design
+    pa = panel[panel.publisher_id.isin(a_ids)].copy()
+    pb = panel[panel.publisher_id.isin(b_ids)].copy()
+    lift = RNG.normal(ASSUMED_LIFT, 0.10, len(pb))                    # heterogeneous response per publisher-month
+    scale = np.clip(1 + lift, 0.5, None)
+    pb["approved"] = np.round(pb.approved * scale)
+    pb["revenue"] = pb.revenue * scale
+    pb["payout"] = pb.payout * scale
+    pa["margin"] = margin_under_scheme(pa, tiered=False)
+    pb["margin"] = margin_under_scheme(pb, tiered=True)
+    A = pa.groupby("publisher_id")[["approved", "margin"]].mean().reindex(a_ids).fillna(0)
+    B = pb.groupby("publisher_id")[["approved", "margin"]].mean().reindex(b_ids).fillna(0)
+
+    print(f"\n[4] SIMULATED EXPERIMENT (assumed behavioural lift ~ +{ASSUMED_LIFT * 100:.0f}% in group B, "
+          f"{len(pairs)} matched pairs)")
+    for metric, label in (("approved", "Approved / publisher / month"),
+                          ("margin", "Platform margin / publisher / month (VND)")):
+        diff = B[metric].to_numpy() - A[metric].to_numpy()
+        t, p = stats.ttest_1samp(diff, 0)
+        boot = [RNG.choice(diff, len(diff)).mean() for _ in range(5000)]
+        lo, hi = np.percentile(boot, [2.5, 97.5])
+        rel = (B[metric].mean() / A[metric].mean() - 1) * 100
+        print(f"    {label}")
+        print(f"      A={A[metric].mean():,.1f} | B={B[metric].mean():,.1f} | diff {rel:+.1f}% | "
+              f"paired t={t:.2f}, p={p:.4f} | 95% bootstrap CI [{lo:,.1f}; {hi:,.1f}]")
+
+    print("\n[RECOMMENDATION]")
+    print("  - Decide on PLATFORM MARGIN, not on volume: the bonus can raise volume while eroding margin.")
+    print("  - If the margin CI includes 0, do not roll out; re-test with stratification by tier or a longer window.")
+    print("=" * 70)
+
 
 if __name__ == "__main__":
-    run_ab_test()
+    main()

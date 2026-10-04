@@ -1,50 +1,73 @@
-# HƯỚNG DẪN BỐ CỤC DASHBOARD POWER BI (DASHBOARD WIREFRAME & SPECS)
+# BỐ CỤC DASHBOARD POWER BI
 
-Dự án thiết kế Dashboard gồm **3 trang trực quan** chuẩn mực, phục vụ 3 nhóm đối tượng: Ban Giám Đốc (C-Level), Đội Vận hành Chiến dịch (Campaign Ops), và Đội Kiểm soát Gian lận (Fraud/Risk Unit).
+File: `04_powerbi/dashboard_main.pbip`. Khổ trang 1280 × 720. Có 3 trang, đi theo mạch câu chuyện của dự án:
 
----
+1. Tổng quan.
+2. Tìm dấu hiệu bất thường theo kênh.
+3. Điều tra rủi ro.
 
-## TRANG 1: EXECUTIVE KPI OVERVIEW (Tổng quan Hiệu suất Sàn)
+Mọi trang đều có thanh tiêu đề và bộ lọc thời gian. Bộ lọc dùng bảng `dim_date`, theo giờ Việt Nam.
 
-* **Mục tiêu:** Cung cấp cái nhìn tức thời 360 độ về sức khỏe tài chính và lưu lượng chuyển đổi toàn mạng lưới.
-* **Bộ lọc (Slicers) trên cùng:**
-  * Chọn khoảng thời gian: Date Range Slider (Tháng 8 - Tháng 9/2026)
-  * Vertical: Finance & Banking | Beauty CPO | Health CPO | E-commerce
-  * Payout Model: CPA | CPL | CPO | CPS
-* **Hàng thẻ số KPI (Top KPI Cards):**
-  1. **Gross Revenue:** 5,89 tỷ VNĐ (Doanh thu gộp từ Advertiser)
-  2. **Net Platform Margin:** 1,67 tỷ VNĐ (Lợi nhuận gộp của Sàn)
-  3. **Average Margin %:** 28,4% (Biên lợi nhuận gộp mục tiêu > 25%)
-  4. **Total Approved Leads:** 30.292 Leads (Tổng đơn duyệt thành công)
-  5. **Average Approval Rate:** 61,8% (Tỷ lệ duyệt trung bình)
-  6. **Network EPC:** ~4.219 VNĐ (Thu nhập trung bình trên mỗi click)
-* **Biểu đồ chính:**
-  * **Line Chart:** Doanh thu & Lợi nhuận gộp theo từng ngày (Gross Revenue vs Net Margin over Time).
-  * **Donut Chart:** Tỷ trọng doanh thu theo ngành hàng (Finance & Banking 44%, Health & Wellness 24%, Beauty 18%, E-commerce 8%, App/Education 6%).
-  * **Bar Chart (Horizontal):** Top 5 Chiến dịch có Lợi nhuận gộp cao nhất (Dẫn đầu: VIB Super Card, Cordyceps Natural Tonic, VPBank StepUp).
+> Số liệu trong ngoặc là kết quả khi chưa lọc gì, đã đối chiếu với SQL/Python.
 
 ---
 
-## TRANG 2: CAMPAIGN & TRAFFIC DEEP-DIVE (Phân tích Chiến dịch & Kênh phân phối)
+## Trang 1 – Tổng quan (Executive Overview)
 
-* **Mục tiêu:** Giúp đội Tối ưu Chiến dịch (Campaign Optimizer) biết nên đẩy mạnh ngân sách vào đâu và kênh nào mang lại ROI cao nhất.
-* **Biểu đồ:**
-  * **Scatter Plot (Biểu đồ phân tán):** Trục X là `Total Clicks`, Trục Y là `Approval Rate %`, Kích thước bong bóng là `Gross Margin`. Giúp nhận diện ngay các chiến dịch "Volume lớn - Duyệt cao" (Ngôi sao) vs "Volume lớn - Duyệt thấp" (Cần điều chỉnh).
-  * **Stacked Column Chart:** Hiệu suất theo Kênh Traffic (TikTok vs FB Ads vs Google Ads vs SEO): So sánh Clicks vs Approved Conversions.
-  * **Detailed Matrix Table:** Bảng chi tiết từng Offer:
-    * Tên Offer | Payout Model | Clicks | Leads | CR % | Approved | Approval Rate % | Payout | Net Margin | EPC
+**Người xem:** quản lý, cả team traffic và team chiến dịch.
+
+**Bộ lọc:** thời gian · ngành hàng · kênh traffic.
+
+**Hàng thẻ KPI:**
+
+| Thẻ | Measure | Giá trị |
+|---|---|---|
+| Doanh thu (tỷ VNĐ) | `Revenue (bn VND)` | 5,89 |
+| Lãi gộp (tỷ VNĐ) | `Margin (bn VND)` | 1,67 |
+| Margin % | `Gross Margin %` | 28,4% |
+| Đơn được duyệt | `Approved Conversions` | 30.292 |
+| Tỷ lệ duyệt | `Approval Rate %` | 61,8% |
+| EPC (VNĐ/click) | `EPC (VND)` | ~4.219 |
+
+**Biểu đồ:**
+
+- **Đường:** doanh thu và lãi gộp theo ngày, đơn vị triệu VNĐ.
+- **Thanh ngang:** doanh thu và lãi gộp theo ngành hàng, đơn vị tỷ VNĐ. Ngân hàng – Tài chính dẫn đầu.
+- **Thanh ngang:** xếp hạng 25 offer theo lãi gộp. Dẫn đầu là VIB Financial Super Card.
 
 ---
 
-## TRANG 3: TRAFFIC QUALITY & RISK INTELLIGENCE (Kiểm soát Rủi ro & Gian lận)
+## Trang 2 – Chiến dịch & Kênh (Campaign & Traffic)
 
-* **Mục tiêu:** Giúp Data Analyst và Risk Team phát hiện hành vi gian lận của Publisher, bảo vệ uy tín với Ngân hàng/Advertiser.
-* **Hàng thẻ cảnh báo (Risk Alert Cards):**
-  * **Flagged Bot Conversions:** Số lượng đơn nghi vấn bot (< 5s)
-  * **High-Risk Publishers:** Số lượng Publisher bị đưa vào danh sách đen/cần audit
-  * **Saved Budget (Ngân sách giữ lại nhờ phát hiện gian lận):** Ước tính số tiền hoa hồng ngăn chặn chi trả nhầm
-* **Biểu đồ:**
-  * **Histogram / Distribution Chart:** Phân phối thời gian Time-to-Convert (Thời gian từ Click đến Form submit). Đỉnh nhọn bất thường ở giây thứ 1-3 phản ánh bot traffic.
-  * **Risk Heatmap / Matrix Table:**
-    * Publisher ID | Tên | Kênh Traffic | Tổng đơn | Đơn duyệt | Tỷ lệ duyệt % | Đơn < 5s | Đánh giá rủi ro (CRITICAL / NORMAL)
-    * Sử dụng Conditional Formatting: Đỏ rực nếu Approval Rate < 15% hoặc Time-to-convert trung bình < 5s.
+**Người xem:** team traffic và team tối ưu chiến dịch.
+
+**Bộ lọc:** thời gian · ngành hàng · hạng publisher.
+
+**Biểu đồ:**
+
+- **Thanh ngang "Tỷ lệ duyệt theo kênh: trước & sau khi loại traffic gian lận"** (dùng `Approval Rate %` và `Approval Rate % (excl. Flagged)`). Đây là biểu đồ mở đầu phần điều tra: TikTok 60,0% → 70,7%, SEO 53,3% → 69,0% sau khi loại gian lận.
+- **Phân tán theo offer:** trục X là tỷ lệ duyệt, trục Y là lãi gộp, kích thước bong bóng là số đơn duyệt, màu theo ngành hàng.
+- **Bảng chi tiết offer:** click, đơn, CR, đơn duyệt, tỷ lệ duyệt, doanh thu, lãi gộp, margin %, EPC. Sắp xếp theo lãi gộp giảm dần.
+
+---
+
+## Trang 3 – Rủi ro gian lận (Traffic Quality & Risk)
+
+**Người xem:** team chiến dịch, kế toán, người phụ trách kiểm soát rủi ro.
+
+**Bộ lọc:** thời gian · kênh traffic.
+
+**Thẻ cảnh báo:**
+
+| Thẻ | Measure | Giá trị |
+|---|---|---|
+| Lead nghi bot (< 5 giây) | `Bot Lead Count` | 5.935 |
+| Tỷ lệ lead nghi bot | `Bot Traffic Ratio %` | 12,1% |
+| Publisher bị gắn cờ | `Flagged Publishers` | 5 |
+| Hoa hồng trả sai (tr VNĐ) | `Leaked Payout (M VND)` | 41,8 |
+
+**Biểu đồ:**
+
+- **Cột "Phân phối thời gian từ click đến điền form":** chia 6 nhóm, từ < 5 giây đến > 30 phút. Nhóm < 5 giây nhô cao bất thường.
+- **Thanh ngang "Lý do bị từ chối / gắn cờ":** số đơn bị từ chối theo từng lý do.
+- **Bảng chấm điểm rủi ro publisher:** publisher, kênh, hạng, số đơn, tỷ lệ duyệt, số lead < 5 giây, tiền trả sai, đánh giá rủi ro (`Publisher Risk Status`). Sắp xếp theo số lead nghi bot giảm dần, nên 5 publisher gian lận nằm ở đầu bảng.

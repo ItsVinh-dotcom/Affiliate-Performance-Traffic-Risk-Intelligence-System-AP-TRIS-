@@ -1,4 +1,7 @@
 """
+[DEPRECATED] Early prototype (100 publishers, ~10K rows). Not used by the current project.
+Use 01_data/generate_1m_data.py instead.
+
 Mock Data Generator for Affiliate Performance & Risk Intelligence System (AP-TRIS)
 Generates realistic, domain-specific datasets for:
 - dim_publishers.csv

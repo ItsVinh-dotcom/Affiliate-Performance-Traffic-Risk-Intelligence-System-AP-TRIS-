@@ -38,6 +38,13 @@ table dim_publishers
 		summarizeBy: none
 		sourceColumn: join_date
 
+		variation Variation
+			isDefault
+			relationship: 62f84bef-c274-48ae-be4e-09e685d67f93
+			defaultHierarchy: LocalDateTable_a56f4016-8568-4904-a10c-97ee835501ac.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column is_fraud_suspect
 		dataType: int64
 		lineageTag: b0000001-0000-0000-0000-000000000007
@@ -47,9 +54,10 @@ table dim_publishers
 	partition dim_publishers = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "silver\dim_publishers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"publisher_id", type text}, {"publisher_name", type text}, {"traffic_channel", type text}, {"tier", type text}, {"status", type text}, {"join_date", type date}, {"is_fraud_suspect", Int64.Type}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "silver\dim_publishers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"publisher_id", type text}, {"publisher_name", type text}, {"traffic_channel", type text}, {"tier", type text}, {"status", type text}, {"join_date", type date}, {"is_fraud_suspect", Int64.Type}})
+				in
+				    #"Changed Type"
+

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "bar_traffic_channel",
   "position": {
     "x": 648,
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_publishers.traffic_channel",
               "nativeQueryRef": "traffic_channel",
+              "active": true,
               "displayName": "Kênh"
             }
           ]

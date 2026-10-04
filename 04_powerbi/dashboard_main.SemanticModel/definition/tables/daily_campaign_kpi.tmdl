@@ -8,6 +8,13 @@ table daily_campaign_kpi
 		summarizeBy: none
 		sourceColumn: date
 
+		variation Variation
+			isDefault
+			relationship: 831b1f61-ea11-47ef-9dc4-028f3100c3b1
+			defaultHierarchy: LocalDateTable_753cb553-99b2-4271-8a51-69d6ef5fecf4.'Date Hierarchy'
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	column offer_id
 		dataType: string
 		lineageTag: b0000005-0000-0000-0000-000000000002
@@ -20,12 +27,6 @@ table daily_campaign_kpi
 		summarizeBy: sum
 		sourceColumn: total_conversions
 
-	column approved_conversions
-		dataType: int64
-		lineageTag: b0000005-0000-0000-0000-000000000004
-		summarizeBy: sum
-		sourceColumn: approved_conversions
-
 	column rejected_conversions
 		dataType: int64
 		lineageTag: b0000005-0000-0000-0000-000000000005
@@ -37,6 +38,12 @@ table daily_campaign_kpi
 		lineageTag: b0000005-0000-0000-0000-000000000006
 		summarizeBy: sum
 		sourceColumn: approval_rate_pct
+
+	column approved_conversions
+		dataType: int64
+		lineageTag: b0000005-0000-0000-0000-000000000004
+		summarizeBy: sum
+		sourceColumn: approved_conversions
 
 	column gross_revenue_vnd
 		dataType: double
@@ -59,9 +66,10 @@ table daily_campaign_kpi
 	partition daily_campaign_kpi = m
 		mode: import
 		source =
-			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "gold\daily_campaign_kpi.csv.gz"), Compression.GZip), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"offer_id", type text}, {"total_conversions", Int64.Type}, {"approved_conversions", Int64.Type}, {"rejected_conversions", Int64.Type}, {"approval_rate_pct", type number}, {"gross_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}})
-			in
-			    #"Changed Type"
+				let
+				    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "gold\daily_campaign_kpi.csv.gz"), Compression.GZip), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"offer_id", type text}, {"total_conversions", Int64.Type}, {"approved_conversions", Int64.Type}, {"rejected_conversions", Int64.Type}, {"approval_rate_pct", type number}, {"gross_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}})
+				in
+				    #"Changed Type"
+

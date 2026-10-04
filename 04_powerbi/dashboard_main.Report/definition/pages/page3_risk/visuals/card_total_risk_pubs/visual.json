@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "card_total_risk_pubs",
   "position": {
-    "x": 646.0,
+    "x": 646,
     "y": 144,
     "z": 1000,
     "height": 92,
-    "width": 303.0,
+    "width": 303,
     "tabOrder": 1000
   },
   "visual": {

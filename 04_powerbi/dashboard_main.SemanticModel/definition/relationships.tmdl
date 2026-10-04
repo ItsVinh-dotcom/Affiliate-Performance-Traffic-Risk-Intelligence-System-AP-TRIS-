@@ -26,3 +26,19 @@ relationship 4fd71c7f-7f0b-4c6f-aaeb-637f3f212f45
 relationship 9b2d61d0-96cd-4743-b559-976965fc2f36
 	fromColumn: fact_clicks.click_date
 	toColumn: dim_date.Date
+
+relationship 831b1f61-ea11-47ef-9dc4-028f3100c3b1
+	joinOnDateBehavior: datePartOnly
+	fromColumn: daily_campaign_kpi.date
+	toColumn: LocalDateTable_753cb553-99b2-4271-8a51-69d6ef5fecf4.Date
+
+relationship 62f84bef-c274-48ae-be4e-09e685d67f93
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_publishers.join_date
+	toColumn: LocalDateTable_a56f4016-8568-4904-a10c-97ee835501ac.Date
+
+relationship 260bea76-0821-4659-a286-0c9d0aa49375
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dim_date.Date
+	toColumn: LocalDateTable_d3e35255-9643-4f49-9f86-75c313eae1bb.Date
+

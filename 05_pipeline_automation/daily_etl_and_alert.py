@@ -6,7 +6,8 @@ Automates:
 1. Multi-source data ingestion (Clicks, Conversions, Offers, Publishers)
 2. Automated Data Quality (DQ) Gatekeeping (Missing IDs, Negative Margins, Timestamp order)
 3. Transformation & Aggregation for Power BI Ingestion
-4. Risk & Anomaly Alerting (Bot traffic, IP clustering, Suspicious low approval)
+4. Risk & Anomaly Alerting (Bot traffic via time-to-convert, suspicious low approval)
+   (IP clustering is implemented in SQL: 02_sql/03_fraud_detection.sql)
 """
 
 import os
