@@ -17,3 +17,10 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.log
+
+# Database files (auto-generated, can be rebuilt via build_database.py)
+# These exceed GitHub's 100MB file size limit
+*.db
+*.duckdb
+*.sqlite
+*.sqlite3
