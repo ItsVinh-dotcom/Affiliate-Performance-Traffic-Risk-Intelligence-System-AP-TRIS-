@@ -1,65 +1,34 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "scatter_campaign",
   "position": {
-    "x": 40,
-    "y": 40,
-    "z": 0,
-    "width": 1100,
-    "height": 480
+    "x": 16,
+    "y": 144,
+    "z": 1000,
+    "height": 300,
+    "width": 616,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "scatterChart",
     "query": {
       "queryState": {
-        "X": {
+        "Category": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "dim_offers"
                     }
                   },
-                  "Property": "Total Clicks"
+                  "Property": "offer_name"
                 }
               },
-              "queryRef": "_Measures.Total Clicks"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Approval Rate %"
-                }
-              },
-              "queryRef": "_Measures.Approval Rate %"
-            }
-          ]
-        },
-        "Size": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Measures"
-                    }
-                  },
-                  "Property": "Net Platform Margin"
-                }
-              },
-              "queryRef": "_Measures.Net Platform Margin"
+              "queryRef": "dim_offers.offer_name",
+              "nativeQueryRef": "offer_name",
+              "displayName": "Offer"
             }
           ]
         },
@@ -73,14 +42,108 @@
                       "Entity": "dim_offers"
                     }
                   },
-                  "Property": "offer_name"
+                  "Property": "vertical"
                 }
               },
-              "queryRef": "dim_offers.offer_name"
+              "queryRef": "dim_offers.vertical",
+              "nativeQueryRef": "vertical",
+              "displayName": "Ngành hàng"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Approval Rate %"
+                }
+              },
+              "queryRef": "_Measures.Approval Rate %",
+              "nativeQueryRef": "Approval Rate %",
+              "displayName": "Tỷ lệ duyệt"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Margin (M VND)"
+                }
+              },
+              "queryRef": "_Measures.Margin (M VND)",
+              "nativeQueryRef": "Margin (M VND)",
+              "displayName": "Lãi gộp (tr VNĐ)"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Approved Conversions"
+                }
+              },
+              "queryRef": "_Measures.Approved Conversions",
+              "nativeQueryRef": "Approved Conversions",
+              "displayName": "Đơn duyệt"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bottom'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -96,13 +159,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Campaign Performance: Volume vs Approval Rate'"
+                  "Value": "'Offer: tỷ lệ duyệt × lãi gộp (kích thước = số đơn duyệt)'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

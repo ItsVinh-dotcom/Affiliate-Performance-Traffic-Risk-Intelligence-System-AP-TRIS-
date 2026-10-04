@@ -57,7 +57,7 @@ ORDER BY gross_margin_vnd DESC;
 
 -- --------------------------------------------------------------------
 -- QUERY 2: TOP PUBLISHER SCORECARD & RANKING (Xếp hạng đối tác phân phối)
--- Ứng dụng Window Functions (DENSE_RANK, PERCENT_RANK) để phân nhóm Publisher
+-- Ứng dụng Window Functions (DENSE_RANK, SUM() OVER ()) để phân nhóm Publisher
 -- --------------------------------------------------------------------
 WITH pub_clicks AS (
     SELECT publisher_id, COUNT(click_id) AS total_clicks

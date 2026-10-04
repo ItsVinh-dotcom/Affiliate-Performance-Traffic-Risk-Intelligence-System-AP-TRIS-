@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "card_bot_ratio",
   "position": {
-    "x": 640,
-    "y": 40,
-    "z": 0,
-    "width": 560,
-    "height": 160
+    "x": 331.0,
+    "y": 144,
+    "z": 1000,
+    "height": 92,
+    "width": 303.0,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -25,11 +26,58 @@
                   "Property": "Bot Traffic Ratio %"
                 }
               },
-              "queryRef": "_Measures.Bot Traffic Ratio %"
+              "queryRef": "_Measures.Bot Traffic Ratio %",
+              "nativeQueryRef": "Bot Traffic Ratio %"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#DC2626'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -45,13 +93,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Bot Traffic Ratio'"
+                  "Value": "'Tỷ lệ lead nghi bot'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

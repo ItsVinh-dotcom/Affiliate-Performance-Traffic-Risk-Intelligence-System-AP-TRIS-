@@ -18,3 +18,11 @@ relationship 520db0b2-5555-4eb1-5555-000000000005
 	isActive: false
 	fromColumn: fact_conversions.click_id
 	toColumn: fact_clicks.click_id
+
+relationship 4fd71c7f-7f0b-4c6f-aaeb-637f3f212f45
+	fromColumn: fact_conversions.conversion_date
+	toColumn: dim_date.Date
+
+relationship 9b2d61d0-96cd-4743-b559-976965fc2f36
+	fromColumn: fact_clicks.click_date
+	toColumn: dim_date.Date

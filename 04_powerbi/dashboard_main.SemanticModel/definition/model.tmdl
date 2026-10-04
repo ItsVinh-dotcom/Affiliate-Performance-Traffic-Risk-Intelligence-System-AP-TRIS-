@@ -11,6 +11,7 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table _Measures
+ref table dim_date
 ref table daily_campaign_kpi
 ref table dim_offers
 ref table dim_publishers
@@ -23,5 +24,7 @@ ref relationship 520db0b2-2222-4eb1-2222-000000000002
 ref relationship 520db0b2-3333-4eb1-3333-000000000003
 ref relationship 520db0b2-4444-4eb1-4444-000000000004
 ref relationship 520db0b2-5555-4eb1-5555-000000000005
+ref relationship 4fd71c7f-7f0b-4c6f-aaeb-637f3f212f45
+ref relationship 9b2d61d0-96cd-4743-b559-976965fc2f36
 
 ref cultureInfo en-US

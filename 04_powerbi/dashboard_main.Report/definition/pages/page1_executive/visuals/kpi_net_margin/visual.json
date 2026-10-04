@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "kpi_net_margin",
   "position": {
-    "x": 350,
-    "y": 40,
-    "z": 0,
-    "width": 280,
-    "height": 140
+    "x": 226.0,
+    "y": 144,
+    "z": 1000,
+    "height": 92,
+    "width": 198.0,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -22,14 +23,61 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Net Platform Margin"
+                  "Property": "Margin (bn VND)"
                 }
               },
-              "queryRef": "_Measures.Net Platform Margin"
+              "queryRef": "_Measures.Margin (bn VND)",
+              "nativeQueryRef": "Margin (bn VND)"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D9488'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -45,13 +93,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Net Platform Margin'"
+                  "Value": "'Lãi gộp (tỷ VNĐ)'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

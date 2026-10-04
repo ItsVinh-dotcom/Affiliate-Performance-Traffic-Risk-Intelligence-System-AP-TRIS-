@@ -48,7 +48,7 @@ table dim_publishers
 		mode: import
 		source =
 			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/silver/dim_publishers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "silver\dim_publishers.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"publisher_id", type text}, {"publisher_name", type text}, {"traffic_channel", type text}, {"tier", type text}, {"status", type text}, {"join_date", type date}, {"is_fraud_suspect", Int64.Type}})
 			in

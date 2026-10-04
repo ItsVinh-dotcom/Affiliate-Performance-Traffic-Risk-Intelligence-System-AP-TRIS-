@@ -3,62 +3,90 @@ table _Measures
 
 	measure 'Total Clicks' = COUNTROWS('fact_clicks')
 		formatString: #,0
-		lineageTag: a0000000-0000-0000-0000-000000000001
+		lineageTag: 48469ce2-1a64-41fc-a2c3-6713479c046f
 
 	measure 'Total Conversions' = COUNTROWS('fact_conversions')
 		formatString: #,0
-		lineageTag: a0000000-0000-0000-0000-000000000002
+		lineageTag: d4d6ae05-dff2-4709-9c7b-4240050074ff
 
 	measure 'Approved Conversions' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[status] = "Approved")
 		formatString: #,0
-		lineageTag: a0000000-0000-0000-0000-000000000003
+		lineageTag: 3950cf2b-cebc-4503-8740-d29a4945ba4a
 
 	measure 'Rejected Conversions' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[status] IN {"Rejected", "Fraud"})
 		formatString: #,0
-		lineageTag: a0000000-0000-0000-0000-000000000004
+		lineageTag: 87f3fe70-a25d-4942-9ccd-02db0fb24d1a
 
 	measure 'CR %' = DIVIDE([Total Conversions], [Total Clicks], 0)
 		formatString: 0.00%
-		lineageTag: a0000000-0000-0000-0000-000000000005
+		lineageTag: 3cf0b074-ad74-4c29-9b3f-c7b3ba55c3a5
 
 	measure 'Approval Rate %' = DIVIDE([Approved Conversions], [Total Conversions], 0)
-		formatString: 0.00%
-		lineageTag: a0000000-0000-0000-0000-000000000006
+		formatString: 0.0%
+		lineageTag: 4dfcf859-9126-4ccd-b82d-615e1a742eab
+
+	measure 'Approval Rate % (excl. Flagged)' = CALCULATE([Approval Rate %], KEEPFILTERS('dim_publishers'[status] <> "Flagged"))
+		formatString: 0.0%
+		lineageTag: e6b0b446-d606-4ab8-826e-ff9ba0130c05
 
 	measure 'Gross Revenue' = SUM('fact_conversions'[advertiser_revenue_vnd])
-		formatString: #,0" VNĐ"
-		lineageTag: a0000000-0000-0000-0000-000000000007
+		formatString: #,0
+		lineageTag: 71effc50-4371-4a36-b1a8-322a6d949cce
 
 	measure 'Publisher Payout' = SUM('fact_conversions'[publisher_payout_vnd])
-		formatString: #,0" VNĐ"
-		lineageTag: a0000000-0000-0000-0000-000000000008
+		formatString: #,0
+		lineageTag: 8a79c382-04c9-4ada-a4c3-4b166180b20b
 
 	measure 'Net Platform Margin' = [Gross Revenue] - [Publisher Payout]
-		formatString: #,0" VNĐ"
-		lineageTag: a0000000-0000-0000-0000-000000000009
+		formatString: #,0
+		lineageTag: d8b1b76a-6f9b-4d3c-a703-a0aa07467631
 
 	measure 'Gross Margin %' = DIVIDE([Net Platform Margin], [Gross Revenue], 0)
-		formatString: 0.00%
-		lineageTag: a0000000-0000-0000-0000-000000000010
+		formatString: 0.0%
+		lineageTag: 3423bcc6-c112-4480-ba2a-a6fddad77fe3
 
 	measure 'EPC (VND)' = DIVIDE([Publisher Payout], [Total Clicks], 0)
-		formatString: #,0" VNĐ"
-		lineageTag: a0000000-0000-0000-0000-000000000011
+		formatString: #,0
+		lineageTag: 7ae0e905-52ef-4fe8-b3d9-bca926972dc3
 
 	measure 'Platform RPC' = DIVIDE([Gross Revenue], [Total Clicks], 0)
-		formatString: #,0" VNĐ"
-		lineageTag: a0000000-0000-0000-0000-000000000012
+		formatString: #,0
+		lineageTag: 2ad30c79-9bf7-4750-becb-96d737c1d8bb
+
+	measure 'Revenue (bn VND)' = DIVIDE([Gross Revenue], 1000000000)
+		formatString: #,0.00
+		lineageTag: f000d22f-f0c8-485d-87cb-ff5769e76d0a
+
+	measure 'Margin (bn VND)' = DIVIDE([Net Platform Margin], 1000000000)
+		formatString: #,0.00
+		lineageTag: 9a3915b5-06c6-4244-87f9-a3a64ea1cf50
+
+	measure 'Revenue (M VND)' = DIVIDE([Gross Revenue], 1000000)
+		formatString: #,0.0
+		lineageTag: d524daa2-31f7-4f18-b8ce-684d6a587431
+
+	measure 'Margin (M VND)' = DIVIDE([Net Platform Margin], 1000000)
+		formatString: #,0.0
+		lineageTag: 6eff1212-2629-4a08-820a-2fef3526e0c2
 
 	measure 'Bot Lead Count' = CALCULATE(COUNTROWS('fact_conversions'), 'fact_conversions'[time_to_convert_seconds] < 5)
 		formatString: #,0
-		lineageTag: a0000000-0000-0000-0000-000000000013
+		lineageTag: e58c8c32-a763-4f9a-a6c2-0697df4cdf58
 
 	measure 'Bot Traffic Ratio %' = DIVIDE([Bot Lead Count], [Total Conversions], 0)
-		formatString: 0.00%
-		lineageTag: a0000000-0000-0000-0000-000000000014
+		formatString: 0.0%
+		lineageTag: d3ae32a8-52f8-448d-9db6-6c27e8582751
 
-	measure 'Publisher Risk Status' = SWITCH(TRUE(), [Total Conversions] >= 20 && [Approval Rate %] < 0.15, "🔴 CRITICAL (Block Recommended)", [Total Conversions] >= 10 && [Approval Rate %] < 0.25, "🟡 WATCHLIST (Review Traffic)", "🟢 NORMAL")
-		lineageTag: a0000000-0000-0000-0000-000000000015
+	measure 'Leaked Payout (M VND)' = DIVIDE(CALCULATE([Publisher Payout], 'fact_conversions'[time_to_convert_seconds] < 5), 1000000)
+		formatString: #,0.0
+		lineageTag: 59d3eba9-ee4a-4b77-a3a6-ad3d4f73441f
+
+	measure 'Flagged Publishers' = COUNTROWS(FILTER(VALUES('dim_publishers'[publisher_id]), [Bot Lead Count] >= 5))
+		formatString: #,0
+		lineageTag: 2c1ea3c6-801a-495c-912d-e30631503054
+
+	measure 'Publisher Risk Status' = SWITCH(TRUE(), [Bot Lead Count] >= 5, "🔴 BOT - Hold payout", [Total Conversions] >= 20 && [Approval Rate %] < 0.15, "🔴 LOW APPROVAL - Audit", [Total Conversions] >= 10 && [Approval Rate %] < 0.25, "🟡 WATCHLIST", "🟢 NORMAL")
+		lineageTag: 7cfaccbc-1366-4b4e-8536-83c7c52f0bf8
 
 	partition _Measures = m
 		mode: import

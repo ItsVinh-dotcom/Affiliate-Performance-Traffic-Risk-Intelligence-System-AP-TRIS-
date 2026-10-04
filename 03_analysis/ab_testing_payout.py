@@ -3,10 +3,12 @@ A/B Testing Analysis: Flat vs Tiered Commission Incentive Model
 Evaluates whether a tiered performance bonus structure significantly increases
 Approved Lead Volume and Platform Net Margin for Banking CPA Offers.
 
+NOTE: Simulated case study - experiment inputs below are assumed values,
+not derived from the 1M-row dataset.
+
 Statistical Methodology:
-1. Two-proportion Z-test / Chi-Square Test for Approval Rate
-2. Two-sample independent Welch's T-test for Revenue/Margin per Visitor
-3. 95% Confidence Interval & Minimum Detectable Effect (MDE)
+1. Two-proportion Z-test on approved-card rate per click
+2. 95% Confidence Interval for the difference in proportions
 """
 
 import os
@@ -100,7 +102,9 @@ def run_ab_test():
     print("\n[STRATEGIC RECOMMENDATION]")
     print("-> Trien khai chinh thuc chinh sach hoa hong Bac thang (Tiered Payout) cho toan bo")
     print("   Top Publisher nhom Tai chinh - Ngan hang vi vua tang dong luc cho Publisher,")
-    print("   vua giup san tang +14.8% den +22% loi nhuan gop sau khi tru thuong.")
+    print(f"   vua giup san tang +{margin_uplift:.1f}% loi nhuan gop sau khi tru thuong.")
+    print("   Luu y: day la case mo phong (so lieu gia dinh); khi trien khai that can")
+    print("   randomize theo Publisher thay vi theo click.")
     print("=" * 60)
 
 if __name__ == "__main__":

@@ -1,15 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "table_offer_details",
   "position": {
-    "x": 40,
-    "y": 540,
-    "z": 0,
-    "width": 1830,
-    "height": 500
+    "x": 16,
+    "y": 456,
+    "z": 1000,
+    "height": 252,
+    "width": 1248,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "table",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
         "Values": {
@@ -25,7 +26,9 @@
                   "Property": "offer_name"
                 }
               },
-              "queryRef": "dim_offers.offer_name"
+              "queryRef": "dim_offers.offer_name",
+              "nativeQueryRef": "offer_name",
+              "displayName": "Offer"
             },
             {
               "field": {
@@ -38,7 +41,9 @@
                   "Property": "vertical"
                 }
               },
-              "queryRef": "dim_offers.vertical"
+              "queryRef": "dim_offers.vertical",
+              "nativeQueryRef": "vertical",
+              "displayName": "Ngành"
             },
             {
               "field": {
@@ -51,7 +56,9 @@
                   "Property": "payout_model"
                 }
               },
-              "queryRef": "dim_offers.payout_model"
+              "queryRef": "dim_offers.payout_model",
+              "nativeQueryRef": "payout_model",
+              "displayName": "Mô hình"
             },
             {
               "field": {
@@ -64,7 +71,9 @@
                   "Property": "Total Clicks"
                 }
               },
-              "queryRef": "_Measures.Total Clicks"
+              "queryRef": "_Measures.Total Clicks",
+              "nativeQueryRef": "Total Clicks",
+              "displayName": "Click"
             },
             {
               "field": {
@@ -77,7 +86,9 @@
                   "Property": "Total Conversions"
                 }
               },
-              "queryRef": "_Measures.Total Conversions"
+              "queryRef": "_Measures.Total Conversions",
+              "nativeQueryRef": "Total Conversions",
+              "displayName": "Đơn"
             },
             {
               "field": {
@@ -90,7 +101,9 @@
                   "Property": "CR %"
                 }
               },
-              "queryRef": "_Measures.CR %"
+              "queryRef": "_Measures.CR %",
+              "nativeQueryRef": "CR %",
+              "displayName": "CR"
             },
             {
               "field": {
@@ -103,7 +116,9 @@
                   "Property": "Approved Conversions"
                 }
               },
-              "queryRef": "_Measures.Approved Conversions"
+              "queryRef": "_Measures.Approved Conversions",
+              "nativeQueryRef": "Approved Conversions",
+              "displayName": "Đơn duyệt"
             },
             {
               "field": {
@@ -116,7 +131,9 @@
                   "Property": "Approval Rate %"
                 }
               },
-              "queryRef": "_Measures.Approval Rate %"
+              "queryRef": "_Measures.Approval Rate %",
+              "nativeQueryRef": "Approval Rate %",
+              "displayName": "Tỷ lệ duyệt"
             },
             {
               "field": {
@@ -126,10 +143,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Gross Revenue"
+                  "Property": "Revenue (M VND)"
                 }
               },
-              "queryRef": "_Measures.Gross Revenue"
+              "queryRef": "_Measures.Revenue (M VND)",
+              "nativeQueryRef": "Revenue (M VND)",
+              "displayName": "Doanh thu (tr)"
             },
             {
               "field": {
@@ -139,10 +158,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Publisher Payout"
+                  "Property": "Margin (M VND)"
                 }
               },
-              "queryRef": "_Measures.Publisher Payout"
+              "queryRef": "_Measures.Margin (M VND)",
+              "nativeQueryRef": "Margin (M VND)",
+              "displayName": "Lãi gộp (tr)"
             },
             {
               "field": {
@@ -152,10 +173,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Net Platform Margin"
+                  "Property": "Gross Margin %"
                 }
               },
-              "queryRef": "_Measures.Net Platform Margin"
+              "queryRef": "_Measures.Gross Margin %",
+              "nativeQueryRef": "Gross Margin %",
+              "displayName": "Margin %"
             },
             {
               "field": {
@@ -168,10 +191,30 @@
                   "Property": "EPC (VND)"
                 }
               },
-              "queryRef": "_Measures.EPC (VND)"
+              "queryRef": "_Measures.EPC (VND)",
+              "nativeQueryRef": "EPC (VND)",
+              "displayName": "EPC"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Margin (M VND)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "visualContainerObjects": {
@@ -188,13 +231,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Offer Performance Matrix'"
+                  "Value": "'Chi tiết hiệu quả từng offer'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -47,7 +47,7 @@ table publisher_risk_scoring
 		mode: import
 		source =
 			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/gold/publisher_risk_scoring.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "gold\publisher_risk_scoring.csv.gz"), Compression.GZip), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"publisher_id", type text}, {"total_leads", Int64.Type}, {"approved_leads", Int64.Type}, {"approval_rate_pct", type number}, {"fast_ttc_bot_leads", Int64.Type}, {"total_margin_vnd", type number}, {"risk_level", type text}})
 			in

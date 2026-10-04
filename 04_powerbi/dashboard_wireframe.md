@@ -12,16 +12,16 @@ Dự án thiết kế Dashboard gồm **3 trang trực quan** chuẩn mực, ph�
   * Vertical: Finance & Banking | Beauty CPO | Health CPO | E-commerce
   * Payout Model: CPA | CPL | CPO | CPS
 * **Hàng thẻ số KPI (Top KPI Cards):**
-  1. **Gross Revenue:** 285.4M VNĐ (Doanh thu gộp từ Advertiser)
-  2. **Net Platform Margin:** 82.1M VNĐ (Lợi nhuận gộp của Sàn)
-  3. **Average Margin %:** 28.7% (Biên lợi nhuận gộp mục tiêu > 25%)
-  4. **Total Approved Leads:** 642 Leads (Tổng đơn duyệt thành công)
-  5. **Average Approval Rate:** 57.1% (Tỷ lệ duyệt trung bình)
-  6. **Network EPC:** 10,250 VNĐ (Thu nhập trung bình trên mỗi click)
+  1. **Gross Revenue:** 5,89 tỷ VNĐ (Doanh thu gộp từ Advertiser)
+  2. **Net Platform Margin:** 1,67 tỷ VNĐ (Lợi nhuận gộp của Sàn)
+  3. **Average Margin %:** 28,4% (Biên lợi nhuận gộp mục tiêu > 25%)
+  4. **Total Approved Leads:** 30.292 Leads (Tổng đơn duyệt thành công)
+  5. **Average Approval Rate:** 61,8% (Tỷ lệ duyệt trung bình)
+  6. **Network EPC:** ~4.219 VNĐ (Thu nhập trung bình trên mỗi click)
 * **Biểu đồ chính:**
   * **Line Chart:** Doanh thu & Lợi nhuận gộp theo từng ngày (Gross Revenue vs Net Margin over Time).
-  * **Donut Chart:** Tỷ trọng doanh thu theo ngành hàng (Finance & Banking 62%, CPO 28%, E-commerce 10%).
-  * **Bar Chart (Horizontal):** Top 5 Chiến dịch có Lợi nhuận gộp cao nhất (Dẫn đầu: VPBank StepUp, Techcombank eKYC, VIB Super Card).
+  * **Donut Chart:** Tỷ trọng doanh thu theo ngành hàng (Finance & Banking 44%, Health & Wellness 24%, Beauty 18%, E-commerce 8%, App/Education 6%).
+  * **Bar Chart (Horizontal):** Top 5 Chiến dịch có Lợi nhuận gộp cao nhất (Dẫn đầu: VIB Super Card, Cordyceps Natural Tonic, VPBank StepUp).
 
 ---
 

@@ -1,0 +1,5 @@
+expression DataFolder = "D:\Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)\01_data\lakehouse\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: e59fbeb9-56da-46bc-8823-46d881fc1252
+
+	annotation PBI_ResultType = Text
+

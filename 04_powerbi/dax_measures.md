@@ -110,6 +110,8 @@ DIVIDE(
 
 ## 3. Time Intelligence (Tăng trưởng theo thời gian)
 
+> Chưa triển khai trong model hiện tại: cần bổ sung bảng `dim_date` và đánh dấu Mark as Date Table.
+
 ### Revenue Last Month (Doanh thu tháng trước)
 ```dax
 Revenue LM = 

@@ -1,15 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "donut_vertical",
   "position": {
-    "x": 1180,
-    "y": 210,
-    "z": 0,
-    "width": 690,
-    "height": 420
+    "x": 16,
+    "y": 480,
+    "z": 1000,
+    "height": 228,
+    "width": 616,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "pieChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -25,7 +26,9 @@
                   "Property": "vertical"
                 }
               },
-              "queryRef": "dim_offers.vertical"
+              "queryRef": "dim_offers.vertical",
+              "nativeQueryRef": "vertical",
+              "displayName": "Ngành hàng"
             }
           ]
         },
@@ -39,14 +42,129 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Gross Revenue"
+                  "Property": "Revenue (bn VND)"
                 }
               },
-              "queryRef": "_Measures.Gross Revenue"
+              "queryRef": "_Measures.Revenue (bn VND)",
+              "nativeQueryRef": "Revenue (bn VND)",
+              "displayName": "Doanh thu (tỷ)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Margin (bn VND)"
+                }
+              },
+              "queryRef": "_Measures.Margin (bn VND)",
+              "nativeQueryRef": "Margin (bn VND)",
+              "displayName": "Lãi gộp (tỷ)"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Revenue (bn VND)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
       }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2563EB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Revenue (bn VND)"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0D9488'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Margin (bn VND)"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -62,13 +180,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Revenue Share by Offer Vertical'"
+                  "Value": "'Doanh thu & lãi gộp theo ngành hàng (tỷ VNĐ)'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -38,12 +38,22 @@ table fact_clicks
 		summarizeBy: none
 		sourceColumn: user_ip
 
+	column click_date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 6f1dbf01-d29e-4b21-b2a7-e0851e708983
+		summarizeBy: none
+		sourceColumn: click_date
+
 	partition fact_clicks = m
 		mode: import
 		source =
 			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/bronze/fact_clicks.csv.gz"), Compression.GZip), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "bronze\fact_clicks.csv.gz"), Compression.GZip), [Delimiter=",", Columns=6, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
-			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"click_id", type text}, {"click_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"device_type", type text}, {"user_ip", type text}})
+			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"click_id", type text}, {"click_time", type datetime}, {"publisher_id", type text}, {"offer_id", type text}, {"device_type", type text}, {"user_ip", type text}}, "en-US"),
+			    #"To VN Time" = Table.TransformColumns(#"Changed Type", {{"click_time", each _ + #duration(0, 7, 0, 0), type datetime}}),
+			    #"Added Date" = Table.AddColumn(#"To VN Time", "click_date", each DateTime.Date([click_time]), type date)
 			in
-			    #"Changed Type"
+			    #"Added Date"
+

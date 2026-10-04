@@ -1,7 +1,7 @@
 -- ====================================================================
 -- PROJECT: Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
 -- SCRIPT 01: Star Schema & Table Definitions (DDL)
--- DIALECT: Standard ANSI SQL (Compatible with PostgreSQL, MySQL, SQLite)
+-- DIALECT: PostgreSQL
 -- ====================================================================
 
 -- 1. DIMENSION TABLE: PUBLISHERS (Đối tác phân phối traffic / KOC / Media Buyer)

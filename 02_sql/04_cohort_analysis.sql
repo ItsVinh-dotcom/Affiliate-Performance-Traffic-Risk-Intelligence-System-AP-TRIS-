@@ -2,6 +2,8 @@
 -- PROJECT: Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
 -- SCRIPT 04: Publisher Cohort Retention & Cumulative Value Analysis
 -- OBJECTIVE: Theo dõi vòng đời (Lifecycle) và tỷ lệ giữ chân (Retention) của các lứa Publisher
+-- DIALECT: PostgreSQL (DATE_TRUNC, TO_CHAR)
+-- LƯU Ý: Dataset mô phỏng hiện chỉ có 2 tháng hoạt động (08-09/2026) nên kết quả mang tính minh họa.
 -- ====================================================================
 
 -- BƯỚC 1: XÁC ĐỊNH COHORT CỦA PUBLISHER DỰA VÀO THÁNG GIA NHẬP (JOIN MONTH)

@@ -1,19 +1,60 @@
 {
   "name": "ExecutiveFintechTheme",
   "dataColors": [
-    "#0284C7",
-    "#10B981",
+    "#2563EB",
+    "#0D9488",
     "#F59E0B",
     "#8B5CF6",
-    "#F43F5E",
-    "#06B6D4",
-    "#6366F1",
+    "#DC2626",
+    "#0EA5E9",
+    "#64748B",
     "#EC4899"
   ],
-  "background": "#F8FAFC",
+  "background": "#FFFFFF",
   "foreground": "#0F172A",
-  "tableAccent": "#0284C7",
+  "tableAccent": "#2563EB",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#0F172A"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 9,
+      "color": "#334155"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 24,
+      "color": "#2563EB"
+    }
+  },
   "visualStyles": {
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F1F5F9"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#E2E8F0"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
     "*": {
       "*": {
         "background": [
@@ -35,23 +76,21 @@
                 "color": "#E2E8F0"
               }
             },
-            "radius": 12
+            "radius": 10,
+            "width": 1
           }
         ],
         "dropShadow": [
           {
-            "show": true,
-            "color": {
-              "solid": {
-                "color": "#0F172A"
-              }
-            },
-            "transparency": 92,
-            "preset": "Custom",
-            "position": "Outer",
-            "shadowAngle": 90,
-            "shadowDistance": 4,
-            "shadowBlur": 12
+            "show": false
+          }
+        ],
+        "padding": [
+          {
+            "top": 8,
+            "bottom": 8,
+            "left": 12,
+            "right": 12
           }
         ],
         "title": [
@@ -63,34 +102,121 @@
               }
             },
             "fontFamily": "Segoe UI Semibold",
-            "fontSize": 12,
-            "alignment": "Left"
+            "fontSize": 11,
+            "alignment": "left"
+          }
+        ],
+        "visualHeader": [
+          {
+            "show": true,
+            "transparency": 0
+          }
+        ],
+        "valueAxis": [
+          {
+            "gridlineColor": {
+              "solid": {
+                "color": "#E2E8F0"
+              }
+            },
+            "gridlineStyle": "dotted",
+            "labelColor": {
+              "solid": {
+                "color": "#64748B"
+              }
+            },
+            "fontSize": 8
+          }
+        ],
+        "categoryAxis": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#334155"
+              }
+            },
+            "fontSize": 8
+          }
+        ],
+        "legend": [
+          {
+            "labelColor": {
+              "solid": {
+                "color": "#334155"
+              }
+            },
+            "fontSize": 8
           }
         ]
       }
     },
     "card": {
       "*": {
-        "labels": [
+        "title": [
           {
-            "color": {
-              "solid": {
-                "color": "#0284C7"
-              }
-            },
-            "fontFamily": "Segoe UI Bold",
-            "fontSize": 22
-          }
-        ],
-        "categoryAxis": [
-          {
-            "color": {
+            "fontColor": {
               "solid": {
                 "color": "#64748B"
               }
             },
             "fontFamily": "Segoe UI",
             "fontSize": 10
+          }
+        ],
+        "categoryLabels": [
+          {
+            "show": false
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "background": [
+          {
+            "show": false
+          }
+        ],
+        "border": [
+          {
+            "show": false
+          }
+        ],
+        "title": [
+          {
+            "show": false
+          }
+        ],
+        "items": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "background": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "textSize": 9
+          }
+        ]
+      }
+    },
+    "textbox": {
+      "*": {
+        "border": [
+          {
+            "show": false
+          }
+        ],
+        "padding": [
+          {
+            "top": 0,
+            "bottom": 0,
+            "left": 0,
+            "right": 0
           }
         ]
       }
@@ -99,21 +225,14 @@
       "*": {
         "grid": [
           {
-            "gridVertical": true,
-            "gridVerticalColor": {
-              "solid": {
-                "color": "#F1F5F9"
-              }
-            },
-            "gridVerticalWeight": 1,
+            "gridVertical": false,
             "gridHorizontal": true,
             "gridHorizontalColor": {
               "solid": {
                 "color": "#E2E8F0"
               }
             },
-            "gridHorizontalWeight": 1,
-            "rowPadding": 6
+            "rowPadding": 4
           }
         ],
         "columnHeaders": [
@@ -128,8 +247,8 @@
                 "color": "#0F172A"
               }
             },
-            "fontFamily": "Segoe UI Bold",
-            "fontSize": 10
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 9
           }
         ],
         "values": [
@@ -154,8 +273,12 @@
                 "color": "#F8FAFC"
               }
             },
-            "fontFamily": "Segoe UI",
-            "fontSize": 9.5
+            "fontSize": 9
+          }
+        ],
+        "total": [
+          {
+            "show": false
           }
         ]
       }

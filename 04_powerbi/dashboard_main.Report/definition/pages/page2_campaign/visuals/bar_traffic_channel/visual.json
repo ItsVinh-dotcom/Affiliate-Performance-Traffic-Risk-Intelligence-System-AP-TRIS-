@@ -1,15 +1,16 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "bar_traffic_channel",
   "position": {
-    "x": 1180,
-    "y": 40,
-    "z": 0,
-    "width": 690,
-    "height": 480
+    "x": 648,
+    "y": 144,
+    "z": 1000,
+    "height": 300,
+    "width": 616,
+    "tabOrder": 1000
   },
   "visual": {
-    "visualType": "columnChart",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
         "Category": {
@@ -25,7 +26,9 @@
                   "Property": "traffic_channel"
                 }
               },
-              "queryRef": "dim_publishers.traffic_channel"
+              "queryRef": "dim_publishers.traffic_channel",
+              "nativeQueryRef": "traffic_channel",
+              "displayName": "Kênh"
             }
           ]
         },
@@ -39,10 +42,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Approved Conversions"
+                  "Property": "Approval Rate %"
                 }
               },
-              "queryRef": "_Measures.Approved Conversions"
+              "queryRef": "_Measures.Approval Rate %",
+              "nativeQueryRef": "Approval Rate %",
+              "displayName": "Toàn bộ traffic"
             },
             {
               "field": {
@@ -52,14 +57,114 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Rejected Conversions"
+                  "Property": "Approval Rate % (excl. Flagged)"
                 }
               },
-              "queryRef": "_Measures.Rejected Conversions"
+              "queryRef": "_Measures.Approval Rate % (excl. Flagged)",
+              "nativeQueryRef": "Approval Rate % (excl. Flagged)",
+              "displayName": "Đã loại publisher gắn cờ"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Measures"
+                  }
+                },
+                "Property": "Approval Rate %"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Top'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F59E0B'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Approval Rate %"
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2563EB'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Approval Rate % (excl. Flagged)"
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -75,13 +180,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Conversions by Traffic Channel'"
+                  "Value": "'Tỷ lệ duyệt theo kênh: trước & sau khi loại traffic gian lận'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

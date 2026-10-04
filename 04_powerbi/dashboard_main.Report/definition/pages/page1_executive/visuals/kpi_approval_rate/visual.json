@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visual/1.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "kpi_approval_rate",
   "position": {
-    "x": 1280,
-    "y": 40,
-    "z": 0,
-    "width": 280,
-    "height": 140
+    "x": 856.0,
+    "y": 144,
+    "z": 1000,
+    "height": 92,
+    "width": 198.0,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "card",
@@ -25,11 +26,58 @@
                   "Property": "Approval Rate %"
                 }
               },
-              "queryRef": "_Measures.Approval Rate %"
+              "queryRef": "_Measures.Approval Rate %",
+              "nativeQueryRef": "Approval Rate %"
             }
           ]
         }
       }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2563EB'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "24D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryLabels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
     },
     "visualContainerObjects": {
       "title": [
@@ -45,13 +93,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Average Approval Rate'"
+                  "Value": "'Tỷ lệ duyệt'"
                 }
               }
             }
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

@@ -1,0 +1,34 @@
+table dim_date
+	lineageTag: 2ab2774a-3200-49ac-b6fb-826929e83b1f
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 9ff4ca00-73e7-432e-9e19-dcd10e0fbf5a
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Month
+		dataType: string
+		lineageTag: 5de9faf6-c7fb-4944-89ca-5f5ba88ce24e
+		summarizeBy: none
+		sourceColumn: Month
+
+	column Weekday
+		dataType: string
+		lineageTag: a35fbb71-b669-4b81-8881-7ea811582291
+		summarizeBy: none
+		sourceColumn: Weekday
+
+	partition dim_date = m
+		mode: import
+		source =
+			let
+			    Dates = List.Dates(#date(2026, 8, 1), 61, #duration(1, 0, 0, 0)),
+			    AsTable = Table.FromList(Dates, Splitter.SplitByNothing(), {"Date"}),
+			    Typed = Table.TransformColumnTypes(AsTable, {{"Date", type date}}),
+			    AddMonth = Table.AddColumn(Typed, "Month", each Date.ToText([Date], "yyyy-MM"), type text),
+			    AddWeekday = Table.AddColumn(AddMonth, "Weekday", each Date.ToText([Date], "ddd", "en-US"), type text)
+			in
+			    AddWeekday
+

@@ -24,3 +24,7 @@ Thumbs.db
 *.duckdb
 *.sqlite
 *.sqlite3
+
+# Power BI local cache & per-user settings
+**/.pbi/cache.abf
+**/.pbi/localSettings.json

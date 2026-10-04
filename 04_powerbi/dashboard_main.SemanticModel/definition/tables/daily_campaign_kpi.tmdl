@@ -60,7 +60,7 @@ table daily_campaign_kpi
 		mode: import
 		source =
 			let
-			    Source = Csv.Document(Binary.Decompress(File.Contents("d:/Documents/Affiliate-Performance-Traffic-Risk-Intelligence-System-AP-TRIS-/01_data/lakehouse/gold/daily_campaign_kpi.csv.gz"), Compression.GZip), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+			    Source = Csv.Document(Binary.Decompress(File.Contents(DataFolder & "gold\daily_campaign_kpi.csv.gz"), Compression.GZip), [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]),
 			    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
 			    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"date", type date}, {"offer_id", type text}, {"total_conversions", Int64.Type}, {"approved_conversions", Int64.Type}, {"rejected_conversions", Int64.Type}, {"approval_rate_pct", type number}, {"gross_revenue_vnd", type number}, {"publisher_payout_vnd", type number}, {"gross_margin_vnd", type number}})
 			in

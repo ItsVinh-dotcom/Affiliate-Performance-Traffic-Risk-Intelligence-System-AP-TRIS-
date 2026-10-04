@@ -1,72 +1,66 @@
-# 🚀 Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
+# Affiliate Performance & Traffic Risk Intelligence System (AP-TRIS)
 
-[![Domain: Affiliate & Performance Marketing](https://img.shields.io/badge/Domain-Affiliate%20Marketing%20%7C%20Fintech-blue.svg)](#)
-[![Data Scale: 1M+ Clicks | 49K Conversions](https://img.shields.io/badge/Data%20Scale-1%2C000%2C000%2B%20Clicks%20%7C%20Columnar%20Storage-brightgreen.svg)](#)
+[![Domain: Affiliate Marketing](https://img.shields.io/badge/Domain-Affiliate%20Marketing-blue.svg)](#)
+[![Data: 1M simulated clicks](https://img.shields.io/badge/Data-1M%20simulated%20clicks-brightgreen.svg)](#)
 [![Stack: SQL | Power BI | Python](https://img.shields.io/badge/Stack-SQL%20%7C%20Power%20BI%20%7C%20Python-orange.svg)](#)
-[![Analytics: A/B Testing & Cohort](https://img.shields.io/badge/Analytics-A%2FB%20Testing%20%7C%20Cohort%20Retention-green.svg)](#)
-[![Quality: Data Pipeline & Fraud Gatekeeper](https://img.shields.io/badge/Data%20Quality-Automated%20ETL%20%26%20Anomaly%20Alert-purple.svg)](#)
+
+> ⚠️ **Lưu ý về dữ liệu:** Toàn bộ dữ liệu trong dự án là **dữ liệu giả lập** do script `01_data/generate_1m_data.py` sinh ra (seed cố định = 42, có thể tái lập). Tên ngân hàng và nhãn hàng chỉ dùng để mô phỏng bối cảnh. Giá trị hoa hồng và tỷ lệ duyệt là giả định, không phải số liệu thật của bất kỳ đối tác nào.
 
 ---
 
-## 📌 1. Bối cảnh Kinh doanh & Quy mô Dữ liệu (1.000.000+ Bản ghi)
+## 1. Bối cảnh bài toán
 
-Trong các mạng lưới Tiếp thị liên kết (Affiliate Marketing Network) hàng đầu như **MOSAIC / Dinos hay AccessTrade**, quy mô dữ liệu phát sinh hàng ngày là cực kỳ khổng lồ:
-* **Hơn 1.000.000 lượt Click/tháng** đến từ hàng trăm KOC TikTok, Media Buyer chạy quảng cáo Facebook/Google Ads.
-* **Hơn 49.000 đơn hàng & hồ sơ đăng ký (Leads)** từ các chiến dịch Ngân hàng & Tài chính (CPA/CPL) và nhãn hàng D2C (CPO).
+Một mạng affiliate (tiếp thị liên kết) đứng giữa hai bên:
 
-### ⚡ Tối ưu hóa Lưu trữ Dữ liệu Lớn (Big Data Columnar Compression):
-Nếu lưu trữ dạng CSV thông thường, 1 triệu dòng click chiếm tới **~160 MB** (vượt quá giới hạn 100MB của GitHub). Dự án ứng dụng định dạng nén cột chuẩn công nghiệp (**Snappy Parquet / Compressed Gzip**):
-* **Dung lượng giảm 89%:** Từ ~160 MB xuống chỉ còn **16.6 MB**.
-* **Tốc độ đọc/quét cột:** Nhanh gấp 10 lần, giảm 85% tải bộ nhớ RAM khi xử lý trong Data Pipeline và nạp vào Power BI.
+- **Publisher** (KOC TikTok, media buyer, SEO, cộng đồng Zalo/Telegram...) muốn tối đa hóa click và hoa hồng.
+- **Advertiser** (ngân hàng, công ty tài chính, nhãn hàng) chỉ trả tiền cho đơn hoặc hồ sơ **được duyệt**.
 
-### "Nỗi đau" kinh điển của ngành:
-1. **Xung đột lợi ích:** Đội ngũ Publisher luôn muốn tối đa hóa lượt click và đòi hoa hồng cao, trong khi các Ngân hàng lớn chỉ chi trả khi hồ sơ được thẩm định duyệt thực tế (**Approval Rate**).
-2. **Gian lận lưu lượng (Traffic Fraud):** Rủi ro thất thoát hàng chục đến hàng trăm triệu đồng tiền hoa hồng do các Publisher sử dụng công cụ/bot script tự động điền form, click ảo hoặc spam số điện thoại rác.
-3. **Thiếu hệ thống giám sát thời gian thực:** Cần một hệ thống phân tích dữ liệu tự động, liên tục đo lường **EPC (Earnings Per Click)**, **Biên lợi nhuận gộp (Gross Margin)** và phát hiện bất thường ngay trong ngày.
+Có 3 vấn đề cần giải quyết:
 
-Dự án **AP-TRIS** được xây dựng nhằm giải quyết toàn diện bài toán trên, từ tầng kiến trúc dữ liệu (Data Warehouse), truy vấn SQL nâng cao, mô hình kiểm định thống kê A/B Testing, đến bảng điều khiển Power BI trực quan và đường ống dữ liệu (ETL Pipeline) tự động.
+1. **Đo hiệu quả:** CR, Approval Rate, EPC và biên lợi nhuận gộp theo từng offer, publisher và kênh.
+2. **Gian lận traffic:** bot tự động điền form và dùng cụm IP sinh lead ảo, khiến sàn trả nhầm hoa hồng.
+3. **Giám sát định kỳ:** kiểm tra chất lượng dữ liệu và tự động cảnh báo publisher bất thường.
+
+### Quy mô dữ liệu mô phỏng
+
+| Thành phần | Số lượng |
+|---|---|
+| Click | 1.000.000 |
+| Chuyển đổi (lead/đơn) | 49.006 |
+| Publisher | 250 (6 kênh traffic, 4 hạng: Bronze / Silver / Gold / Platinum) |
+| Offer | 25 (Ngân hàng – Tài chính, Làm đẹp, Sức khỏe, TMĐT, App, Giáo dục) |
+| Thời gian | 2 tháng (08–09/2026) |
+| Publisher gian lận được cài sẵn | 5 (dùng để kiểm chứng các rule phát hiện) |
 
 ---
 
-## 🏛️ 2. Kiến trúc Data Lakehouse Chuẩn Medallion (Bronze - Silver - Gold)
+## 2. Cấu trúc dữ liệu (Bronze → Silver → Gold)
 
-Dự án áp dụng mô hình lưu trữ chuẩn doanh nghiệp (**Medallion Lakehouse Pattern**), loại bỏ hoàn toàn việc dùng CSV ở tầng dữ liệu lõi:
+Dữ liệu được tổ chức theo 3 tầng. File lưu dạng **CSV nén gzip**. Khi máy có `pyarrow`, script tự động ghi ra Parquet thay cho CSV.
 
 ```text
 01_data/
-├── lakehouse/                       # ⚡ CORE LAKEHOUSE (100% Columnar Storage / Parquet)
-│   ├── bronze/                      # RAW TRACKING INGESTION (1.000.000 Clicks & 49.006 Conversions)
-│   │   ├── fact_clicks.parquet (hoặc .csv.gz)
-│   │   └── fact_conversions.parquet (hoặc .csv.gz)
-│   │
-│   ├── silver/                      # CLEANSED & ENRICHED DATA (Đã khử trùng, bổ sung metadata)
-│   │   ├── dim_publishers.parquet
-│   │   ├── dim_offers.parquet
-│   │   └── fact_conversions_cleansed.parquet
-│   │
-│   └── gold/                        # BUSINESS ANALYTICS MARTS (Nạp trực tiếp vào Power BI)
-│       ├── daily_campaign_kpi.parquet
-│       └── publisher_risk_scoring.parquet
-│
-└── exports/                         # 📑 NƠI DUY NHẤT CHỨA CSV (Bàn giao nghiệp vụ)
-    ├── accounting_monthly_payout.csv        # Bảng tính hoa hồng & khấu trừ thuế TNCN 10% cho Kế toán
-    └── advertiser_reconciliation_sample.csv # Mẫu file đối soát gửi Ngân hàng & Đối tác
+├── lakehouse/
+│   ├── bronze/   fact_clicks.csv.gz (1.000.000 dòng), fact_conversions.csv.gz (49.006 dòng)
+│   ├── silver/   dim_publishers, dim_offers, fact_conversions_cleansed (đã ghép thông tin offer)
+│   └── gold/     daily_campaign_kpi (KPI theo ngày × offer), publisher_risk_scoring (điểm rủi ro publisher)
+└── exports/      accounting_monthly_payout.csv     – bảng hoa hồng & khấu trừ thuế TNCN 10% cho kế toán
+                  advertiser_reconciliation_sample.csv – mẫu file đối soát gửi đối tác ngân hàng
 ```
 
-> **Quy tắc Kiến trúc Dữ liệu Nghiêm ngặt:**  
-> CSV **không bao giờ** được dùng để lưu trữ dữ liệu trung tâm hay bảng sự kiện (Fact table). CSV chỉ được sinh ra tại tầng `01_data/exports/` khi cần bàn giao báo cáo cho phòng Kế toán hoặc thực hiện thủ tục đối soát (Reconciliation) với Ngân hàng.
+Bảng click giải nén ra khoảng 74,6 MB. Bản nén gzip chỉ còn 16,6 MB (giảm ~78%), đủ nhẹ để đưa lên GitHub và nạp vào Power BI.
 
 ---
 
-## 🏗️ 3. Mô hình Thực thể Quan hệ Star Schema
+## 3. Mô hình dữ liệu (Star Schema)
 
 ```mermaid
 erDiagram
-    dim_publishers ||--o{ fact_clicks : "generates (1:N)"
-    dim_offers ||--o{ fact_clicks : "tracked_on (1:N)"
-    dim_publishers ||--o{ fact_conversions : "earns_payout (1:N)"
-    dim_offers ||--o{ fact_conversions : "earns_revenue (1:N)"
-    fact_clicks ||--o{ fact_conversions : "converts_to (1:1)"
+    dim_publishers ||--o{ fact_clicks : "generates"
+    dim_offers ||--o{ fact_clicks : "tracked_on"
+    dim_publishers ||--o{ fact_conversions : "earns_payout"
+    dim_offers ||--o{ fact_conversions : "earns_revenue"
+    fact_clicks ||--o| fact_conversions : "converts_to"
 
     dim_publishers {
         string publisher_id PK
@@ -76,7 +70,6 @@ erDiagram
         string status
         date join_date
     }
-
     dim_offers {
         string offer_id PK
         string offer_name
@@ -87,7 +80,6 @@ erDiagram
         numeric publisher_payout_vnd
         numeric expected_approval_rate
     }
-
     fact_clicks {
         string click_id PK
         timestamp click_time
@@ -96,7 +88,6 @@ erDiagram
         string device_type
         string user_ip
     }
-
     fact_conversions {
         string conversion_id PK
         string click_id FK
@@ -114,133 +105,147 @@ erDiagram
 
 ---
 
-## 📐 3. Bộ Chỉ số Hiệu suất Cốt lõi (Affiliate Core KPIs)
+## 4. Bộ KPI
 
-| Chỉ số | Tên đầy đủ | Công thức tính | Ý nghĩa nghiệp vụ |
-| :--- | :--- | :--- | :--- |
-| **CR %** | Conversion Rate | $\frac{\text{Total Conversions}}{\text{Total Clicks}} \times 100$ | Hiệu quả chuyển đổi từ người xem sang người điền đơn |
-| **Approval Rate %** | Tỷ lệ duyệt đơn | $\frac{\text{Approved Conversions}}{\text{Total Conversions}} \times 100$ | Tỷ lệ hồ sơ được Ngân hàng thẩm định duyệt thành công |
-| **Gross Margin** | Lợi nhuận gộp | $\text{Advertiser Revenue} - \text{Publisher Payout}$ | Số tiền thực tế sàn giữ lại sau khi chi trả hoa hồng |
-| **Margin %** | Biên lợi nhuận gộp | $\frac{\text{Net Platform Margin}}{\text{Gross Revenue}} \times 100$ | Tỷ suất sinh lời của từng chiến dịch |
-| **EPC** | Earnings Per Click | $\frac{\text{Publisher Payout}}{\text{Total Clicks}}$ | Thu nhập trung bình trên mỗi cú click (Chỉ số quyết định Publisher có chạy tiếp hay không) |
+| Chỉ số | Công thức | Ý nghĩa |
+| :--- | :--- | :--- |
+| **CR %** | Conversions / Clicks | Hiệu quả chuyển click thành đơn |
+| **Approval Rate %** | Approved / Conversions | Tỷ lệ hồ sơ được advertiser duyệt |
+| **Gross Margin** | Advertiser Revenue − Publisher Payout | Phần sàn giữ lại |
+| **Margin %** | Gross Margin / Revenue | Tỷ suất lợi nhuận gộp |
+| **EPC** | Publisher Payout / Clicks | Hoa hồng trung bình mỗi click (publisher so với chi phí CPC của mình) |
+
+### Kết quả tổng quan (tính từ dữ liệu mô phỏng)
+
+| KPI | Giá trị |
+|---|---|
+| CR | 4,90% |
+| Approval Rate | 61,8% (69,7% nếu loại 5 publisher gian lận) |
+| Doanh thu gộp | 5,89 tỷ VNĐ |
+| Hoa hồng publisher | 4,22 tỷ VNĐ |
+| Lợi nhuận gộp | 1,67 tỷ VNĐ (margin 28,4%) |
+| EPC | ~4.219 VNĐ/click |
 
 ---
 
-## 💻 4. Trọng tâm Kỹ thuật: Bộ Truy vấn SQL Chuyên sâu (`02_sql/`)
+## 5. SQL (`02_sql/`)
 
-### 4.1. Báo cáo Hiệu suất & Xếp hạng Publisher bằng Window Functions
-Sử dụng `DENSE_RANK()` và `SUM() OVER ()` để phân nhóm và đo lường tỷ lệ đóng góp lợi nhuận:
+Các script viết theo cú pháp **PostgreSQL**. Riêng `04_cohort_analysis.sql` dùng `DATE_TRUNC` và `TO_CHAR`.
+
+| File | Nội dung |
+|---|---|
+| `01_schema_setup.sql` | DDL star schema và index |
+| `02_kpi_metrics.sql` | Báo cáo theo offer, xếp hạng publisher (`DENSE_RANK`, `SUM() OVER ()`), so sánh kênh traffic |
+| `03_fraud_detection.sql` | 3 rule phát hiện gian lận (xem mục 6) |
+| `04_cohort_analysis.sql` | Khung phân tích cohort publisher. Dữ liệu hiện chỉ có 2 tháng nên kết quả mang tính minh họa |
+
+Ví dụ: xếp hạng publisher theo lợi nhuận mang về cho sàn.
 
 ```sql
-SELECT 
+SELECT
     p.publisher_id,
-    p.publisher_name,
     p.traffic_channel,
-    p.tier,
-    COUNT(c.click_id) AS total_clicks,
     COUNT(conv.conversion_id) AS total_conversions,
-    ROUND(CAST(COUNT(CASE WHEN conv.status = 'Approved' THEN 1 END) AS NUMERIC) / 
-          NULLIF(COUNT(conv.conversion_id), 0) * 100, 2) AS approval_rate_pct,
     SUM(conv.gross_margin_vnd) AS platform_profit_vnd,
     DENSE_RANK() OVER (ORDER BY SUM(conv.gross_margin_vnd) DESC) AS profit_rank,
-    ROUND(
-        CAST(SUM(conv.gross_margin_vnd) AS NUMERIC) / 
-        NULLIF(SUM(SUM(conv.gross_margin_vnd)) OVER (), 0) * 100, 
-        2
-    ) AS profit_contribution_pct
+    ROUND(SUM(conv.gross_margin_vnd) * 100.0
+          / NULLIF(SUM(SUM(conv.gross_margin_vnd)) OVER (), 0), 2) AS profit_contribution_pct
 FROM dim_publishers p
-LEFT JOIN fact_clicks c ON p.publisher_id = c.publisher_id
-LEFT JOIN fact_conversions conv ON c.click_id = conv.click_id
-GROUP BY p.publisher_id, p.publisher_name, p.traffic_channel, p.tier
-ORDER BY profit_rank ASC LIMIT 20;
-```
-
-### 4.2. Truy vấn Bắt Gian lận Traffic (Bot Traffic & IP Clustering)
-Phát hiện các đơn hàng điền form dưới 5 giây (`time_to_convert < 5s`) – dấu hiệu bất thường của bot script:
-
-```sql
-SELECT 
-    conv.publisher_id,
-    p.publisher_name,
-    COUNT(conv.conversion_id) AS total_bot_conversions,
-    ROUND(AVG(conv.time_to_convert_seconds), 1) AS avg_ttc_seconds,
-    SUM(conv.publisher_payout_vnd) AS potential_lost_payout_vnd
-FROM fact_conversions conv
-JOIN dim_publishers p ON conv.publisher_id = p.publisher_id
-WHERE conv.time_to_convert_seconds < 5
-GROUP BY conv.publisher_id, p.publisher_name
-HAVING COUNT(conv.conversion_id) >= 5
-ORDER BY total_bot_conversions DESC;
+JOIN fact_conversions conv ON p.publisher_id = conv.publisher_id
+GROUP BY p.publisher_id, p.traffic_channel
+ORDER BY profit_rank
+LIMIT 20;
 ```
 
 ---
 
-## 🔬 5. Phân tích Thống kê A/B Testing (`03_analysis/`)
+## 6. Phát hiện gian lận traffic
 
-### Bài toán Thử nghiệm:
-Sàn tiến hành thử nghiệm A/B trong 30 ngày cho các Offer Thẻ tín dụng & Mở tài khoản Ngân hàng:
-* **Nhóm A (Control):** Hoa hồng cố định **250.000 VNĐ** / thẻ duyệt.
-* **Nhóm B (Variant):** Hoa hồng bậc thang **220.000 VNĐ cơ bản + 60.000 VNĐ thưởng** khi đạt mốc > 30 thẻ duyệt.
+| Rule | Ngưỡng | Kết quả trên dữ liệu |
+|---|---|---|
+| Time-to-convert bất thường | Điền form < 5 giây (người dùng thật có trung vị ~22 phút) | 5.935 lead, toàn bộ trong khoảng 1–3 giây |
+| Cụm IP | ≥ 3 đơn từ cùng 1 IP trong 1 ngày | Traffic gian lận dồn về 6 IP thuộc dải `113.161.44.x` |
+| Tỷ lệ duyệt thấp | ≥ 20 đơn và Approval Rate < 15% | 5 publisher có tỷ lệ duyệt ~4–6%, trong khi trung bình sàn là 61,8% |
 
-### Kết quả Kiểm định Thống kê:
-* **Mẫu thử:** Nhóm A ($N = 5,200$ clicks) vs Nhóm B ($N = 5,250$ clicks).
-* **Chỉ số chuyển đổi:**
-  * Nhóm A: 158 thẻ duyệt (Conversion Rate = 3.04%, Approval Rate = 55.24%).
-  * Nhóm B: 208 thẻ duyệt (Conversion Rate = 3.96%, Approval Rate = 60.29%).
-* **Thước đo kiểm định:**
-  * $Z\text{-score} = 2.5674$
-  * $p\text{-value} = 0.0102$ ($p < 0.05 \implies$ **Bác bỏ giả thuyết vô hiệu $H_0$**).
-  * Độ tăng trưởng tương đối (Relative Uplift): **+30.39%**.
-  * Khoảng tin cậy 95% (95% CI): $[+0.22\%, +1.63\%]$.
-* **Tác động Kinh doanh:** Lợi nhuận gộp sàn thu về tăng **+11.9%** sau khi đã khấu trừ toàn bộ tiền thưởng hoa hồng.
+Cả 3 rule cùng chỉ ra **5 publisher**: `PUB_042`, `PUB_077`, `PUB_091`, `PUB_142`, `PUB_188`. Nhóm này chiếm ~12% click và 12% đơn. Có **269 đơn** của nhóm vẫn lọt qua khâu duyệt, tương ứng **41,8 triệu VNĐ** hoa hồng trả sai. File kế toán `accounting_monthly_payout.csv` tự động chuyển 5 publisher này sang trạng thái `HOLD (FRAUD AUDIT)`.
 
 ---
 
-## 📊 6. Thiết kế Dashboard Power BI (`04_powerbi/`)
+## 7. A/B test chính sách hoa hồng (`03_analysis/ab_testing_payout.py`)
 
-Dashboard gồm **3 trang phân tích chuyên sâu**:
-1. **Trang 1: Executive KPI Overview** – Theo dõi Gross Revenue, Net Margin, Tỷ lệ duyệt, EPC và cơ cấu doanh thu theo từng ngành hàng theo thời gian thực.
-2. **Trang 2: Campaign & Traffic Deep-Dive** – Biểu đồ phân tán (Scatter Plot) giữa Clicks và Approval Rate, ma trận chi tiết từng Offer và kênh phân phối.
-3. **Trang 3: Traffic Quality & Risk Intelligence** – Bảng xếp hạng rủi ro Publisher, phân phối thời gian Time-to-Convert, và cảnh báo tài khoản spam.
+> Đây là **case mô phỏng độc lập**. Số liệu được nhập trực tiếp trong script, không lấy từ dataset 1 triệu dòng.
 
-> *Toàn bộ công thức DAX được tài liệu hóa chi tiết tại: [`04_powerbi/dax_measures.md`](file:///04_powerbi/dax_measures.md)*
+- **Nhóm A (đối chứng):** hoa hồng cố định 250.000 VNĐ/thẻ được duyệt.
+- **Nhóm B (thử nghiệm):** hoa hồng bậc thang, 220.000 VNĐ cơ bản cộng thưởng khi vượt mốc (bình quân +45.000 VNĐ/thẻ).
 
----
+| | Nhóm A | Nhóm B |
+|---|---|---|
+| Click | 5.200 | 5.250 |
+| Thẻ được duyệt | 158 (3,04% trên click) | 208 (3,96% trên click) |
 
-## ⚡ 7. Tự động hóa Pipeline & Data Quality (`05_pipeline_automation/`)
+Kiểm định hai tỷ lệ (two-proportion z-test): **Z = 2,57, p ≈ 0,010**, mức tăng tương đối **+30,4%**, khoảng tin cậy 95% của chênh lệch là [+0,22; +1,63] điểm %. Lợi nhuận gộp của sàn tăng **+11,9%** sau khi đã trừ tiền thưởng.
 
-File [`daily_etl_and_alert.py`](file:///05_pipeline_automation/daily_etl_and_alert.py) thực thi tự động 4 bước:
-1. **Ingestion:** Nạp dữ liệu từ các tệp nguồn.
-2. **Data Quality Gatekeeper:** Kiểm tra trùng lặp khóa chính, phát hiện trường hợp biên lợi nhuận âm (Margin < 0), kiểm tra logic thời gian.
-3. **Transformation:** Tổng hợp báo cáo hiệu suất chiến dịch theo ngày nạp vào Power BI.
-4. **Risk Anomaly Alerts:** Tự động phát hiện và in cảnh báo đối với các Publisher có dấu hiệu bot script hoặc tỷ lệ duyệt dưới 15%.
+**Hạn chế:** chính sách hoa hồng áp dụng theo publisher, nhưng thử nghiệm lại chia nhóm theo click. Khi triển khai thật cần chia nhóm theo publisher. Vì số publisher ít hơn nhiều so với số click, thử nghiệm sẽ phải chạy lâu hơn để đủ độ tin cậy.
 
 ---
 
-## 🎯 8. Kết luận & Đề xuất Chiến lược (Actionable Insights)
+## 8. Dashboard Power BI (`04_powerbi/`)
 
-1. **Tập trung vào Mảng Tài chính - Ngân hàng (BFSI):** Mặc dù click ít hơn E-commerce, mảng Ngân hàng đóng góp **68% Lợi nhuận gộp** toàn sàn nhờ hoa hồng cao (CPA từ 130k - 480k VNĐ).
-2. **Ưu tiên phát triển KOC TikTok:** Traffic từ KOC TikTok có tỷ lệ duyệt cao nhất (**68.2%** so với 49.5% của Facebook Ads) do người xem được hướng dẫn mở tài khoản chi tiết qua video.
-3. **Ngăn chặn thất thoát hoa hồng:** Hệ thống phát hiện kịp thời 3 Publisher bot traffic, giúp sàn bảo vệ hơn **12.5 triệu VNĐ** tiền hoa hồng chi trả sai đối tượng.
+File `dashboard_main.pbip` gồm 3 trang:
+
+1. **Executive Overview:** doanh thu, lợi nhuận gộp, tỷ lệ duyệt, EPC; cơ cấu doanh thu theo ngành hàng; top offer.
+2. **Campaign & Traffic:** biểu đồ phân tán Clicks × Approval Rate theo offer, so sánh kênh traffic, bảng chi tiết offer.
+3. **Risk Intelligence:** số lead nghi bot, bảng xếp hạng rủi ro publisher.
+
+Công thức DAX được ghi tại [`04_powerbi/dax_measures.md`](04_powerbi/dax_measures.md).
+
+> Khi mở trên máy khác, cần sửa đường dẫn file nguồn trong Power Query (Transform Data → Data source settings) để trỏ tới thư mục `01_data/lakehouse/` trên máy đó.
 
 ---
 
-## 🚀 9. Hướng dẫn Khởi chạy Dự án trên Máy
+## 9. Pipeline & kiểm tra chất lượng dữ liệu (`05_pipeline_automation/`)
+
+`daily_etl_and_alert.py` chạy 4 bước:
+
+1. **Ingestion:** đọc dữ liệu từ tầng Bronze và Silver.
+2. **Data Quality:** kiểm tra khóa chính bị thiếu, đơn đã duyệt mà margin âm, time-to-convert âm.
+3. **Transformation:** tổng hợp KPI theo ngày × offer và ghi vào tầng Gold.
+4. **Risk alert:** in cảnh báo cho publisher có từ 5 lead nghi bot trở lên, hoặc có tỷ lệ duyệt < 15%.
+
+---
+
+## 10. Insight chính
+
+1. **Ngân hàng – Tài chính (BFSI) là mảng đóng góp lớn nhất:** 40% click nhưng mang lại 44% doanh thu và 42,5% lợi nhuận gộp, nhờ mức hoa hồng CPA/CPL cao (110.000–480.000 VNĐ/đơn). → Nên ưu tiên nguồn lực account management cho các đối tác ngân hàng.
+2. **Gian lận gây thất thoát có thể đo được:** 5 publisher, 41,8 triệu VNĐ trả sai. → Nên tự động tạm giữ hoa hồng (hold payout) với đơn có time-to-convert < 5 giây, và audit publisher có tỷ lệ duyệt < 15%.
+3. **Phải loại nhiễu gian lận trước khi so sánh kênh:** nhìn số thô, kênh TikTok có tỷ lệ duyệt thấp nhất (60%). Nguyên nhân là một publisher gian lận thuộc kênh này kéo trung bình xuống. Sau khi loại nhóm gian lận, các kênh đều đạt khoảng 69–71%.
+
+---
+
+## 11. Cách chạy lại dự án
 
 ```bash
-# 1. Clone repo và di chuyển vào thư mục
-git clone https://github.com/<your-username>/affiliate-performance-intelligence.git
-cd affiliate-performance-intelligence
+pip install -r requirements.txt
 
-# 2. Sinh bộ dữ liệu mẫu chuẩn thực tế
-python 01_data/generate_mock_data.py
+# 1. Sinh dữ liệu mô phỏng 1 triệu click (ghi vào 01_data/raw/)
+python 01_data/generate_1m_data.py
 
-# 3. Chạy pipeline ETL, kiểm tra Data Quality & quét rủi ro
+# 2. Dựng các tầng Bronze / Silver / Gold và file export
+python 01_data/build_lakehouse.py
+
+# 3. Chạy pipeline kiểm tra chất lượng dữ liệu và cảnh báo rủi ro
 python 05_pipeline_automation/daily_etl_and_alert.py
 
-# 4. Chạy kiểm định A/B Testing
+# 4. (Tuỳ chọn) A/B test mô phỏng
 python 03_analysis/ab_testing_payout.py
 
-# 5. Phân tích Cohort Retention
-python 03_analysis/cohort_retention.py
+# 5. (Tuỳ chọn) Tạo database SQLite/DuckDB để chạy các file SQL
+python 01_data/build_database.py
 ```
+
+## 12. Hạn chế & hướng phát triển
+
+- **Dữ liệu:** dữ liệu là giả lập và chỉ có 2 tháng, nên phân tích cohort/retention chưa có ý nghĩa thống kê.
+- **Múi giờ:** timestamp đang lệch 7 giờ do quy đổi UTC (dữ liệu bắt đầu lúc 31/07 17:00 thay vì 01/08 00:00).
+- **Định nghĩa rủi ro:** Python, SQL và DAX đang dùng ngưỡng khác nhau. Hướng tiếp theo là gộp thành một risk score có trọng số.
+- **Pipeline:** hiện xử lý lại toàn bộ dữ liệu mỗi lần chạy. Hướng tiếp theo là chạy theo lịch, chỉ xử lý phần dữ liệu mới (incremental), và gửi cảnh báo qua email/Slack.
