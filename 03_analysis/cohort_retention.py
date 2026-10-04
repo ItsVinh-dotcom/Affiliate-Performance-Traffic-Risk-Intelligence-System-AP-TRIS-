@@ -126,6 +126,45 @@ def main():
     except ImportError:
         pass
 
+    # LTV curve by channel (cumulative margin per REGISTERED publisher, M+0..M+3)
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        cum = act[(act.k <= 3) & act.publisher_id.isin(mature.publisher_id)] \
+            .groupby(["traffic_channel", "k"]).gross_margin_vnd.sum().unstack().cumsum(axis=1)
+        cum = cum.div(mature.groupby("traffic_channel").size(), axis=0) / 1e6
+        highlight = {"SEO Content Hub": "#0D9488", "Facebook Media Buyer": "#F59E0B"}
+        fig, ax = plt.subplots(figsize=(8, 4.5))
+        # end-of-line labels, nudged apart so they never overlap
+        ends = cum.iloc[:, -1].sort_values()
+        min_gap = (ends.max() - ends.min()) * 0.07
+        label_y, prev = {}, -np.inf
+        for chn, v in ends.items():
+            prev = max(v, prev + min_gap)
+            label_y[chn] = prev
+        for chn, row in cum.iterrows():
+            c = highlight.get(chn, "#CBD5E1")
+            ax.plot(row.index, row.values, color=c, lw=2.5 if chn in highlight else 1.5,
+                    marker="o", ms=5, zorder=3 if chn in highlight else 2)
+            ax.text(3.08, label_y[chn], f"{chn}  {row.values[-1]:.2f}M", va="center", fontsize=8.5,
+                    color="#0F172A" if chn in highlight else "#64748B",
+                    fontweight="bold" if chn in highlight else "normal")
+        ax.set_xticks([0, 1, 2, 3], ["M+0", "M+1", "M+2", "M+3"])
+        ax.set_xlim(-0.1, 4.3)
+        ax.set_ylabel("Cumulative margin per registered publisher (M VND)")
+        ax.set_title("LTV by acquisition channel: Facebook activates fastest but earns least",
+                     loc="left", fontsize=11)
+        ax.grid(axis="y", color="#E2E8F0", lw=0.8)
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
+        fig.tight_layout()
+        fig.savefig(os.path.join(OUT, "cohort_ltv_by_channel.png"), dpi=150)
+        plt.close(fig)
+        print(f"[OK] LTV chart -> {os.path.relpath(os.path.join(OUT, 'cohort_ltv_by_channel.png'), BASE)}")
+    except ImportError:
+        pass
+
     print("\n[INSIGHTS]")
     best, worst = ch.index[0], ch.index[-1]
     print(f"  - Highest LTV-3 per registered publisher: {best} ({ch.loc[best, 'ltv3_per_registered_vnd']:,.0f} VND); "

@@ -20,6 +20,12 @@
 
 ---
 
+![Dashboard tổng quan](04_powerbi/dashboard_screenshots/page1_overview.png)
+
+*Trang 1 của dashboard Power BI: KPI tổng quan cho cả hai team (dữ liệu mô phỏng 08–09/2026).*
+
+---
+
 ## 1. Bối cảnh: hai team, hai bộ số
 
 Một mạng affiliate đứng giữa hai bên:
@@ -166,6 +172,20 @@ File `dashboard_main.pbip` gồm 3 trang:
 | **2. Chiến dịch & Kênh** | Team traffic, team chiến dịch | **Tỷ lệ duyệt theo kênh trước & sau khi loại gian lận**; phân tán offer (tỷ lệ duyệt × lãi gộp); bảng chi tiết offer |
 | **3. Rủi ro gian lận** | Team chiến dịch, kế toán | Thẻ cảnh báo (lead nghi bot, publisher gắn cờ, hoa hồng trả sai); phân phối thời gian click → điền form; lý do từ chối; bảng chấm điểm rủi ro publisher |
 
+**Trang 1 – Tổng quan:** xem ảnh ở đầu README.
+
+**Trang 2 – Chiến dịch & Kênh**
+
+![Trang 2 – Chiến dịch & Kênh](04_powerbi/dashboard_screenshots/page2_campaign_channel.png)
+
+*Điểm cần chú ý: biểu đồ thanh "trước & sau khi loại gian lận" là nơi bắt đầu cuộc điều tra ở mục 3.*
+
+**Trang 3 – Rủi ro gian lận**
+
+![Trang 3 – Rủi ro gian lận](04_powerbi/dashboard_screenshots/page3_risk.png)
+
+*Điểm cần chú ý: 4 thẻ cảnh báo (5.935 lead nghi bot · 12,1% · 5 publisher · 41,8 triệu VNĐ) và bảng rủi ro với 5 publisher gian lận ở đầu bảng.*
+
 Bố cục chi tiết ở [`04_powerbi/dashboard_wireframe.md`](04_powerbi/dashboard_wireframe.md); toàn bộ 22 measure DAX ở [`04_powerbi/dax_measures.md`](04_powerbi/dax_measures.md).
 
 > Đường dẫn dữ liệu được gom vào một tham số Power Query `DataFolder`. Khi mở trên máy khác, chỉ cần vào **Transform data → Edit parameters**, trỏ `DataFolder` tới thư mục `01_data\lakehouse\` rồi bấm **Refresh**.
@@ -178,6 +198,10 @@ Bố cục chi tiết ở [`04_powerbi/dashboard_wireframe.md`](04_powerbi/dashb
 
 **Bước 1 – Dấu hiệu.** Trên dashboard, TikTok Creator có tỷ lệ duyệt 60%, trong khi Facebook và Telegram/Zalo khoảng 70%.
 
+![Tỷ lệ duyệt theo kênh, trước và sau khi loại gian lận](04_powerbi/dashboard_screenshots/zoom_channel_approval.png)
+
+*TikTok và SEO thấp hơn hẳn khi nhìn số thô (cột cam), nhưng ngang các kênh khác sau khi loại publisher gắn cờ (cột xanh).*
+
 **Bước 2 – Đào sâu.** Tách theo publisher thì thấy một publisher trong kênh TikTok (`PUB_042`) có tỷ lệ duyệt chỉ ~4%, và các đơn được điền form trong 1–3 giây.
 
 **Bước 3 – Mở rộng bằng 3 rule** (`02_sql/03_fraud_detection.sql`):
@@ -189,6 +213,17 @@ Bố cục chi tiết ở [`04_powerbi/dashboard_wireframe.md`](04_powerbi/dashb
 | Tỷ lệ duyệt thấp | ≥ 20 đơn và Approval Rate < 15% | 5 publisher có tỷ lệ duyệt ~4–6%, trong khi trung bình sàn là 61,8% |
 
 Cả 3 rule cùng chỉ ra **5 publisher**: `PUB_042`, `PUB_077`, `PUB_091`, `PUB_142`, `PUB_188`. Nhóm này chiếm ~12% click và 12% đơn. Có **269 đơn** của nhóm vẫn lọt qua khâu duyệt, tương ứng **41,8 triệu VNĐ** hoa hồng trả sai. File kế toán `accounting_monthly_payout.csv` tự động chuyển 5 publisher này sang trạng thái `HOLD (FRAUD AUDIT)`.
+
+<table>
+<tr>
+<td width="50%"><img src="04_powerbi/dashboard_screenshots/zoom_ttc_distribution.png" alt="Phân phối thời gian click đến điền form"></td>
+<td width="50%"><img src="04_powerbi/dashboard_screenshots/zoom_publisher_risk_table.png" alt="Bảng chấm điểm rủi ro publisher"></td>
+</tr>
+<tr>
+<td><em>~6.000 đơn điền form dưới 5 giây, trong khi nhóm 5–60 giây gần như trống: người thật không điền nhanh như vậy, đây là dấu hiệu bot.</em></td>
+<td><em>5 publisher bị gắn cờ nằm đầu bảng, cùng số lead nghi bot và tiền trả sai.</em></td>
+</tr>
+</table>
 
 **Bước 4 – Kiểm tra lại kết luận ban đầu.** Loại 5 publisher gian lận ra rồi so sánh lại các kênh:
 
@@ -218,6 +253,10 @@ Cuối tháng, số đơn được duyệt theo tracking của sàn phải khớ
 - Phân loại 5 loại sai lệch: thiếu ở advertiser, thiếu trong tracking, lệch trạng thái, lệch tiền, đơn pending đã được chốt.
 - Tách riêng khoản "đơn pending được ngân hàng chốt duyệt" để không báo động nhầm.
 
+![Đối soát tháng 09/2026](01_data/exports/reports/recon_2026-09.png)
+
+*Trái: số đơn và số tiền lệch theo từng loại sai lệch. Phải: chênh lệch không giải thích được theo advertiser; màu đỏ là advertiser lệch quá 3%, cần escalate. Biểu đồ do `recurring_reports.py` tự sinh cùng file Excel.*
+
 Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1%**. Kết quả SQL khớp với bản Python (`05_pipeline_automation/recurring_reports.py`). Script Python cũng xuất báo cáo tuần và file đối soát ra Excel.
 
 ---
@@ -237,6 +276,10 @@ Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1
 | 3. A/A test | Thật | Chia theo **cặp publisher tương đồng (matched pairs)**: hai nhóm cân bằng (p = 0,72), MDE giảm mạnh |
 | 4. Thử nghiệm | **Mô phỏng** (giả định nhóm B tăng ~15% sản lượng) | Sản lượng tăng **+14,1%** (p < 0,001); lãi sàn tăng +14,1% nhưng **không có ý nghĩa thống kê** (p = 0,13; khoảng tin cậy 95% chứa 0) |
 
+![Kết quả A/B test](03_analysis/outputs/ab_test_results.png)
+
+*Volume tăng có ý nghĩa thống kê (khoảng tin cậy nằm hẳn bên phải 0); lãi của sàn thì khoảng tin cậy vẫn cắt qua 0, nên chưa kết luận được.*
+
 **Kết luận:** chính sách làm tăng sản lượng, nhưng chưa đủ bằng chứng là tăng lãi. Chưa nên triển khai toàn bộ. Nên chạy lâu hơn hoặc dùng CUPED (dữ liệu kỳ trước) để giảm nhiễu. Quyết định dựa trên **lãi của sàn**, không dựa trên sản lượng.
 
 ### 5.2. Team phát triển publisher: "Nên tuyển publisher từ kênh nào?" → Cohort (`03_analysis/cohort_retention.py`, `02_sql/04_cohort_analysis.sql`)
@@ -252,6 +295,10 @@ Kết quả tháng 09/2026: chênh lệch không giải thích được **−2,1
 - **LTV-3:** lãi cộng dồn sau 3 tháng, chia cho **mỗi publisher đăng ký**.
 
 ![Cohort retention heatmap](03_analysis/outputs/cohort_retention_heatmap.png)
+
+![LTV theo kênh tuyển publisher](03_analysis/outputs/cohort_ltv_by_channel.png)
+
+*Lãi cộng dồn trên mỗi publisher đăng ký, từ M+0 đến M+3: SEO dẫn đầu, Facebook Media Buyer thấp nhất dù kích hoạt nhanh nhất.*
 
 | Kênh | Kích hoạt | Còn active ở M+3 | LTV-3 / publisher đăng ký |
 |---|---|---|---|

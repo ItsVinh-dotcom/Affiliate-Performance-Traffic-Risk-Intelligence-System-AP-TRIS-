@@ -68,6 +68,6 @@ Mọi trang đều có thanh tiêu đề và bộ lọc thời gian. Bộ lọc 
 
 **Biểu đồ:**
 
-- **Cột "Phân phối thời gian từ click đến điền form":** chia 6 nhóm, từ < 5 giây đến > 30 phút. Nhóm < 5 giây nhô cao bất thường.
+- **Cột "Phân phối thời gian từ click đến điền form":** chia 6 nhóm, từ < 5 giây đến > 30 phút. Nhóm < 5 giây có ~6.000 đơn, trong khi nhóm 5–60 giây gần như trống. Đây là dấu hiệu bot, vì người thật không điền form nhanh như vậy.
 - **Thanh ngang "Lý do bị từ chối / gắn cờ":** số đơn bị từ chối theo từng lý do.
 - **Bảng chấm điểm rủi ro publisher:** publisher, kênh, hạng, số đơn, tỷ lệ duyệt, số lead < 5 giây, tiền trả sai, đánh giá rủi ro (`Publisher Risk Status`). Sắp xếp theo số lead nghi bot giảm dần, nên 5 publisher gian lận nằm ở đầu bảng.

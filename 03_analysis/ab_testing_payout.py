@@ -68,6 +68,43 @@ def welch(a, b):  # Welch two-sample t-test (unequal variances)
     return t, p
 
 
+def plot_results(results):
+    """Forest plot: % difference B vs A with 95% bootstrap CI, one row per metric."""
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return
+    out = os.path.join(BASE, "03_analysis", "outputs")
+    os.makedirs(out, exist_ok=True)
+    names = {"approved": "Approved conversions\n(volume)", "margin": "Platform margin\n(decision metric)"}
+    fig, ax = plt.subplots(figsize=(8, 3.2))
+    for i, (m, rel, lo, hi, p) in enumerate(results[::-1]):
+        sig = p < ALPHA
+        color = "#0D9488" if sig else "#64748B"
+        ax.plot([lo, hi], [i, i], color=color, lw=2, solid_capstyle="round")
+        ax.plot(rel, i, "o", ms=9, color=color, mec="white", mew=2)
+        verdict = "significant" if sig else "NOT significant"
+        ptxt = "p<0.001" if p < 0.001 else f"p={p:.3f}"
+        ax.text(lo, i + 0.22, f"{rel:+.1f}%  (95% CI {lo:+.1f}% to {hi:+.1f}%, {ptxt}) - {verdict}",
+                va="bottom", fontsize=9, color="#0F172A", bbox=dict(fc="white", ec="none", pad=1))
+    ax.axvline(0, color="#94A3B8", lw=1, ls="--")
+    ax.set_yticks(range(len(results)), [names[r[0]] for r in results[::-1]])
+    ax.set_ylim(-0.5, len(results) - 0.2)
+    ax.set_xlim(min(-10, min(r[2] for r in results) - 5), max(r[3] for r in results) + 25)
+    ax.set_xlabel("Group B vs group A (% difference, 95% bootstrap CI)")
+    ax.set_title("A/B test: tiered commission lifts volume, margin uplift not proven (simulated effect)",
+                 loc="left", fontsize=11)
+    for sp in ("top", "right", "left"):
+        ax.spines[sp].set_visible(False)
+    ax.tick_params(axis="y", length=0)
+    fig.tight_layout()
+    fig.savefig(os.path.join(out, "ab_test_results.png"), dpi=150)
+    plt.close(fig)
+    print(f"\n[OK] Chart -> 03_analysis/outputs/ab_test_results.png")
+
+
 def main():
     panel, _ = publisher_month_panel()
     per_pub = panel.groupby("publisher_id").agg(approved=("approved", "mean"),
@@ -127,6 +164,7 @@ def main():
 
     print(f"\n[4] SIMULATED EXPERIMENT (assumed behavioural lift ~ +{ASSUMED_LIFT * 100:.0f}% in group B, "
           f"{len(pairs)} matched pairs)")
+    results = []
     for metric, label in (("approved", "Approved / publisher / month"),
                           ("margin", "Platform margin / publisher / month (VND)")):
         diff = B[metric].to_numpy() - A[metric].to_numpy()
@@ -137,6 +175,9 @@ def main():
         print(f"    {label}")
         print(f"      A={A[metric].mean():,.1f} | B={B[metric].mean():,.1f} | diff {rel:+.1f}% | "
               f"paired t={t:.2f}, p={p:.4f} | 95% bootstrap CI [{lo:,.1f}; {hi:,.1f}]")
+        base = A[metric].mean()
+        results.append((metric, rel, lo / base * 100, hi / base * 100, p))
+    plot_results(results)
 
     print("\n[RECOMMENDATION]")
     print("  - Decide on PLATFORM MARGIN, not on volume: the bonus can raise volume while eroding margin.")

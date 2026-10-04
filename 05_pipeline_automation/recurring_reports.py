@@ -282,6 +282,48 @@ def write_excel(path, sheets, title):
     wb.save(path)
 
 
+# ---------------------------------------------------------------- chart for README
+def plot_recon(by_adv, by_type, month, path):
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+    except ImportError:
+        return
+    labels = {"MISSING_AT_ADVERTISER": "Missing at advertiser", "STATUS_MISMATCH": "Status mismatch",
+              "AMOUNT_MISMATCH": "Amount mismatch", "MISSING_IN_TRACKING": "Missing in tracking"}
+    t = by_type[by_type.recon_status.isin(labels)].set_index("recon_status").reindex(list(labels)[::-1])
+    a = by_adv.sort_values("variance_pct")
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6.2), gridspec_kw={"width_ratios": [1, 1.4]})
+    ax1.barh([labels[i] for i in t.index], t.records, color="#2563EB", height=0.55)
+    for i, (n, v) in enumerate(zip(t.records, t.variance_vnd)):
+        ax1.text(n + 8, i, f"{n:,} records | {v / 1e6:+,.1f}M VND", va="center", fontsize=9, color="#0F172A")
+    ax1.set_xlim(0, t.records.max() * 1.9)
+    ax1.set_title("Discrepancies by type", loc="left", fontsize=11)
+    ax1.set_xlabel("Records")
+    esc = a.variance_pct.abs() > RECON_TOLERANCE_PCT
+    ax2.barh(a.advertiser_name, a.variance_pct, color=np.where(esc, "#DC2626", "#94A3B8"), height=0.65)
+    for y, (v, e) in enumerate(zip(a.variance_pct, esc)):
+        if e:
+            ax2.text(v - 0.15 if v < 0 else v + 0.15, y, f"{v:+.1f}%", va="center",
+                     ha="right" if v < 0 else "left", fontsize=8, color="#0F172A")
+    for x in (-RECON_TOLERANCE_PCT, RECON_TOLERANCE_PCT):
+        ax2.axvline(x, color="#DC2626", lw=1, ls="--")
+    ax2.axvline(0, color="#0F172A", lw=0.8)
+    ax2.set_xlim(min(-6, a.variance_pct.min() - 1.5), max(3.5, a.variance_pct.max() + 1.5))
+    ax2.tick_params(axis="y", labelsize=8)
+    ax2.set_xlabel("Unexplained variance vs platform revenue (%)")
+    ax2.set_title(f"By advertiser - red = escalate (|variance| > {RECON_TOLERANCE_PCT:.0f}%)", loc="left", fontsize=11)
+    for ax in (ax1, ax2):
+        for sp in ("top", "right"):
+            ax.spines[sp].set_visible(False)
+    fig.suptitle(f"Advertiser reconciliation {month} (simulated advertiser reports)", x=0.01, ha="left",
+                 fontsize=13, fontweight="bold", color="#0F172A")
+    fig.tight_layout()
+    fig.savefig(path, dpi=150)
+    plt.close(fig)
+
+
 # ---------------------------------------------------------------- main
 def main():
     ap = argparse.ArgumentParser()
@@ -312,6 +354,9 @@ def main():
                           "Discrepancy Detail": disc, "Publisher Payout": payout},
                 f"Advertiser Reconciliation {month}")
     print(f"[OK] Reconciliation -> {os.path.relpath(mo_path, BASE)}")
+    png = os.path.join(OUT_DIR, f"recon_{month}.png")
+    plot_recon(by_adv, by_type, month, png)
+    print(f"[OK] Chart          -> {os.path.relpath(png, BASE)}")
     for _, r in overview.iterrows():
         v = r.Value
         print(f"     {r.Item:<48}: {v:,.1f}" if isinstance(v, float) else f"     {r.Item:<48}: {v}")
